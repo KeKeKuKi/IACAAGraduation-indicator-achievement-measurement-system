@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/cji/css/distrcourse.css" th:href="@{/cji/css/teacherdistrcourse.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}" media="all"></script>
+    <script src="../../static/cji/js/distrcourse.js" th:src="@{/cji/js/teacherdistributioncourse.js}"></script>
+    <script src="../../static/cji/js/jquery-1.2.6.js" th:src="@{/cji/js/jquery-1.2.6.js}"></script>
+
+</head>
+<body>
+
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/teacher/teachermain :: head"></div>
+    <div th:replace="/teacher/teachermain :: menu"></div>
+
+    <div class="layui-body" th:fragment="teacher">
+        <div style="padding: 15px;">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="150">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>课程名称</th>
+                    <th>编辑</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="da : ${data}">
+                    <td th:text="${da.districourse.courseId}"></td>
+                    <td th:text="${da.districourse.courseName}" style="width: 500px"></td>
+                    <td>
+                        <a th:href="@{/teacher/editcourse(courseId=${da.districourse.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">课程教学目标</button></a>
+                        <a th:href="@{/teacher/editcoursetask(courseId=${da.districourse.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">目标考核环节</button></a>
+                        <a th:href="@{/teacher/editeLinks(courseId=${da.districourse.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">考核环节分数</button></a>
+                        <a><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">历年成绩一览</button></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <tr th:each="item,pageStat:${Buffer}">
+                <a th:href="${pageStat.index}+1"></a>
+                <button type="button" class="layui-btn layui-btn-normal">
+                    <a style="color: white" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}"></a>
+                </button>
+            </tr>
+        </div>
+    </div>
+
+
+    <div th:replace="/teacher/teachermain :: footer"></div>
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/cji/css/distrcourse.css" th:href="@{/cji/css/distrcourse.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}" media="all"></script>
+    <script src="../../static/cji/js/distrcourse.js" th:src="@{/cji/js/distrcourse.js}"></script>
+    <script src="../../static/cji/js/jquery-1.2.6.js" th:src="@{/cji/js/jquery-1.2.6.js}"></script>
+
+</head>
+<body>
+<script>
+    function adddistr() {
+        var courseid = $("#courseid").val();
+        var teacherid = $("#teacherid").val();
+        if(confirm("确实要添加此课程？")){
+            $.ajax({
+                url:"/admin/adddistribution",
+                async:true,
+                method:"post",
+                data:{teacherid:teacherid,courseid:courseid},
+                success:function (result) {
+                    if(result=="true"){
+                        window.location.reload();
+                        alert("添加成功！");
+                    }else {
+                        alert(result);
+                        alert("系统异常，添加失败！您的登录可能已超时！");
+                    }
+                },
+                error:function () {
+                    alert("系统异常，添加失败！");
+                }
+            })
+        }
+    }
+</script>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/admin/adminmain :: head"></div>
+    <div th:replace="/admin/adminmain :: menu"></div>
+    <div class="layui-body" th:fragment="teacher">
+        <div id="popLayer"></div>
+        <div id="popBox">
+            <div class="content" >
+                <form class="layui-form" id="adddistrform" action="">
+                    <div class="layui-inline">
+<!--                        <label class="layui-form-label">选择课程</label>-->
+                        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                            <legend>选择课程</legend>
+                            <div class="layui-input-inline">
+                                <select id="courseid" lay-verify="required" lay-search="">
+                                    <option th:each="course : ${courses}" th:value="${course.courseId}" th:text="${course.courseName}"></option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                            <legend>选择老师</legend>
+                            <div class="layui-input-inline">
+                                <select id="teacherid" lay-verify="required" lay-search="">
+                                    <option th:each="teacher : ${teachers}" th:value="${teacher.teacherId}" th:text="${teacher.teacherName}"></option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                    </div>
+
+                    <button type="button" class="layui-btn layui-btn-normal" onclick="adddistr()">保存更新</button>
+                    <button type="button" class="layui-btn layui-btn-danger" onclick="closeBox()">取消操作</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div style="padding: 15px;">
+            <button type="button" class="layui-btn" onclick="popBox()">新增排课</button>
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>课程名称</th>
+                    <th>任课老师</th>
+                    <th>任课老师电话</th>
+                    <th>创建时间</th>
+                    <th>编辑</th>
+                    <th>删除</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="da : ${data}">
+                    <td th:text="${da.distributionId}"></td>
+                    <td th:text="${da.districourse.courseName}" style="width: 300px"></td>
+                    <td th:text="${da.distriteacher.teacherName}"></td>
+                    <td th:text="${da.distriteacher.teacherPhonenumber}"></td>
+                    <td th:text="${da.distrTime}"></td>
+                    <td>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
+                    </td>
+                    <td>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <tr th:each="item,pageStat:${buffer}">
+                <a th:href="${pageStat.index}+1"></a>
+                <button type="button" class="layui-btn layui-btn-normal">
+                    <a style="color: white" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}"></a>
+                </button>
+            </tr>
+        </div>
+    </div>
+
+
+    <div th:replace="/admin/adminmain :: footer"></div>
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+</body>
+</html>

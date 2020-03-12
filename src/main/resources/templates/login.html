@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/cji/css/loginCss.css}" type="text/css">
+    <script th:src="@{/cji/js/jquery-1.2.6.js}"></script>
+    <script src="../static/cji/js/login.js" th:src="@{/cji/js/login.js}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>攀枝花学院IACAA系统</title>
+
+</head>
+
+<body>
+
+<div id="content">
+    <div class="login-header">
+        <span style="font-size: 26px;color: rgb(50,50,100);font-family:‘正楷’;margin-left: 20%">攀枝花学院IACAA系统</span>
+    </div>
+    <form name="loginform" id="loginForm" action="" method="post">
+        <div class="login-input-box">
+            <span class="icon icon-user"></span>
+            <input style="background-color: rgba(255, 255, 255, 0.4);" placeholder="在此输入账户" id="name" name="name" onfocus="cleanWrongMessage(); ">
+            <br/>
+        </div>
+
+        <div class="login-input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" style="background-color: rgba(255, 255, 255, 0.4);" placeholder="在此输入密码" name="passWord" id="pass" onfocus="cleanWrongMessage();">
+        </div>
+    </form>
+    <div class="remember-box">
+        <label>
+            <span id="message" style="display:inline; margin-left:300px;color: red;font-size: 15px" th:text="${loginmess}"></span>
+        </label>
+    </div>
+    <div class="login-button-box" >
+        <button type="button" th:onclick="'logincheck('+2+')'" class="btn btn-primary">教师登录</button>
+        <hr/>
+        <button type="button" th:onclick="'logincheck('+1+')'" class="btn btn-primary">管理员登录</button>
+    </div>
+    <div style="margin: 20px">
+        <a href="#" style="text-decoration:none">忘记密码?</a>
+        <a href="/templates/register.html" style="float: right;text-decoration:none">没有账户？</a>
+    </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

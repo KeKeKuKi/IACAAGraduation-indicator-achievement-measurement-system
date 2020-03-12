@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/teacher/teachermain :: head"></div>
+    <div th:replace="/teacher/teachermain :: menu"></div>
+    <div class="layui-body">
+        <div style="margin-top: 13%;margin-left: 35%">
+            <p style="font-size: 50px;color: darkred">Server is error!</p>
+            <P style="color: red;font-size: 16px">系统发生严重错误，请查看系统日志或联系管理员！</P>
+            <p style="color: darkred" th:text="${erromessage}"></p>
+        </div>
+
+    </div>
+    <div th:replace="/teacher/teachermain :: footer"></div>
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+</body>
+</html>

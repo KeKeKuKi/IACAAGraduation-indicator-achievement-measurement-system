@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/admin/adminmain :: head"></div>
+    <div th:replace="/admin/adminmain :: menu"></div>
+    <div class="layui-body">
+        <div style="margin-top: 200px;margin-left: 200px">
+            <p style="font-size: 30px;color: blueviolet">攀枝花学院软件工程（IACAA）毕业要求达成度测评系统</p>
+            <P style="color: blueviolet;font-size: 16px">版本：1.0</P>
+            <P style="color: blueviolet;font-size: 16px">阶段：黑盒测试阶段</P>
+            <P style="color: blueviolet;font-size: 12px">&nbsp;&nbsp;测试员：软件工程全体教职员工</P>
+            <P style="color: blueviolet;font-size: 16px">运行状态：</P>
+            <P style="color: blueviolet;font-size: 12px">&nbsp;&nbsp;服务器：<span style="color: #00FF00;">正在检测...</span></P>
+            <P style="color: blueviolet;font-size: 12px">&nbsp;&nbsp;数据库：<span style="color: #00FF00;">无异常</span></P>
+            <P style="color: blueviolet;font-size: 12px">&nbsp;&nbsp;本地：<span style="color: #00FF00;">无异常</span></P>
+        </div>
+
+    </div>
+    <div th:replace="/admin/adminmain :: footer"></div>
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+
+    <link th:href="@{/cji/quote/css/materialdesignicons.min.css}" rel="stylesheet">
+    <link th:href="@{/cji/quote/css/style.min.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/cji/quote/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/cji/quote/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/cji/quote/js/perfect-scrollbar.min.js}"></script>
+    <script type="text/javascript" th:src="@{/cji/quote/js/Chart.js}"></script>
+    <script type="text/javascript" th:src="@{/cji/quote/js/main.min.js}"></script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/admin/adminmain :: head"></div>
+    <div th:replace="/admin/adminmain :: menu"></div>
+    <div class="layui-body">
+     <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <button type="button" class="layui-btn layui-btn-sm" style="margin: 0px">
+                <i class="layui-icon">&#xe608;</i> 添加
+            </button>
+            <hr style="margin: 0px"/>
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>职工号</th>
+                    <th>电话号码</th>
+                    <th>课程编辑权限</th>
+                    <th>在线状态</th>
+                    <th>删除</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="teacher : ${teachers}">
+                    <td th:text="${teacher.teacherName}"></td>
+                    <td th:text="${teacher.teacherAge}"></td>
+                    <td th:text="${teacher.teacherSex ==1 ?'男':'女'}"></td>
+                    <td th:text="${teacher.teacherNumber}"></td>
+                    <td th:text="${teacher.teacherPhonenumber}"></td>
+                    <td>
+                        <label class="lyear-switch switch-solid switch-info">
+                            <input type="checkbox" th:checked="${teacher.editState ==1 }" th:onchange="'changeTeacherEditState('+${teacher.teacherId}+')'">
+                            <span></span>
+                        </label>
+                    </td>
+                    <td th:text="${teacher.onlineState ==1 ?'在线':'下线'}"></td>
+                    <td>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <tr th:each="item,pageStat:${teacherBuffer}">
+                <a th:href="${pageStat.index}+1"></a>
+                <button type="button" class="layui-btn layui-btn-normal" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}">
+                </button>
+            </tr>
+        </div>
+    </div>
+    <div th:replace="/admin/adminmain :: footer"></div>
+</div>
+
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+
+    function changeTeacherEditState(teacherId) {
+        $.ajax({
+            url:"/admin/changeTeacherEditState",
+            async:true,
+            method:"post",
+            data:{teacherId:teacherId},
+            success:function (result) {
+            },
+            error:function () {
+                alert("服务器异常，稍后再试");
+            }
+        })
+    }
+</script>
+
+</body>
+</html>

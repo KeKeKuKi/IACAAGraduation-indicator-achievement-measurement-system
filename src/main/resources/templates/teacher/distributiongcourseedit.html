@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/cji/css/courseedit.css" th:href="@{/cji/css/courseedit.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+    <script src="../../static/cji/js/jquery-1.2.6.js" th:src="@{/cji/js/jquery-1.2.6.js}"></script>
+    <script src="../../static/cji/js/courseedit.js" th:src="@{/cji/js/teacherCourseedit.js}"></script>
+</head>
+<body onload="checkEditStatu()">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/teacher/teachermain :: head"></div>
+    <div th:replace="/teacher/teachermain :: menu"></div>
+    <div class="layui-body" style="padding: 15px">
+        <button id="backbtn" class="layui-btn layui-btn-sm" onclick="javascript:history.back(-1);" style="margin: 0px"><i class="layui-icon"></i><i class="layui-icon"></i></button>
+        <hr>
+        <table class="layui-table">
+            <colgroup>
+                <col width="100">
+                <col width="200">
+                <col width="60">
+                <col width="200">
+                <col width="90">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>支撑毕业要求</th>
+                <th>要求描述</th>
+                <th>指标点</th>
+                <th>指标点描述</th>
+                <th>课程支撑权重</th>
+                <th>课程教学目标(描述及权重)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="da : ${ctmixs}">
+                <td th:text="${da.target.graduationRequirement.reqTitle}"></td>
+                <td th:text="${da.target.graduationRequirement.reqDiscribe}"></td>
+                <td th:text="${da.target.targetId}"></td>
+                <td th:text="${da.target.targetDiscribe}"></td>
+                <td th:text="${da.ctmix}"></td>
+                <td>
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="50">
+                            <col width="470">
+                        </colgroup>
+                        <tbody th:id="${da.target.targetId}+'div'">
+                        <tr th:each="da2 : ${courseTasks}" >
+                            <div th:if="${da2.Ttarget} != null">
+                                <div th:if="${da2.Ttarget.targetId} == ${da.target.targetId}" th:id="${da2.taskId}+'divbox'">
+                                    <td>●</td>
+                                    <td><input th:value="${da2.taskDiscribe}" th:id="${da2.taskId}+'taskdiscrible'" style="width: 450px;border: none" th:onchange="'saveTask('+${da2.taskId}+')'"/></td>
+                                    <td><input th:value="${da2.targetMix}" style="width: 30px;border: none" th:id="${da2.taskId}+'taskmix'" th:onchange="'saveTask('+${da2.taskId}+')'"/></td>
+                                    <td>
+                                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" th:id="${da2.taskId}" onclick="delTask(this.id)">删除</button>
+                                    </td>
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button th:id="${da.target.targetId}+'addbar'" type="button" th:onclick="'addTrbar('+${da.course.courseId}+','+${da.target.targetId}+')'" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="/teacher/teachermain :: footer"></div>
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    function checkEditStatu() {
+        if([[${session.teacher.editState}]] == 0){
+            alert("管理员暂时未开通您的编辑权限！");
+            $(":input").css({'background-color' : 'rgb(210,210,210)'});
+            $(":input").attr("disabled", true);
+
+            $("#backbtn").css({'background-color' : 'rgb(50,150,200)'});
+            $("#backbtn").attr("disabled", false);
+        }
+    }
+</script>
+
+</body>
+</html>

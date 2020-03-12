@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+</head>
+<body class="layui-layout-body">
+<link rel="stylesheet" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+<script th:src="@{/cji/layui/layui.js}"></script>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" th:fragment="head">
+        <a href="/admin/adminmian" class="layui-logo">软件工程毕业指标评测系统</a>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="/admin/toConsole">控制台</a></li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    <span th:text="${session.admin}">管理员</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="/admin/sinout">注销</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black" th:fragment="menu">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">毕业要求管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/courselist?page=1">毕业要求</a></dd>
+                        <dd><a href="/admin/distrcourse?page=1">指标点</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">课程管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/courselist?page=1">课程编辑</a></dd>
+                        <dd><a href="/admin/distrcourse?page=1">课程任务分配</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">职工管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/teacherlist?page=1">教师管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">历年信息</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/showScore">查看成绩</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="/admin/aboutsystem">关于系统</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <img th:src="@{/cji/quote/images/img-slide-5.jpg}" width="900px">
+        </div>
+    </div>
+
+    <div class="layui-footer" th:fragment="footer">
+        <!-- 底部固定区域 -->
+        ©  - 攀枝花学院软件工程IACAA（毕业指标达成度评测系统） 版权所有 @<a href="http://zhaozezhong.fun">http://zhaozezhong.fun</a>    蜀1BT5SD6K
+    </div>
+</div>
+
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>

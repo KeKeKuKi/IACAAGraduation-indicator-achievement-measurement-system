@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/teacher/teachermain :: head"></div>
+    <div th:replace="/teacher/teachermain :: menu"></div>
+    <div class="layui-body">
+        <div style="margin-top: 13%;margin-left: 10%">
+            <p style="font-size: 40px;color: darkred">请先完成课程教学目标以及所有教学目标的考核环节录入工作</p>
+            <P style="color: red;font-size: 16px">系统检测到您还未完成课程教学目标以及所有教学目标的考核环节录入工作，请仔细检查后继续操作！</P>
+        </div>
+
+    </div>
+    <div th:replace="/teacher/teachermain :: footer"></div>
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+</body>
+</html>
