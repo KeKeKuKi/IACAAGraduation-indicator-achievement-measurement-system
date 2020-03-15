@@ -188,14 +188,13 @@ public class CourseServiceImpl implements CourseService {
     List<CourseTask> getThisYearCourseTaskFilter(List<CourseTask> courseTasks){
         List<CourseTask> courseTasks1 = new ArrayList<>();
         if(courseTasks.size()>0){
+            thisYearcal.setTime(new Date());
+            Calendar cl = Calendar.getInstance();
             for (int i=0;i<courseTasks.size();i++){
-                thisYearcal.setTime(new Date());
-                Calendar cl = Calendar.getInstance();
                 cl.setTime(courseTasks.get(i).getYear());
                 if(thisYearcal.get(Calendar.YEAR)==cl.get(Calendar.YEAR)){
                     courseTasks1.add(courseTasks.get(i));
                 }
-
             }
         }
         return courseTasks1;
@@ -243,7 +242,7 @@ public class CourseServiceImpl implements CourseService {
      *  @author: ZhaoZezhong
      *  @advertisement: welcome to http://zhaozezhong.fun
      *  @Date: 2020/3/4 11:54
-     *  @Description:用于单个指标点分数统计
+     *  @Description:用于计算某年的单个指标点达成度统计
      */
     @Override
     public double getTargetScoreByTargetAndYear(Target target,Calendar cal) {

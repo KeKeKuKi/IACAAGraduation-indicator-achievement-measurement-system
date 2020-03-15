@@ -1,9 +1,6 @@
 package iacaasystem.utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Page <T>{
     int curentPage;
@@ -41,7 +38,7 @@ public class Page <T>{
     }
 
     public Map getPageBuffer(int pageNumber){
-        Map <String,String> pageBuffer = new HashMap();
+        Map <String,String> pageBuffer = new LinkedHashMap<>();
 
         if(pageNumber>=2) {
             int before = pageNumber-1;
