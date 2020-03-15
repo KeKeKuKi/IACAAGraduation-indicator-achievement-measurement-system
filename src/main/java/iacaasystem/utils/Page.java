@@ -41,7 +41,7 @@ public class Page <T>{
     }
 
     public Map getPageBuffer(int pageNumber){
-        Map <String,String> pageBuffer = new HashMap();
+        Map <String,String> pageBuffer = new LinkedHashMap<>();
 
         if(pageNumber>=2) {
             int before = pageNumber-1;
