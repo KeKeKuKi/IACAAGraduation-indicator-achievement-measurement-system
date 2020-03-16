@@ -27,14 +27,12 @@
                 success:function (result) {
                     if(result=="true"){
                         window.location.reload();
-                        alert("添加成功！");
                     }else {
-                        alert(result);
                         alert("系统异常，添加失败！您的登录可能已超时！");
                     }
                 },
                 error:function () {
-                    alert("系统异常，添加失败！");
+                    alert("服务器异常，添加失败！");
                 }
             })
         }
@@ -73,7 +71,6 @@
                     <button type="button" class="layui-btn layui-btn-danger" onclick="closeBox()">取消操作</button>
                 </form>
             </div>
-
         </div>
 
         <div style="padding: 15px;">

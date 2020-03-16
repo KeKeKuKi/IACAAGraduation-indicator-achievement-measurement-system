@@ -54,7 +54,7 @@ public interface CourseDao {
      *  @Description: 查询所有已分配课程
      */
     @Select("select distribution_id as distributionId, distribution_course, distribution_teacher,distribution_time as distrTime" +
-            " from distribution_course")
+            " from distribution_course order by distribution_id desc")
     @Results({
             @Result(property = "districourse",column = "distribution_course",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectCourseById")),
             @Result(property = "distriteacher",column = "distribution_teacher",one = @One(select = "iacaasystem.admin.dao.TeacherDao.selectTeacherById"))

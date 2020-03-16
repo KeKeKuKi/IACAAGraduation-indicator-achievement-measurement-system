@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
     <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/cji/css/distrcourse.css" th:href="@{/cji/css/teacherlist.css}" type="text/css">
     <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
-
+    <script src="../../static/cji/js/jquery-1.2.6.js" th:src="@{/cji/js/jquery-1.2.6.js}"></script>
     <link th:href="@{/cji/quote/css/materialdesignicons.min.css}" rel="stylesheet">
     <link th:href="@{/cji/quote/css/style.min.css}" rel="stylesheet">
-    <script type="text/javascript" th:src="@{/cji/quote/js/jquery.min.js}"></script>
-    <script type="text/javascript" th:src="@{/cji/quote/js/bootstrap.min.js}"></script>
-    <script type="text/javascript" th:src="@{/cji/quote/js/perfect-scrollbar.min.js}"></script>
-    <script type="text/javascript" th:src="@{/cji/quote/js/Chart.js}"></script>
-    <script type="text/javascript" th:src="@{/cji/quote/js/main.min.js}"></script>
+    <script type="text/javascript" th:src="@{/cji/js/teacherlist.js}"></script>
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
@@ -21,9 +18,41 @@
     <div class="layui-body">
      <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <button type="button" class="layui-btn layui-btn-sm" style="margin: 0px">
+            <button type="button" class="layui-btn layui-btn-sm" style="margin: 0px" onclick="popBox()">
                 <i class="layui-icon">&#xe608;</i> 添加
             </button>
+            <div id="popLayer"></div>
+            <div id="popBox">
+                <hr class="layui-bg-blue">
+                <div class="content" >
+                    <form class="layui-form" id="adddistrform" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">账号</label>
+                            <div class="layui-input-inline">
+                                <input id="userAcount" type="text" name="useracount" lay-verify="required" placeholder="账号" autocomplete="off" class="layui-input" onchange="checkUuserAcount()">
+                            </div>
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-inline">
+                                <input type="text"  name="username" lay-verify="required" placeholder="账号负责人" autocomplete="off" class="layui-input">
+                            </div>
+                            <label class="layui-form-label">性别</label>
+                            <div class="layui-input-inline">
+                                <input type="radio" name="sex" value="1" title="男" checked="">
+                                <input type="radio" name="sex" value="0" title="女">
+                            </div>
+                            <label class="layui-form-label">电话号码</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="userphonenumber" lay-verify="required" placeholder="负责人电话" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <span style="float: right;margin-right: 30px">
+                            <button type="button" class="layui-btn layui-btn-normal" onclick="addTeacher()">保存更新</button>
+                            <button type="button" class="layui-btn layui-btn-danger" onclick="closeBox()">取消操作</button>
+                        </span>
+
+                    </form>
+                </div>
+            </div>
             <hr style="margin: 0px"/>
             <table class="layui-table">
                 <colgroup>
@@ -35,9 +64,8 @@
                 <thead>
                 <tr>
                     <th>姓名</th>
-                    <th>年龄</th>
                     <th>性别</th>
-                    <th>职工号</th>
+                    <th>账号</th>
                     <th>电话号码</th>
                     <th>课程编辑权限</th>
                     <th>在线状态</th>
@@ -47,7 +75,6 @@
                 <tbody>
                 <tr th:each="teacher : ${teachers}">
                     <td th:text="${teacher.teacherName}"></td>
-                    <td th:text="${teacher.teacherAge}"></td>
                     <td th:text="${teacher.teacherSex ==1 ?'男':'女'}"></td>
                     <td th:text="${teacher.teacherNumber}"></td>
                     <td th:text="${teacher.teacherPhonenumber}"></td>
@@ -59,14 +86,15 @@
                     </td>
                     <td th:text="${teacher.onlineState ==1 ?'在线':'下线'}"></td>
                     <td>
-                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" th:onclick="'deleteTeacher('+${teacher.teacherId}+')'"><i class="layui-icon"></i></button>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <tr th:each="item,pageStat:${teacherBuffer}">
+            <tr th:each="item,pageStat:${Buffer}">
                 <a th:href="${pageStat.index}+1"></a>
-                <button type="button" class="layui-btn layui-btn-normal" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}">
+                <button type="button" class="layui-btn layui-btn-normal">
+                    <a style="color: white" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}"></a>
                 </button>
             </tr>
         </div>
@@ -81,6 +109,77 @@
 
     });
 
+    function deleteTeacher(id) {
+        if(confirm("确实删除此账号？")) {
+            $.ajax({
+                url:"/admin/deleteTeacher",
+                async:true,
+                method:"post",
+                data:{teacherId:id},
+                success:function (result) {
+                    if (result=="true") {
+                        window.location.reload();
+                    }else {
+                        alert("系统异常，删除失败！");
+                    }
+                },
+                error:function () {
+                    alert("服务器异常，稍后再试");
+                }
+            })
+        }
+    }
+
+    function addTeacher() {
+        var username = $("[name='username']").val();
+        var sex = $('input[name="sex"]').filter(':checked').val();
+        var useracount = $("[name='useracount']").val();
+        var userphonenumber = $("[name='userphonenumber']").val();
+        if(username==""||sex==""||useracount==""||isNaN(userphonenumber)){
+            alert("请检查您的数据！");
+            return false;
+        }
+        $.ajax({
+            url:"/admin/addTeacher",
+            async:true,
+            method:"post",
+            data:{teacherNumber:useracount,teacherName:username,teacherSex:sex,teacherPhonenumber:userphonenumber},
+            success:function (result) {
+                if (result=="true") {
+                    window.location.reload();
+                }else {
+                    alert("系统异常，添加失败！");
+                }
+            },
+            error:function () {
+                alert("服务器异常，稍后再试");
+            }
+        })
+    }
+
+
+    function checkUuserAcount() {
+        var acount = $("#userAcount").val();
+        $.ajax({
+            url:"/admin/checkTeacherAcount",
+            async:true,
+            method:"post",
+            data:{useracount:acount},
+            success:function (result) {
+                if (result=="false") {
+                    alert("该账户名已存在！");
+                    $("#userAcount").focus();
+                    $("#userAcount").css("background-color","indianred");
+                }else {
+                    $("#userAcount").css("background-color","#fff");
+                }
+            },
+            error:function () {
+                alert("服务器异常，稍后再试");
+            }
+        })
+    }
+
     function changeTeacherEditState(teacherId) {
         $.ajax({
             url:"/admin/changeTeacherEditState",
@@ -94,6 +193,76 @@
             }
         })
     }
+
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 5){
+                    return '标题至少得5个字符啊';
+                }
+            }
+            ,pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+            ,content: function(value){
+                layedit.sync(editIndex);
+            }
+        });
+
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        //监听提交
+        form.on('submit(demo1)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+
+        //表单赋值
+        layui.$('#LAY-component-form-setval').on('click', function(){
+            form.val('example', {
+                "username": "贤心" // "name": "value"
+                ,"password": "123456"
+                ,"interest": 1
+                ,"like[write]": true //复选框选中状态
+                ,"close": true //开关状态
+                ,"sex": "女"
+                ,"desc": "我爱 layui"
+            });
+        });
+
+        //表单取值
+        layui.$('#LAY-component-form-getval').on('click', function(){
+            var data = form.val('example');
+            alert(JSON.stringify(data));
+        });
+
+    });
 </script>
 
 </body>

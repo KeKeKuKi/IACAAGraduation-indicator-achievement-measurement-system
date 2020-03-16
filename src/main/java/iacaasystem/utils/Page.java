@@ -45,7 +45,8 @@ public class Page <T>{
             pageBuffer.put("上一页",url+before);
         }
         if(datas.size()>totalCount){
-            for(int i=1;i<=(double)datas.size()/(double)totalCount;i++){
+            double totalpage = Math.ceil((double)datas.size()/(double)totalCount);
+            for(int i=1;i<=totalpage;i++){
                 if(i==pageNumber) continue;
                 pageBuffer.put(i+"",url+i);
             }

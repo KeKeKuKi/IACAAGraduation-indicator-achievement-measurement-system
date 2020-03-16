@@ -21,14 +21,28 @@ public class TeacherServiceImpl implements TeacherService {
         Teacher teacher = teacherDao.selectTeacherById(id);
         if(teacher.getEditState()==1) teacher.setEditState(0);
         else teacher.setEditState(1);
-        if(teacherDao.updateTeacherEditState(teacher)==1){
-            return true;
-        }else return false;
+        return teacherDao.updateTeacherEditState(teacher)==1;
     }
 
     @Override
     public boolean changeAllTeacherState(int state) throws Exception{
         int count = teacherDao.updateAllTeacherEditState(state);
         return true;
+    }
+
+    @Override
+    public boolean ifHaveThisTeacherAcount(String acount) {
+        Teacher teacher = teacherDao.selectTeacherByTeacherJobnumber(acount);
+        return teacher==null;
+    }
+
+    @Override
+    public boolean addTeacher(Teacher teacher) {
+        return teacherDao.addTeacher(teacher)==1;
+    }
+
+    @Override
+    public boolean deleteTeacherByTeacherId(int id) {
+        return teacherDao.deleteTeacherByTeacherId(id)==1;
     }
 }
