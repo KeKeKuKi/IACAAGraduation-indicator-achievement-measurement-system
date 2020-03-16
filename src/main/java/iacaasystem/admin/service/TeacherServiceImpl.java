@@ -17,7 +17,7 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public boolean changeTeacherEditStateByTeacherId(int id) throws Exception{
+    public synchronized boolean changeTeacherEditStateByTeacherId(int id) throws Exception{
         Teacher teacher = teacherDao.selectTeacherById(id);
         if(teacher.getEditState()==1) teacher.setEditState(0);
         else teacher.setEditState(1);
@@ -25,7 +25,7 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public boolean changeAllTeacherState(int state) throws Exception{
+    public synchronized boolean changeAllTeacherState(int state) throws Exception{
         int count = teacherDao.updateAllTeacherEditState(state);
         return true;
     }
@@ -37,7 +37,7 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public boolean addTeacher(Teacher teacher) {
+    public synchronized boolean addTeacher(Teacher teacher) {
         return teacherDao.addTeacher(teacher)==1;
     }
 

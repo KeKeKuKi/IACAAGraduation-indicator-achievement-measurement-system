@@ -62,7 +62,7 @@ public class CourseServiceImpl implements CourseService {
      *  @Description: 方法用于根据courseTask更新数据库并检查数据是否异常，有异常则进行数据回滚
      */
     @Override
-    public boolean updateCourseTask(CourseTask courseTask) {
+    public synchronized boolean updateCourseTask(CourseTask courseTask) {
         CourseTask courseTaskSaveNow = courseDao.selectCourseTaskByTaskId(courseTask.getTaskId());
         int count =  courseDao.UpdateCourseTask(courseTask.getTaskId(),courseTask.getTaskDiscribe(),courseTask.getTargetMix());
         if(count==1){
@@ -78,23 +78,17 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public boolean deleteCourseTaskByTaskId(int id) {
-
-        int count =  courseDao.DeleteCourseTaskByTaskId(id);
-        if(count >=1){
-            return true;
-        }else {
-            return false;
-        }
+    public synchronized boolean deleteCourseTaskByTaskId(int id) {
+        return courseDao.DeleteCourseTaskByTaskId(id)==1;
     }
 
     @Override
-    public boolean addCourseTask(String dis, int courseId, int targetId, double mix) {
+    public synchronized boolean addCourseTask(String dis, int courseId, int targetId, double mix) {
         double totalMix = getTotalMixByCourseIdAndTargetId(courseId,targetId);
         if(mix<=0) return false;
         if(totalMix+mix>1||totalMix+mix<=0) return false;
-        if(courseDao.addCourseTask(dis,courseId,targetId,mix,new Date())!=1) return false;
-        return true;
+
+        return courseDao.addCourseTask(dis,courseId,targetId,mix,new Date())==1;
     }
 
     @Override
@@ -102,7 +96,7 @@ public class CourseServiceImpl implements CourseService {
         List<CourseTask> courseTasks = courseDao.selectCourseTaskByCourseIdAndTargetId(courseId,targetId);
         List<CourseTask> thisYearCouraeTasks = getThisYearCourseTaskFilter(courseTasks);
         double totalMix =0;
-        for(int i = 0;i<thisYearCouraeTasks.size();i++){
+        for(int i = 0,size = thisYearCouraeTasks.size();i<size;i++){
             totalMix = Arith.add(totalMix,thisYearCouraeTasks.get(i).getTargetMix());
             //为了确保计算精度，使用math.BigDecimal封装的计算类用于精确计算
         }
@@ -116,10 +110,10 @@ public class CourseServiceImpl implements CourseService {
         List<CourseTask> thisYearcourseTasks = getThisYearCourseTaskFilter(courseTasks);
 
         if(thisYearcourseTasks.size()>0){
-            for(int i=0;i<thisYearcourseTasks.size();i++){
+            for(int i=0,size = thisYearcourseTasks.size();i<size;i++){
                 List<ExaminationLink> els = courseDao.selectExaminationLinksByCourseTaskId(thisYearcourseTasks.get(i).getTaskId());
                 if(els != null){
-                    for (int j = 0;j<els.size();j++){
+                    for (int j = 0,elsize = els.size();j<elsize;j++){
                         examinationLinks.add(els.get(j));
                     }
                 }
@@ -132,7 +126,7 @@ public class CourseServiceImpl implements CourseService {
         List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(taskid);
         double totalMix = 0;
         if (examinationLinks!=null){
-            for (int i=0;i<examinationLinks.size();i++){
+            for (int i=0,size = examinationLinks.size();i<size;i++){
                 totalMix = Arith.add(totalMix,examinationLinks.get(i).getElMix());
             }
         }
@@ -143,8 +137,8 @@ public class CourseServiceImpl implements CourseService {
     public boolean updateExaminationLink(ExaminationLink examinationLink) {
         ExaminationLink examinationLinksave = courseDao.selectExaminationLinkById(examinationLink.getElId());
         int count = courseDao.updateExaminationLink(examinationLink.getElId(),examinationLink.getElName(),examinationLink.getElTargetScore(),examinationLink.getElMix());
-        double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
         if(count==1){
+            double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
             if(totalelmix>1||totalelmix<=0){
                 courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
                 return false;
@@ -163,7 +157,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public boolean addExaminationLink(ExaminationLink examinationLink) {
+    public synchronized boolean addExaminationLink(ExaminationLink examinationLink) {
         double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
         if(examinationLink.getElMix()<=0){
             return false;
@@ -171,15 +165,14 @@ public class CourseServiceImpl implements CourseService {
         if(totalelmix+examinationLink.getElMix()>1||totalelmix+examinationLink.getElMix()<=0){
             return false;
         }
-        int count = courseDao.addExaminationLink(examinationLink.getCourseTask().getTaskId(),examinationLink.getElName(),
-                examinationLink.getElTargetScore(),0,examinationLink.getElMix());
-        if (count==1) return true;
-        else return false;
+        return courseDao.addExaminationLink(examinationLink.getCourseTask().getTaskId(),examinationLink.getElName(),
+                examinationLink.getElTargetScore(),0,examinationLink.getElMix())==1;
+
     }
 
     double getTotalCourseTaskMix(List<CourseTask> courseTasks){
         double courseTaskMix = 0;
-        for (int i=0;i<courseTasks.size();i++){
+        for (int i=0,size = courseTasks.size();i<size;i++){
             courseTaskMix = Arith.add(courseTaskMix,courseTasks.get(i).getTargetMix());
         }
         return  courseTaskMix;
@@ -190,7 +183,7 @@ public class CourseServiceImpl implements CourseService {
         if(courseTasks.size()>0){
             thisYearcal.setTime(new Date());
             Calendar cl = Calendar.getInstance();
-            for (int i=0;i<courseTasks.size();i++){
+            for (int i=0,size = courseTasks.size();i<size;i++){
                 cl.setTime(courseTasks.get(i).getYear());
                 if(thisYearcal.get(Calendar.YEAR)==cl.get(Calendar.YEAR)){
                     courseTasks1.add(courseTasks.get(i));
@@ -205,11 +198,11 @@ public class CourseServiceImpl implements CourseService {
         List<CourseTargetMix> courseTargetMixes = courseDao.selectCourseTargetMixByCourseId(courseid);
         List<CourseTask> ct;
         List<CourseTask> courseTasks;
-        for (int j=0;j<courseTargetMixes.size();j++){
+        for (int j=0,tsize = courseTargetMixes.size();j<tsize;j++){
             ct = courseDao.selectCourseTaskByCourseIdAndTargetId(courseid,courseTargetMixes.get(j).getTarget().getTargetId());
             courseTasks = getThisYearCourseTaskFilter(ct);
             if(courseTasks!=null&&getTotalCourseTaskMix(courseTasks)>=1.0){
-                for (int i=0;i<courseTasks.size();i++){
+                for (int i=0,size = courseTasks.size();i<size;i++){
                     double totalElmix = getTotalElLinksMixByCourseTaskId(courseTasks.get(i).getTaskId());
                     if(totalElmix>=1.0) continue;
                     else return false;
@@ -221,12 +214,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public boolean updateElinkAvgScore(ExaminationLink examinationLink) {
+    public synchronized boolean updateElinkAvgScore(ExaminationLink examinationLink) {
         double mix = examinationLink.getElAverageScore()/examinationLink.getElTargetScore();
         if (mix>1||mix<0) return false;
-        if (courseDao.updateExaminationLinkAvgScore(examinationLink.getElId(),examinationLink.getElAverageScore())==1)
-            return true;
-        else return false;
+        return courseDao.updateExaminationLinkAvgScore(examinationLink.getElId(),examinationLink.getElAverageScore())==1;
+
     }
 
     @Override
@@ -315,7 +307,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public boolean setAllThisYearReqScore() {
+    public synchronized boolean setAllThisYearReqScore() {
         try{
             List <GraduationRequirement> graduationRequirements = courseDao.selectGraduationRequirements();
             int graduationRequirementsSize = graduationRequirements.size();
