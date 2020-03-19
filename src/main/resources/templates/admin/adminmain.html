@@ -8,8 +8,13 @@
 <body class="layui-layout-body">
 <link rel="stylesheet" th:href="@{/cji/layui/css/layui.css}" type="text/css">
 <script th:src="@{/cji/layui/layui.js}"></script>
+<script>
+    window.onload = function (){
+        window.location.href="/admin/showThisYearScore";
+    }
+</script>
 <div class="layui-layout layui-layout-admin">
-    <div class="layui-header" th:fragment="head">
+    <div class="layui-header" th:fragment="head" style="background-color: rgb(30,30,50)">
         <a href="/admin/adminmian" class="layui-logo">软件工程毕业指标评测系统</a>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
@@ -40,16 +45,15 @@
         </ul>
     </div>
 
-    <div class="layui-side layui-bg-black" th:fragment="menu">
-        <div class="layui-side-scroll">
+    <div class="layui-side layui-bg-black" th:fragment="menu" >
+        <div class="layui-side-scroll" style="background-color: rgb(30,30,45)">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test" style="background-color: rgb(30,30,45)">
 
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">毕业要求管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/admin/courselist?page=1">毕业要求</a></dd>
-                        <dd><a href="/admin/distrcourse?page=1">指标点</a></dd>
+                        <dd><a href="/admin/reqshow?page=1">毕业要求</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
@@ -68,7 +72,8 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">历年信息</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/admin/showScore">查看成绩</a></dd>
+                        <dd><a href="/admin/showThisYearScore">本届达成度</a></dd>
+                        <dd><a href="/admin/showThisYearScore">历年达成度</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="/admin/aboutsystem">关于系统</a></li>
@@ -77,10 +82,6 @@
     </div>
 
     <div class="layui-body">
-        <!-- 内容主体区域 -->
-        <div style="padding: 15px;">
-            <img th:src="@{/cji/quote/images/img-slide-5.jpg}" width="900px">
-        </div>
     </div>
 
     <div class="layui-footer" th:fragment="footer">

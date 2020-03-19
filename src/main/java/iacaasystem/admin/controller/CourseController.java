@@ -15,8 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -43,6 +42,24 @@ public class CourseController {
         request.setAttribute("Buffer",page.getPageBuffer(pageCount));
 
         return "/admin/courselist";
+    }
+
+    @RequestMapping("/reqshow")
+    public String reqShow(HttpServletRequest request){
+        int cPage = 1;
+        try{
+            String page = request.getParameter("page");
+            cPage = Integer.parseInt(page);
+        }catch (Exception e){
+            LoggerFactory.getLogger(getClass()).info("courseController---/reqshoe--page is errro!");
+        }
+
+        Page<GraduationRequirement> page = new Page<>(cPage,12,courseService.getAllGraduationRequirements(),"/admin/reqshow?page=");
+        request.setAttribute("data",page.getPage(cPage));
+        request.setAttribute("Buffer",page.getPageBuffer(cPage));
+        request.setAttribute("targets",courseService.getAllTargets());
+
+        return "/admin/guaduation_show";
     }
 
 
@@ -312,18 +329,108 @@ public class CourseController {
 
     }
 
-    @RequestMapping("/showScore")
-    public String showScore(Map map){
-        double scores[] = courseService.getAllGraduationReqScoreByYear(2020);
+    @RequestMapping("/showThisYearScore")
+    public String showScore(Map map,HttpServletRequest request){
+        String year = request.getParameter("year");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        int thisyear = calendar.get(Calendar.YEAR);
+        try{
+            calendar.set(Integer.parseInt(year),1,1);
+        }catch (Exception e){}
+        double scores[] = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR));
         List<GraduationRequirement> graduationRequirements = courseService.getAllGraduationRequirements();
         int graduationRequirementsSize = graduationRequirements.size();
         String graduationRequirementsName[] = new String[graduationRequirementsSize];
         for(int i=0;i<graduationRequirementsSize;i++){
-            graduationRequirementsName[i] = graduationRequirements.get(i).getReqTitle();
+            graduationRequirementsName[i] = graduationRequirements.get(i).getReqId()+":"+ graduationRequirements.get(i).getReqTitle();
         }
         map.put("graduationRequirements",graduationRequirements);
         map.put("graduationRequirementsName",graduationRequirementsName);
+
         map.put("scores",scores);
+        List<Integer> years = new LinkedList<>();
+        years.add(calendar.get(Calendar.YEAR));
+
+        for (int k=2010;k<=thisyear;k++){
+            if(k==calendar.get(Calendar.YEAR)) continue;
+            years.add(k);
+        }
+        map.put("years",years);
+        int now = calendar.get(Calendar.YEAR);
+        map.put("thisyear",now);
+        request.setAttribute("thisyear",year);
         return "/admin/show";
     }
+
+
+    @RequestMapping("/showscoreByReqId")
+    public String showscoreByReqId(Map map,HttpServletRequest request){
+        String req = request.getParameter("reqid");
+        String years = request.getParameter("year");
+        int reqId = 0;
+        int year = 0;
+        try{
+            reqId= Integer.parseInt(req);
+            year = Integer.parseInt(years);
+        }catch (Exception e){
+            Logger logger = LoggerFactory.getLogger(getClass());
+            logger.error("/admin/showscoreByReqId##"+e.toString());
+            return "/admin/404";
+        }
+        double scores [] = courseService.getAllTargetScoreByReqIdAndYear(reqId,year);
+        List<Target> targets = courseService.getAllTargetsByReqId(reqId);
+        int targetsSize = targets.size();
+        String [] targetsName = new String[targetsSize];
+        for(int i=0;i<targetsSize;i++){
+            targetsName[i] = targets.get(i).getTargetId()+":"+targets.get(i).getTargetDiscribe();
+        }
+        int [] targetsId = new int[targetsSize];
+        for(int i=0;i<targetsSize;i++) {
+            targetsId[i] = targets.get(i).getTargetId();
+        }
+        map.put("year",year);
+        map.put("targets",targets);
+        map.put("targetsName",targetsName);
+        map.put("scores",scores);
+        map.put("targetId",targetsId);
+        return "/admin/show_req_score";
+    }
+
+
+    @RequestMapping("/showscoreByTargetId")
+    public String showscoreByTargetId(Map map,HttpServletRequest request){
+        String tar = request.getParameter("targetId");
+        String ye = request.getParameter("year");
+
+        try {
+            int targetId = Integer.parseInt(tar);
+            int year = Integer.parseInt(ye);
+            List<CourseTargetMix> courseTargetMixes = courseService.getAllCourseTargetMixByTargetId(targetId);
+            int size=courseTargetMixes.size();
+            String [] courses = new String[size];
+            int [] coursesId = new int[size];
+            double [] coursesMix = new double[size];
+            double [] coursesScorse = new double[size];
+            for (int i=0;i<size;i++){
+                courses[i] = courseTargetMixes.get(i).getCourse().getCourseId()+":"+courseTargetMixes.get(i).getCourse().getCourseName();
+                coursesId[i] = courseTargetMixes.get(i).getCourse().getCourseId();
+                coursesMix[i] = courseTargetMixes.get(i).getCtmix();
+                coursesScorse[i] = (double) Math.round(courseService.getAvgCourseTaskScoreByCoursIdAndTargetIdAndYear(targetId,courseTargetMixes.get(i).getCourse().getCourseId(),year) * 100) / 100;
+            }
+
+            map.put("courses",courses);
+            map.put("coursesId",coursesId);
+            map.put("coursesMix",coursesMix);
+            map.put("coursesScorse",coursesScorse);
+
+            return "/admin/show_target_score";
+        }catch (Exception e){
+            Logger logger = LoggerFactory.getLogger(getClass());
+            logger.error("/admin/showscoreByTargetId##"+e.toString());
+            return "/admin/404";
+        }
+    }
+
+
 }

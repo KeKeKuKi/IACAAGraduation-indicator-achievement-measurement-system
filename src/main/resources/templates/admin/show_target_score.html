@@ -14,7 +14,6 @@
     <script type="text/javascript" th:src="@{/cji/js/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/cji/js/bootstrap.min.js}"></script>
     <script type="text/javascript" th:src="@{/cji/js/Chart.js}"></script>
-
 </head>
 <body id="page-top">
 <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
@@ -22,39 +21,39 @@
     <div th:replace="/admin/adminmain :: head"></div>
     <div th:replace="/admin/adminmain :: menu"></div>
     <div class="layui-body">
-        <div class="card" style="width: 1050px;height: 550px;margin: 20px">
-            <div class="card-header"><h4>
-                <div class="layui-input-inline">
-                    <select onchange="location.href=this.value;" name="modules" lay-verify="required" lay-search="" style="width:80px;color: dodgerblue;border: none;font-size:18px;font-family: '微软雅黑'">
-                        <option  th:each="year : ${years}" th:text="${year}" th:value="'/admin/showThisYearScore?year='+${year}"></option>
-                    </select>
-                </div>年毕业要求完成情况</h4></div>
+        <div class="card" style="width: 700px;display: inline-block">
+            <div class="card-header"><h4>相关支撑课程占比</h4></div>
             <div class="card-body">
-                <canvas id="chart-vbar-1"></canvas>
-                <ul class="layui-nav layui-nav-tree"   lay-filter="test" style="width: 170px;position: absolute;top: 5px;right: 70px;background-color: rgb(110,80,230);border-radius: 5px">
-                    <hr style="margin: 15px"/>
-                    <li class="layui-nav-item"><a th:each="req : ${graduationRequirements}" th:text="${req.reqTitle}" th:href="@{/admin/showscoreByReqId(reqid=${req.reqId},year=${thisyear})}" style="color: rgb(240,240,240);"></a>
-                </ul>
+                <canvas id="chart-pie" width="700" height="480"></canvas>
             </div>
         </div>
-
+        <div class="card" style="width: 500px;display: inline-block">
+            <div class="card-header"><h4>相关课程目标达成度</h4></div>
+            <div class="card-body">
+                <canvas id="chart-vbar-1" width="500" height="530"></canvas>
+            </div>
+        </div>
     </div>
     <div th:replace="/admin/adminmain :: footer"></div>
 </div>
 
 
+
 <script type="text/javascript" th:inline="javascript">
+
+
     new Chart($("#chart-vbar-1"), {
         type: 'bar',
         data: {
-            labels: [[${graduationRequirementsName}]],
+            labels: [[${coursesId}]],
             datasets: [{
-                label: "毕业要求达成度",
+                label: "课程达成度",
                 backgroundColor: "rgba(51,202,185,0.5)",
                 borderColor: "rgba(0,0,0,0)",
                 hoverBackgroundColor: "rgba(51,202,185,0.7)",
                 hoverBorderColor: "rgba(0,0,0,0)",
-                data: [[${scores}]]
+                data: [[${coursesScorse}]]
+
             }]
         },
         options: {
@@ -66,6 +65,22 @@
                     }
                 }]
             }
+        }
+    });
+
+
+    new Chart($("#chart-pie"), {
+        type: 'pie',
+        data: {
+            labels: [[${courses}]],
+            datasets: [{
+                data: [[${coursesMix}]],
+                backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
+                    'rgba(200, 150, 40, 1)', 'rgba(150, 150, 40, 1)', 'rgba(180, 20, 140, 1)', 'rgba(50, 200, 150, 1)']
+            }]
+        },
+        options: {
+            responsive: false
         }
     });
 

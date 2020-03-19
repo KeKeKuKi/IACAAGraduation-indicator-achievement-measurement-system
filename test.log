@@ -1,196 +1,1105 @@
-2020-03-16 10:06:49.191  INFO 4828 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 4828 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 10:06:49.196  INFO 4828 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 10:06:52.154  INFO 4828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 10:06:52.166  INFO 4828 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 10:06:52.167  INFO 4828 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 10:06:52.303  INFO 4828 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 10:06:52.304  INFO 4828 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2949 ms
-2020-03-16 10:06:52.816  INFO 4828 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 10:06:53.220  INFO 4828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 10:06:53.223  INFO 4828 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 4.829 seconds (JVM running for 6.223)
-2020-03-16 10:06:53.271  INFO 4828 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 10:06:53.271  INFO 4828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 10:06:53.277  INFO 4828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-03-16 10:06:57.038  WARN 4828 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 10:06:57.039  INFO 4828 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 10:06:57.229  INFO 4828 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 10:09:54.831  INFO 10996 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 10996 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 10:09:54.836  INFO 10996 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 10:09:56.087  INFO 10996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 10:09:56.096  INFO 10996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 10:09:56.097  INFO 10996 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 10:09:56.186  INFO 10996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 10:09:56.186  INFO 10996 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1267 ms
-2020-03-16 10:09:56.516  INFO 10996 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 10:09:56.705  INFO 10996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 10:09:56.707  INFO 10996 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.288 seconds (JVM running for 3.078)
-2020-03-16 10:09:56.913  INFO 10996 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 10:09:56.913  INFO 10996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 10:09:56.918  INFO 10996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2020-03-16 10:09:58.858  WARN 10996 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 10:09:58.859  INFO 10996 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 10:09:58.968  INFO 10996 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 10:23:28.854  INFO 13876 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 13876 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 10:23:28.860  INFO 13876 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 10:23:30.079  INFO 13876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 10:23:30.087  INFO 13876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 10:23:30.088  INFO 13876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 10:23:30.166  INFO 13876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 10:23:30.166  INFO 13876 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1254 ms
-2020-03-16 10:23:30.505  INFO 13876 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 10:23:30.688  INFO 13876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 10:23:30.691  INFO 13876 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.209 seconds (JVM running for 3.072)
-2020-03-16 10:27:43.751  INFO 13876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 10:27:43.751  INFO 13876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 10:27:43.756  INFO 13876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2020-03-16 10:27:48.320  WARN 13876 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 10:27:48.321  INFO 13876 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 10:27:48.428  INFO 13876 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 10:36:58.222  INFO 11420 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 11420 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 10:36:58.226  INFO 11420 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 10:36:59.851  INFO 11420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 10:36:59.864  INFO 11420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 10:36:59.865  INFO 11420 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 10:37:00.014  INFO 11420 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 10:37:00.014  INFO 11420 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1736 ms
-2020-03-16 10:37:00.444  INFO 11420 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 10:37:00.753  INFO 11420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 10:37:00.757  INFO 11420 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.93 seconds (JVM running for 3.739)
-2020-03-16 10:37:00.833  INFO 11420 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 10:37:00.834  INFO 11420 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 10:37:00.843  INFO 11420 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2020-03-16 10:37:02.870  WARN 11420 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 10:37:02.871  INFO 11420 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 10:37:02.985  INFO 11420 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 10:37:36.218  INFO 7684 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 7684 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 10:37:36.222  INFO 7684 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 10:37:37.575  INFO 7684 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 10:37:37.584  INFO 7684 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 10:37:37.584  INFO 7684 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 10:37:37.673  INFO 7684 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 10:37:37.674  INFO 7684 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1397 ms
-2020-03-16 10:37:38.012  INFO 7684 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 10:37:38.241  INFO 7684 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 10:37:38.244  INFO 7684 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.408 seconds (JVM running for 3.245)
-2020-03-16 10:37:43.776  INFO 7684 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 10:37:43.778  INFO 7684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 10:37:43.788  INFO 7684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2020-03-16 10:37:45.470  WARN 7684 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 10:37:45.472  INFO 7684 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 10:37:45.584  INFO 7684 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 11:32:26.613  INFO 3964 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 3964 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 11:32:26.616  INFO 3964 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 11:32:27.804  INFO 3964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 11:32:27.815  INFO 3964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 11:32:27.815  INFO 3964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 11:32:27.897  INFO 3964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 11:32:27.897  INFO 3964 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1228 ms
-2020-03-16 11:32:28.198  INFO 3964 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 11:32:28.373  INFO 3964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 11:32:28.376  INFO 3964 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.086 seconds (JVM running for 2.836)
-2020-03-16 11:32:31.920  INFO 3964 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 11:32:31.921  INFO 3964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 11:32:31.925  INFO 3964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2020-03-16 11:32:33.709  WARN 3964 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 11:32:33.710  INFO 3964 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 11:32:33.812  INFO 3964 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 11:55:21.082  INFO 15232 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15232 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 11:55:21.085  INFO 15232 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 11:55:22.112  INFO 15232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 11:55:22.119  INFO 15232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 11:55:22.119  INFO 15232 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 11:55:22.193  INFO 15232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 11:55:22.193  INFO 15232 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1067 ms
-2020-03-16 11:55:22.457  INFO 15232 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 11:55:22.646  INFO 15232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 11:55:22.648  INFO 15232 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.872 seconds (JVM running for 2.64)
-2020-03-16 11:55:26.105  INFO 15232 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 11:55:26.106  INFO 15232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 11:55:26.113  INFO 15232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2020-03-16 11:55:28.135  WARN 15232 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 11:55:28.136  INFO 15232 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 11:55:28.241  INFO 15232 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 11:58:03.932  INFO 12340 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 12340 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 11:58:03.935  INFO 12340 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 11:58:05.107  INFO 12340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 11:58:05.115  INFO 12340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 11:58:05.115  INFO 12340 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 11:58:05.198  INFO 12340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 11:58:05.198  INFO 12340 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1208 ms
-2020-03-16 11:58:05.483  INFO 12340 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 11:58:05.672  INFO 12340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 11:58:05.675  INFO 12340 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.08 seconds (JVM running for 2.909)
-2020-03-16 11:58:09.137  INFO 12340 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 11:58:09.137  INFO 12340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 11:58:09.143  INFO 12340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-03-16 11:58:10.750  WARN 12340 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 11:58:10.751  INFO 12340 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 11:58:10.872  INFO 12340 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 12:13:19.781  INFO 8856 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 8856 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 12:13:19.785  INFO 8856 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 12:13:21.088  INFO 8856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 12:13:21.099  INFO 8856 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 12:13:21.100  INFO 8856 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 12:13:21.184  INFO 8856 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 12:13:21.185  INFO 8856 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1328 ms
-2020-03-16 12:13:21.468  INFO 8856 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 12:13:21.648  INFO 8856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 12:13:21.651  INFO 8856 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.208 seconds (JVM running for 2.927)
-2020-03-16 12:14:19.303  INFO 14584 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 14584 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 12:14:19.306  INFO 14584 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 12:14:20.421  INFO 14584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 12:14:20.428  INFO 14584 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 12:14:20.429  INFO 14584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 12:14:20.502  INFO 14584 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 12:14:20.502  INFO 14584 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1152 ms
-2020-03-16 12:14:20.783  INFO 14584 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 12:14:20.959  INFO 14584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 12:14:20.961  INFO 14584 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.974 seconds (JVM running for 2.908)
-2020-03-16 12:14:27.811  INFO 14584 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 12:14:27.811  INFO 14584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 12:14:27.816  INFO 14584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2020-03-16 12:14:29.656  WARN 14584 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 12:14:29.657  INFO 14584 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 12:14:29.757  INFO 14584 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 12:17:54.282  INFO 7920 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 7920 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 12:17:54.287  INFO 7920 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 12:17:55.390  INFO 7920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 12:17:55.401  INFO 7920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 12:17:55.402  INFO 7920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 12:17:55.519  INFO 7920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 12:17:55.519  INFO 7920 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1184 ms
-2020-03-16 12:17:55.847  INFO 7920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 12:17:56.117  INFO 7920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 12:17:56.121  INFO 7920 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.248 seconds (JVM running for 3.114)
-2020-03-16 12:17:56.168  INFO 7920 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 12:17:56.168  INFO 7920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 12:17:56.176  INFO 7920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2020-03-16 12:17:57.699  WARN 7920 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 12:17:57.700  INFO 7920 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 12:17:57.805  INFO 7920 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 12:19:40.662  INFO 11844 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 11844 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 12:19:40.665  INFO 11844 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 12:19:42.093  INFO 11844 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 12:19:42.103  INFO 11844 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 12:19:42.103  INFO 11844 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 12:19:42.175  INFO 11844 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 12:19:42.175  INFO 11844 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1447 ms
-2020-03-16 12:19:42.512  INFO 11844 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 12:19:42.744  INFO 11844 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 12:19:42.748  INFO 11844 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.454 seconds (JVM running for 3.285)
-2020-03-16 12:19:43.623  INFO 11844 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-16 12:19:43.624  INFO 11844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-16 12:19:43.630  INFO 11844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-03-16 12:19:44.927  WARN 11844 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-03-16 12:19:44.928  INFO 11844 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-03-16 12:19:45.038  INFO 11844 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-03-16 12:29:45.931  INFO 11504 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 11504 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
-2020-03-16 12:29:45.936  INFO 11504 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
-2020-03-16 12:29:47.398  INFO 11504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-16 12:29:47.415  INFO 11504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-16 12:29:47.416  INFO 11504 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-03-16 12:29:47.531  INFO 11504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-16 12:29:47.531  INFO 11504 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1550 ms
-2020-03-16 12:29:47.883  INFO 11504 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-16 12:29:48.142  INFO 11504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-16 12:29:48.145  INFO 11504 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.612 seconds (JVM running for 3.366)
+2020-03-18 09:53:18.439  INFO 7692 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 7692 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 09:53:18.439  INFO 7692 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 09:53:24.077  INFO 7692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 09:53:24.100  INFO 7692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 09:53:24.101  INFO 7692 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 09:53:24.183  INFO 7692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 09:53:24.183  INFO 7692 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5697 ms
+2020-03-18 09:53:24.570  INFO 7692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 09:53:24.890  INFO 7692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 09:53:24.893  INFO 7692 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 7.265 seconds (JVM running for 8.857)
+2020-03-18 09:53:26.648  INFO 7692 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 09:53:26.650  INFO 7692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 09:53:26.659  INFO 7692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-03-18 09:53:29.676  WARN 7692 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 09:53:29.677  INFO 7692 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 09:53:29.879  INFO 7692 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 09:53:36.554 ERROR 7692 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "/admin/show": An error happened during template parsing (template: "class path resource [templates//admin/show.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//admin/show.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+Caused by: org.attoparser.ParseException: Could not parse as expression: "/admin/showThisYearScore'?year='+${year}" (template: "/admin/show" - line 25, col 78)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/admin/showThisYearScore'?year='+${year}" (template: "/admin/show" - line 25, col 78)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:290) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.processIterationModel(IteratedGatheringModelProcessable.java:367) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.process(IteratedGatheringModelProcessable.java:221) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleCloseElementEnd(TemplateHandlerAdapterMarkupHandler.java:388) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:322) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleCloseElementEnd(OutputExpressionInlinePreProcessorHandler.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:164) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleCloseElementEnd(HtmlElement.java:169) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleCloseElementEnd(HtmlMarkupHandler.java:412) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleCloseElementEnd(MarkupEventProcessorHandler.java:473) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseCloseElement(ParsingElementMarkupUtil.java:201) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:725) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2020-03-18 09:53:36.557 ERROR 7692 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//admin/show.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/admin/showThisYearScore'?year='+${year}" (template: "/admin/show" - line 25, col 78)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:290) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.processIterationModel(IteratedGatheringModelProcessable.java:367) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.process(IteratedGatheringModelProcessable.java:221) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleCloseElementEnd(TemplateHandlerAdapterMarkupHandler.java:388) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:322) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleCloseElementEnd(OutputExpressionInlinePreProcessorHandler.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:164) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleCloseElementEnd(HtmlElement.java:169) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleCloseElementEnd(HtmlMarkupHandler.java:412) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleCloseElementEnd(MarkupEventProcessorHandler.java:473) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseCloseElement(ParsingElementMarkupUtil.java:201) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:725) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+
+2020-03-18 09:54:23.182  INFO 16188 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 16188 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 09:54:23.185  INFO 16188 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 09:54:24.191  INFO 16188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 09:54:24.198  INFO 16188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 09:54:24.199  INFO 16188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 09:54:24.269  INFO 16188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 09:54:24.269  INFO 16188 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1040 ms
+2020-03-18 09:54:24.546  INFO 16188 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 09:54:24.729  INFO 16188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 09:54:24.731  INFO 16188 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.891 seconds (JVM running for 2.728)
+2020-03-18 09:54:24.868  INFO 16188 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 09:54:24.868  INFO 16188 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 09:54:24.873  INFO 16188 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-03-18 09:54:26.297  WARN 16188 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 09:54:26.298  INFO 16188 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 09:54:26.401  INFO 16188 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 09:54:28.053 ERROR 16188 --- [http-nio-8080-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-4] Exception processing template "/admin/show": An error happened during template parsing (template: "class path resource [templates//admin/show.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//admin/show.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+Caused by: org.attoparser.ParseException: Could not parse as expression: "/admin/showThisYearScore?year=${year}" (template: "/admin/show" - line 25, col 78)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/admin/showThisYearScore?year=${year}" (template: "/admin/show" - line 25, col 78)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:290) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.processIterationModel(IteratedGatheringModelProcessable.java:367) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.process(IteratedGatheringModelProcessable.java:221) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleCloseElementEnd(TemplateHandlerAdapterMarkupHandler.java:388) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:322) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleCloseElementEnd(OutputExpressionInlinePreProcessorHandler.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:164) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleCloseElementEnd(HtmlElement.java:169) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleCloseElementEnd(HtmlMarkupHandler.java:412) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleCloseElementEnd(MarkupEventProcessorHandler.java:473) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseCloseElement(ParsingElementMarkupUtil.java:201) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:725) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2020-03-18 09:54:28.055 ERROR 16188 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//admin/show.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/admin/showThisYearScore?year=${year}" (template: "/admin/show" - line 25, col 78)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.Model.process(Model.java:290) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.processIterationModel(IteratedGatheringModelProcessable.java:367) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.process(IteratedGatheringModelProcessable.java:221) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleCloseElementEnd(TemplateHandlerAdapterMarkupHandler.java:388) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:322) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleCloseElementEnd(OutputExpressionInlinePreProcessorHandler.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:164) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleCloseElementEnd(HtmlElement.java:169) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleCloseElementEnd(HtmlMarkupHandler.java:412) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleCloseElementEnd(MarkupEventProcessorHandler.java:473) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseCloseElement(ParsingElementMarkupUtil.java:201) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:725) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+
+2020-03-18 09:57:50.106  INFO 10748 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 10748 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 09:57:50.122  INFO 10748 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 09:57:51.362  INFO 10748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 09:57:51.362  INFO 10748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 09:57:51.362  INFO 10748 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 09:57:51.441  INFO 10748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 09:57:51.441  INFO 10748 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1272 ms
+2020-03-18 09:57:51.722  INFO 10748 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 09:57:51.909  INFO 10748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 09:57:51.909  INFO 10748 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.106 seconds (JVM running for 2.822)
+2020-03-18 09:57:55.060  INFO 10748 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 09:57:55.060  INFO 10748 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 09:57:55.064  INFO 10748 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-03-18 09:57:56.472  WARN 10748 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 09:57:56.473  INFO 10748 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 09:57:56.606  INFO 10748 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:02:32.791  INFO 14568 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 14568 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:02:32.795  INFO 14568 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:02:34.204  INFO 14568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:02:34.218  INFO 14568 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:02:34.218  INFO 14568 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:02:34.334  INFO 14568 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:02:34.334  INFO 14568 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1478 ms
+2020-03-18 10:02:34.752  INFO 14568 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:02:34.993  INFO 14568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:02:34.996  INFO 14568 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.532 seconds (JVM running for 3.94)
+2020-03-18 10:02:35.091  INFO 14568 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:02:35.091  INFO 14568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:02:35.096  INFO 14568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-03-18 10:02:37.015  WARN 14568 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:02:37.016  INFO 14568 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:02:37.113  INFO 14568 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:41:05.743  INFO 5564 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 5564 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:41:05.747  INFO 5564 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:41:06.799  INFO 5564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:41:06.806  INFO 5564 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:41:06.806  INFO 5564 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:41:06.877  INFO 5564 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:41:06.877  INFO 5564 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1081 ms
+2020-03-18 10:41:07.141  INFO 5564 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:41:07.326  INFO 5564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:41:07.328  INFO 5564 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.925 seconds (JVM running for 2.723)
+2020-03-18 10:41:10.624  INFO 5564 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:41:10.624  INFO 5564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:41:10.632  INFO 5564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 10:41:12.691  WARN 5564 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:41:12.692  INFO 5564 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:41:12.794  INFO 5564 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:42:05.288  INFO 6712 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 6712 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:42:05.292  INFO 6712 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:42:06.389  INFO 6712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:42:06.398  INFO 6712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:42:06.398  INFO 6712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:42:06.474  INFO 6712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:42:06.474  INFO 6712 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1136 ms
+2020-03-18 10:42:06.755  INFO 6712 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:42:06.940  INFO 6712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:42:06.942  INFO 6712 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.02 seconds (JVM running for 2.77)
+2020-03-18 10:42:07.097  INFO 6712 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:42:07.098  INFO 6712 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:42:07.103  INFO 6712 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 10:42:15.606  WARN 6712 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:42:15.607  INFO 6712 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:42:15.705  INFO 6712 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:43:26.341  INFO 14708 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 14708 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:43:26.343  INFO 14708 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:43:27.421  INFO 14708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:43:27.429  INFO 14708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:43:27.430  INFO 14708 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:43:27.504  INFO 14708 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:43:27.504  INFO 14708 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1107 ms
+2020-03-18 10:43:27.768  INFO 14708 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:43:27.952  INFO 14708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:43:27.955  INFO 14708 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.012 seconds (JVM running for 2.741)
+2020-03-18 10:43:29.611  INFO 14708 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:43:29.612  INFO 14708 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:43:29.620  INFO 14708 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 10:43:31.604  WARN 14708 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:43:31.605  INFO 14708 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:43:31.710  INFO 14708 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:47:32.890  INFO 6696 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 6696 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:47:32.894  INFO 6696 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:47:33.885  INFO 6696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:47:33.892  INFO 6696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:47:33.893  INFO 6696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:47:33.968  INFO 6696 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:47:33.968  INFO 6696 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1035 ms
+2020-03-18 10:47:34.235  INFO 6696 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:47:34.404  INFO 6696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:47:34.406  INFO 6696 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.892 seconds (JVM running for 2.627)
+2020-03-18 10:47:37.531  INFO 6696 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:47:37.532  INFO 6696 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:47:37.540  INFO 6696 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 10:47:38.665  WARN 6696 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:47:38.666  INFO 6696 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:47:38.774  INFO 6696 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:49:19.847  INFO 700 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 700 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:49:19.850  INFO 700 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:49:21.238  INFO 700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:49:21.249  INFO 700 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:49:21.250  INFO 700 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:49:21.350  INFO 700 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:49:21.351  INFO 700 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1435 ms
+2020-03-18 10:49:21.628  INFO 700 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:49:21.903  INFO 700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:49:21.906  INFO 700 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.42 seconds (JVM running for 3.151)
+2020-03-18 10:49:25.051  INFO 700 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:49:25.052  INFO 700 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:49:25.060  INFO 700 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 10:49:26.548  WARN 700 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:49:26.549  INFO 700 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:49:26.658  INFO 700 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:51:01.681  INFO 2364 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 2364 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:51:01.687  INFO 2364 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:51:02.948  INFO 2364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:51:02.956  INFO 2364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:51:02.956  INFO 2364 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:51:03.034  INFO 2364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:51:03.034  INFO 2364 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1282 ms
+2020-03-18 10:51:03.358  INFO 2364 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:51:03.585  INFO 2364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:51:03.590  INFO 2364 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.208 seconds (JVM running for 2.921)
+2020-03-18 10:51:04.292  INFO 2364 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:51:04.293  INFO 2364 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:51:04.299  INFO 2364 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-18 10:51:06.336  WARN 2364 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:51:06.337  INFO 2364 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:51:06.439  INFO 2364 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 10:52:29.008  INFO 16060 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 16060 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 10:52:29.013  INFO 16060 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 10:52:30.062  INFO 16060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 10:52:30.069  INFO 16060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 10:52:30.070  INFO 16060 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 10:52:30.149  INFO 16060 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 10:52:30.149  INFO 16060 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1077 ms
+2020-03-18 10:52:30.418  INFO 16060 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 10:52:30.632  INFO 16060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 10:52:30.636  INFO 16060 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.97 seconds (JVM running for 2.71)
+2020-03-18 10:52:30.842  INFO 16060 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 10:52:30.842  INFO 16060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 10:52:30.849  INFO 16060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-03-18 10:52:32.301  WARN 16060 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 10:52:32.303  INFO 16060 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 10:52:32.407  INFO 16060 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:03:25.108  INFO 2032 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 2032 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:03:25.112  INFO 2032 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:03:26.367  INFO 2032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:03:26.374  INFO 2032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:03:26.375  INFO 2032 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:03:26.458  INFO 2032 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:03:26.459  INFO 2032 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1293 ms
+2020-03-18 11:03:26.940  INFO 2032 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:03:27.152  INFO 2032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:03:27.155  INFO 2032 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.369 seconds (JVM running for 3.112)
+2020-03-18 11:04:51.547  INFO 2032 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:04:51.547  INFO 2032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:04:51.553  INFO 2032 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 11:04:53.264  WARN 2032 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:04:53.265  INFO 2032 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:04:53.369  INFO 2032 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:06:36.739  INFO 15000 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15000 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:06:36.743  INFO 15000 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:06:37.755  INFO 15000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:06:37.762  INFO 15000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:06:37.763  INFO 15000 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:06:37.835  INFO 15000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:06:37.836  INFO 15000 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1045 ms
+2020-03-18 11:06:38.111  INFO 15000 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:06:38.286  INFO 15000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:06:38.289  INFO 15000 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.868 seconds (JVM running for 2.681)
+2020-03-18 11:06:59.803  INFO 15000 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:06:59.803  INFO 15000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:06:59.807  INFO 15000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-03-18 11:07:01.045  WARN 15000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:07:01.046  INFO 15000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:07:01.149  INFO 15000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:19:23.405  INFO 3344 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 3344 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:19:23.411  INFO 3344 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:19:24.764  INFO 3344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:19:24.778  INFO 3344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:19:24.779  INFO 3344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:19:24.887  INFO 3344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:19:24.888  INFO 3344 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1405 ms
+2020-03-18 11:19:25.435  INFO 3344 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:19:25.665  INFO 3344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:19:25.668  INFO 3344 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.677 seconds (JVM running for 3.866)
+2020-03-18 11:19:25.725  INFO 3344 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:19:25.725  INFO 3344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:19:25.730  INFO 3344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 11:19:27.885  WARN 3344 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:19:27.886  INFO 3344 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:19:27.989  INFO 3344 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:40:42.518  INFO 10828 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 10828 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:40:42.521  INFO 10828 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:40:43.683  INFO 10828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:40:43.691  INFO 10828 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:40:43.692  INFO 10828 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:40:43.763  INFO 10828 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:40:43.763  INFO 10828 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1188 ms
+2020-03-18 11:40:44.077  INFO 10828 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:40:44.326  INFO 10828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:40:44.329  INFO 10828 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.202 seconds (JVM running for 3.015)
+2020-03-18 11:40:44.459  INFO 10828 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:40:44.459  INFO 10828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:40:44.467  INFO 10828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 11:40:46.212  WARN 10828 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:40:46.213  INFO 10828 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:40:46.337  INFO 10828 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:43:29.825  INFO 11544 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 11544 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:43:29.829  INFO 11544 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:43:30.915  INFO 11544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:43:30.922  INFO 11544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:43:30.922  INFO 11544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:43:31.001  INFO 11544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:43:31.001  INFO 11544 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1120 ms
+2020-03-18 11:43:31.559  INFO 11544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:43:31.878  INFO 11544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:43:31.882  INFO 11544 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.395 seconds (JVM running for 3.195)
+2020-03-18 11:43:48.995  INFO 11544 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:43:48.995  INFO 11544 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:43:49.008  INFO 11544 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-03-18 11:43:50.709  WARN 11544 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:43:50.709  INFO 11544 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:43:50.814  INFO 11544 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:45:25.713  INFO 15620 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15620 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:45:25.717  INFO 15620 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:45:27.307  INFO 15620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:45:27.322  INFO 15620 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:45:27.323  INFO 15620 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:45:27.486  INFO 15620 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:45:27.486  INFO 15620 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1654 ms
+2020-03-18 11:45:27.960  INFO 15620 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:45:28.184  INFO 15620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:45:28.188  INFO 15620 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.913 seconds (JVM running for 3.709)
+2020-03-18 11:45:35.518  INFO 15620 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:45:35.518  INFO 15620 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:45:35.523  INFO 15620 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 11:45:36.877  WARN 15620 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:45:36.878  INFO 15620 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:45:36.983  INFO 15620 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 11:50:23.813  INFO 14892 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 14892 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 11:50:23.816  INFO 14892 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 11:50:24.856  INFO 14892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 11:50:24.864  INFO 14892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 11:50:24.864  INFO 14892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 11:50:24.932  INFO 14892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 11:50:24.932  INFO 14892 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1074 ms
+2020-03-18 11:50:25.194  INFO 14892 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 11:50:25.381  INFO 14892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 11:50:25.384  INFO 14892 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.896 seconds (JVM running for 2.733)
+2020-03-18 11:50:34.858  INFO 14892 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 11:50:34.859  INFO 14892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 11:50:34.869  INFO 14892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-03-18 11:50:36.171  WARN 14892 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 11:50:36.172  INFO 14892 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 11:50:36.291  INFO 14892 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 12:21:01.583  INFO 15340 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15340 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 12:21:01.588  INFO 15340 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 12:21:03.233  INFO 15340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 12:21:03.241  INFO 15340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 12:21:03.241  INFO 15340 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 12:21:03.312  INFO 15340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 12:21:03.312  INFO 15340 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1649 ms
+2020-03-18 12:21:03.838  INFO 15340 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 12:21:04.383  INFO 15340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 12:21:04.392  INFO 15340 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.369 seconds (JVM running for 4.59)
+2020-03-18 12:21:09.941  INFO 15340 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 12:21:09.941  INFO 15340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 12:21:09.946  INFO 15340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 12:21:11.138  WARN 15340 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 12:21:11.139  INFO 15340 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 12:21:11.243  INFO 15340 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 12:22:45.002  INFO 9876 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 9876 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 12:22:45.007  INFO 9876 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 12:22:46.899  INFO 9876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 12:22:46.913  INFO 9876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 12:22:46.913  INFO 9876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 12:22:47.059  INFO 9876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 12:22:47.059  INFO 9876 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1978 ms
+2020-03-18 12:22:47.744  INFO 9876 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 12:22:48.133  INFO 9876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 12:22:48.138  INFO 9876 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.75 seconds (JVM running for 5.033)
+2020-03-18 12:23:01.298  INFO 9876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 12:23:01.298  INFO 9876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 12:23:01.306  INFO 9876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-03-18 12:23:02.912  WARN 9876 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 12:23:02.913  INFO 9876 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 12:23:03.019  INFO 9876 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 12:49:00.054  INFO 4416 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 4416 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 12:49:00.059  INFO 4416 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 12:49:03.831  INFO 4416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 12:49:03.839  INFO 4416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 12:49:03.839  INFO 4416 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 12:49:03.921  INFO 4416 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 12:49:03.921  INFO 4416 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3396 ms
+2020-03-18 12:49:04.343  INFO 4416 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 12:49:04.674  INFO 4416 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-03-18 12:49:04.683  INFO 4416 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-03-18 12:49:04.693 ERROR 4416 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-03-18 12:49:04.697  INFO 4416 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-18 13:04:53.868  INFO 2236 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 2236 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 13:04:53.884  INFO 2236 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 13:04:55.883  INFO 2236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 13:04:55.899  INFO 2236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 13:04:55.899  INFO 2236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 13:04:56.368  INFO 2236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 13:04:56.368  INFO 2236 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2437 ms
+2020-03-18 13:04:56.696  INFO 2236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 13:04:56.883  INFO 2236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 13:04:56.883  INFO 2236 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.418 seconds (JVM running for 4.435)
+2020-03-18 13:05:02.505  INFO 2236 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 13:05:02.506  INFO 2236 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 13:05:02.519  INFO 2236 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-03-18 13:05:05.524  WARN 2236 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 13:05:05.525  INFO 2236 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 13:05:05.688  INFO 2236 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 13:34:37.567  INFO 4396 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 4396 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 13:34:37.567  INFO 4396 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 13:34:40.316  INFO 4396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 13:34:40.332  INFO 4396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 13:34:40.333  INFO 4396 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 13:34:41.078  INFO 4396 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 13:34:41.078  INFO 4396 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3417 ms
+2020-03-18 13:34:41.722  INFO 4396 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 13:34:42.192  INFO 4396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 13:34:42.198  INFO 4396 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 5.21 seconds (JVM running for 6.697)
+2020-03-18 13:34:49.090  INFO 4396 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 13:34:49.090  INFO 4396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 13:34:49.097  INFO 4396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-03-18 13:34:50.643  WARN 4396 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 13:34:50.644  INFO 4396 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 13:34:50.791  INFO 4396 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 13:36:43.752  INFO 6412 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 6412 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 13:36:43.752  INFO 6412 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 13:36:45.635  INFO 6412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 13:36:45.635  INFO 6412 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 13:36:45.635  INFO 6412 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 13:36:45.728  INFO 6412 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 13:36:45.728  INFO 6412 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1882 ms
+2020-03-18 13:36:46.072  INFO 6412 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 13:36:46.275  INFO 6412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 13:36:46.275  INFO 6412 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.092 seconds (JVM running for 4.606)
+2020-03-18 13:36:48.562  INFO 6412 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 13:36:48.562  INFO 6412 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 13:36:48.567  INFO 6412 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 13:38:07.799  WARN 6412 --- [http-nio-8080-exec-8] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 13:38:07.800  INFO 6412 --- [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 13:38:07.899  INFO 6412 --- [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 15:44:32.518  INFO 9116 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 9116 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 15:44:32.525  INFO 9116 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 15:44:40.058  INFO 9116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 15:44:40.147  INFO 9116 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 15:44:40.148  INFO 9116 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 15:44:42.301  INFO 9116 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 15:44:42.302  INFO 9116 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9506 ms
+2020-03-18 15:44:43.120  INFO 9116 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 15:44:43.870  INFO 9116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 15:44:43.878  INFO 9116 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 12.914 seconds (JVM running for 16.018)
+2020-03-18 15:44:44.148  INFO 9116 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 15:44:44.149  INFO 9116 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 15:44:44.163  INFO 9116 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-03-18 15:44:47.640  WARN 9116 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 15:44:47.642  INFO 9116 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 15:44:48.065  INFO 9116 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:17:17.065  INFO 15724 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15724 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:17:17.070  INFO 15724 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:17:19.545  INFO 15724 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:17:19.563  INFO 15724 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:17:19.563  INFO 15724 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:17:19.682  INFO 15724 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:17:19.682  INFO 15724 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2545 ms
+2020-03-18 16:17:20.215  INFO 15724 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:17:20.828  INFO 15724 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:17:20.840  INFO 15724 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 4.512 seconds (JVM running for 5.923)
+2020-03-18 16:17:21.140  INFO 15724 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:17:21.141  INFO 15724 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:17:21.183  INFO 15724 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 41 ms
+2020-03-18 16:17:23.061  WARN 15724 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:17:23.062  INFO 15724 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:17:23.352  INFO 15724 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:18:35.206  INFO 14164 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 14164 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:18:35.209  INFO 14164 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:18:36.852  INFO 14164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:18:36.870  INFO 14164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:18:36.870  INFO 14164 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:18:36.973  INFO 14164 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:18:36.973  INFO 14164 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1686 ms
+2020-03-18 16:18:37.402  INFO 14164 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:18:37.753  INFO 14164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:18:37.759  INFO 14164 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.037 seconds (JVM running for 3.99)
+2020-03-18 16:18:37.909  INFO 14164 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:18:37.909  INFO 14164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:18:37.918  INFO 14164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 16:18:40.302  WARN 14164 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:18:40.303  INFO 14164 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:18:40.431  INFO 14164 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:20:06.135  INFO 15064 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15064 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:20:06.150  INFO 15064 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:20:08.726  INFO 15064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:20:08.733  INFO 15064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:20:08.733  INFO 15064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:20:08.845  INFO 15064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:20:08.845  INFO 15064 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2553 ms
+2020-03-18 16:20:09.282  INFO 15064 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:20:09.596  INFO 15064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:20:09.600  INFO 15064 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.987 seconds (JVM running for 5.297)
+2020-03-18 16:20:09.673  INFO 15064 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:20:09.673  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:20:09.679  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 16:20:11.150  WARN 15064 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:20:11.151  INFO 15064 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:20:11.316  INFO 15064 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:21:13.705  INFO 15848 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15848 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:21:13.708  INFO 15848 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:21:15.577  INFO 15848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:21:15.590  INFO 15848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:21:15.590  INFO 15848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:21:15.685  INFO 15848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:21:15.685  INFO 15848 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1880 ms
+2020-03-18 16:21:16.422  INFO 15848 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:21:16.970  INFO 15848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:21:16.975  INFO 15848 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.865 seconds (JVM running for 4.857)
+2020-03-18 16:21:17.102  INFO 15848 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:21:17.103  INFO 15848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:21:17.112  INFO 15848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 16:21:18.846  WARN 15848 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:21:18.847  INFO 15848 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:21:19.001  INFO 15848 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:21:55.229  INFO 14860 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 14860 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:21:55.233  INFO 14860 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:21:57.127  INFO 14860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:21:57.140  INFO 14860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:21:57.142  INFO 14860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:21:57.243  INFO 14860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:21:57.243  INFO 14860 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1918 ms
+2020-03-18 16:21:57.775  INFO 14860 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:21:58.078  INFO 14860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:21:58.085  INFO 14860 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.449 seconds (JVM running for 4.909)
+2020-03-18 16:22:04.075  INFO 9712 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 9712 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:22:04.085  INFO 9712 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:22:06.720  INFO 9712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:22:06.744  INFO 9712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:22:06.745  INFO 9712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:22:06.852  INFO 9712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:22:06.852  INFO 9712 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2681 ms
+2020-03-18 16:22:07.497  INFO 9712 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:22:07.881  INFO 9712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:22:07.886  INFO 9712 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 4.338 seconds (JVM running for 5.34)
+2020-03-18 16:22:08.031  INFO 9712 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:22:08.032  INFO 9712 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:22:08.051  INFO 9712 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2020-03-18 16:22:09.622  WARN 9712 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:22:09.624  INFO 9712 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:22:09.767  INFO 9712 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:23:17.583  INFO 4548 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 4548 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:23:17.588  INFO 4548 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:23:19.740  INFO 4548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:23:19.758  INFO 4548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:23:19.758  INFO 4548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:23:19.848  INFO 4548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:23:19.848  INFO 4548 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2156 ms
+2020-03-18 16:23:20.268  INFO 4548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:23:20.800  INFO 4548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:23:20.815  INFO 4548 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.681 seconds (JVM running for 4.577)
+2020-03-18 16:23:20.990  INFO 4548 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:23:20.990  INFO 4548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:23:20.999  INFO 4548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 16:23:26.449  WARN 4548 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:23:26.451  INFO 4548 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:23:26.579  INFO 4548 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 16:29:13.231  INFO 13344 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 13344 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 16:29:13.236  INFO 13344 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 16:29:17.603  INFO 13344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 16:29:17.650  INFO 13344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 16:29:17.651  INFO 13344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 16:29:17.886  INFO 13344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 16:29:17.886  INFO 13344 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4520 ms
+2020-03-18 16:29:18.860  INFO 13344 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 16:29:19.497  INFO 13344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 16:29:19.506  INFO 13344 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 7.383 seconds (JVM running for 10.255)
+2020-03-18 16:30:06.390  INFO 13344 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 16:30:06.390  INFO 13344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 16:30:06.398  INFO 13344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 16:30:08.219  WARN 13344 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 16:30:08.221  INFO 13344 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 16:30:08.378  INFO 13344 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 17:57:25.124  INFO 11432 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 11432 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 17:57:25.126  INFO 11432 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 17:57:28.390  INFO 11432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 17:57:28.409  INFO 11432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 17:57:28.409  INFO 11432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 17:57:28.843  INFO 11432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 17:57:28.844  INFO 11432 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3672 ms
+2020-03-18 17:57:29.276  INFO 11432 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 17:57:29.512  INFO 11432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 17:57:29.514  INFO 11432 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 4.943 seconds (JVM running for 6.322)
+2020-03-18 17:57:36.741  INFO 11432 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 17:57:36.741  INFO 11432 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 17:57:36.749  INFO 11432 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 17:57:38.535  WARN 11432 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 17:57:38.536  INFO 11432 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 17:57:38.823  INFO 11432 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 18:15:36.674  INFO 2176 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 2176 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 18:15:36.677  INFO 2176 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 18:15:37.716  INFO 2176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 18:15:37.725  INFO 2176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 18:15:37.726  INFO 2176 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 18:15:37.816  INFO 2176 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 18:15:37.816  INFO 2176 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1078 ms
+2020-03-18 18:15:38.118  INFO 2176 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 18:15:38.297  INFO 2176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 18:15:38.300  INFO 2176 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 1.955 seconds (JVM running for 2.797)
+2020-03-18 18:15:42.801  INFO 2176 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 18:15:42.801  INFO 2176 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 18:15:42.805  INFO 2176 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-03-18 18:15:44.416  WARN 2176 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 18:15:44.416  INFO 2176 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 18:15:44.518  INFO 2176 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 18:19:35.126  INFO 5760 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 5760 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 18:19:35.130  INFO 5760 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 18:19:36.522  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 18:19:36.536  INFO 5760 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 18:19:36.536  INFO 5760 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 18:19:36.645  INFO 5760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 18:19:36.645  INFO 5760 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1452 ms
+2020-03-18 18:19:36.966  INFO 5760 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 18:19:37.197  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 18:19:37.200  INFO 5760 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.44 seconds (JVM running for 3.403)
+2020-03-18 18:19:37.365  INFO 5760 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 18:19:37.366  INFO 5760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 18:19:37.375  INFO 5760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-03-18 18:19:39.077  WARN 5760 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 18:19:39.078  INFO 5760 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 18:19:39.188  INFO 5760 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 18:27:16.629  INFO 8796 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 8796 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 18:27:16.633  INFO 8796 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 18:27:17.807  INFO 8796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 18:27:17.814  INFO 8796 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 18:27:17.814  INFO 8796 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 18:27:17.883  INFO 8796 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 18:27:17.883  INFO 8796 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1204 ms
+2020-03-18 18:27:18.176  INFO 8796 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 18:27:18.398  INFO 8796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 18:27:18.403  INFO 8796 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.097 seconds (JVM running for 2.91)
+2020-03-18 18:27:20.184  INFO 8796 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 18:27:20.184  INFO 8796 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 18:27:20.188  INFO 8796 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-03-18 18:27:21.890  WARN 8796 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 18:27:21.891  INFO 8796 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 18:27:22.001  INFO 8796 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 22:45:35.329  INFO 9452 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 9452 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 22:45:35.334  INFO 9452 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 22:45:37.337  INFO 9452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 22:45:37.345  INFO 9452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 22:45:37.345  INFO 9452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 22:45:37.433  INFO 9452 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 22:45:37.433  INFO 9452 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2025 ms
+2020-03-18 22:45:37.840  INFO 9452 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 22:45:38.076  INFO 9452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 22:45:38.080  INFO 9452 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.254 seconds (JVM running for 5.161)
+2020-03-18 22:45:38.821  INFO 9452 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 22:45:38.822  INFO 9452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 22:45:38.830  INFO 9452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 22:45:41.019  WARN 9452 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 22:45:41.021  INFO 9452 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 22:45:41.138  INFO 9452 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 22:47:21.113  INFO 6748 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 6748 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 22:47:21.117  INFO 6748 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 22:47:22.445  INFO 6748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 22:47:22.453  INFO 6748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 22:47:22.454  INFO 6748 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 22:47:22.538  INFO 6748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 22:47:22.538  INFO 6748 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1349 ms
+2020-03-18 22:47:22.864  INFO 6748 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 22:47:23.094  INFO 6748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 22:47:23.097  INFO 6748 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.417 seconds (JVM running for 3.407)
+2020-03-18 22:47:23.143  INFO 6748 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 22:47:23.143  INFO 6748 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 22:47:23.148  INFO 6748 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 22:47:24.688  WARN 6748 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 22:47:24.689  INFO 6748 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 22:47:24.813  INFO 6748 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 22:53:22.844  INFO 11844 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 11844 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 22:53:22.850  INFO 11844 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 22:53:25.507  INFO 11844 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 22:53:25.518  INFO 11844 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 22:53:25.518  INFO 11844 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 22:53:25.651  INFO 11844 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 22:53:25.651  INFO 11844 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2741 ms
+2020-03-18 22:53:26.261  INFO 11844 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 22:53:26.651  INFO 11844 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 22:53:26.660  INFO 11844 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 4.231 seconds (JVM running for 5.506)
+2020-03-18 22:53:26.730  INFO 11844 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 22:53:26.730  INFO 11844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 22:53:26.740  INFO 11844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-03-18 22:53:28.662  WARN 11844 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 22:53:28.663  INFO 11844 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 22:53:28.792  INFO 11844 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 22:57:37.722  INFO 5424 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 5424 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 22:57:37.726  INFO 5424 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 22:57:39.721  INFO 5424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 22:57:39.737  INFO 5424 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 22:57:39.737  INFO 5424 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 22:57:39.867  INFO 5424 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 22:57:39.868  INFO 5424 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2061 ms
+2020-03-18 22:57:40.268  INFO 5424 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 22:57:40.477  INFO 5424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 22:57:40.481  INFO 5424 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.226 seconds (JVM running for 4.135)
+2020-03-18 22:57:41.216  INFO 5424 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 22:57:41.216  INFO 5424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 22:57:41.222  INFO 5424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 22:57:43.004  WARN 5424 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 22:57:43.005  INFO 5424 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 22:57:43.128  INFO 5424 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 22:59:09.870  INFO 1396 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 1396 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 22:59:09.877  INFO 1396 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 22:59:11.999  INFO 1396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 22:59:12.016  INFO 1396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 22:59:12.017  INFO 1396 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 22:59:12.134  INFO 1396 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 22:59:12.134  INFO 1396 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2198 ms
+2020-03-18 22:59:12.569  INFO 1396 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 22:59:12.985  INFO 1396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 22:59:12.988  INFO 1396 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.556 seconds (JVM running for 4.483)
+2020-03-18 22:59:13.143  INFO 1396 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 22:59:13.143  INFO 1396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 22:59:13.149  INFO 1396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-18 22:59:14.924  WARN 1396 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 22:59:14.926  INFO 1396 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 22:59:15.058  INFO 1396 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 23:02:11.116  INFO 6468 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 6468 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 23:02:11.129  INFO 6468 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 23:02:12.899  INFO 6468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 23:02:12.910  INFO 6468 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 23:02:12.910  INFO 6468 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 23:02:12.996  INFO 6468 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 23:02:12.996  INFO 6468 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1770 ms
+2020-03-18 23:02:13.362  INFO 6468 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 23:02:13.642  INFO 6468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 23:02:13.646  INFO 6468 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.974 seconds (JVM running for 3.811)
+2020-03-18 23:02:14.133  INFO 6468 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 23:02:14.133  INFO 6468 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 23:02:14.144  INFO 6468 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-03-18 23:02:15.746  WARN 6468 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 23:02:15.748  INFO 6468 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 23:02:15.898  INFO 6468 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 23:04:18.686  INFO 6932 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 6932 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 23:04:18.691  INFO 6932 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 23:04:20.064  INFO 6932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 23:04:20.071  INFO 6932 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 23:04:20.071  INFO 6932 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 23:04:20.149  INFO 6932 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 23:04:20.149  INFO 6932 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1397 ms
+2020-03-18 23:04:20.492  INFO 6932 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 23:04:20.715  INFO 6932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 23:04:20.717  INFO 6932 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.411 seconds (JVM running for 3.77)
+2020-03-18 23:04:24.028  INFO 6932 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 23:04:24.028  INFO 6932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 23:04:24.033  INFO 6932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 23:04:26.431  WARN 6932 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 23:04:26.432  INFO 6932 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 23:04:26.566  INFO 6932 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 23:10:18.337  INFO 13804 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 13804 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 23:10:18.342  INFO 13804 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 23:10:20.248  INFO 13804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 23:10:20.267  INFO 13804 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 23:10:20.268  INFO 13804 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 23:10:20.399  INFO 13804 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 23:10:20.400  INFO 13804 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1960 ms
+2020-03-18 23:10:20.981  INFO 13804 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 23:10:21.312  INFO 13804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 23:10:21.316  INFO 13804 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.64 seconds (JVM running for 4.668)
+2020-03-18 23:10:21.448  INFO 13804 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 23:10:21.449  INFO 13804 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 23:10:21.457  INFO 13804 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-18 23:10:24.559  WARN 13804 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 23:10:24.560  INFO 13804 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 23:10:24.687  INFO 13804 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 23:11:39.597  INFO 15260 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 15260 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 23:11:39.602  INFO 15260 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 23:11:41.406  INFO 15260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 23:11:41.431  INFO 15260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 23:11:41.433  INFO 15260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 23:11:41.541  INFO 15260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 23:11:41.542  INFO 15260 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1846 ms
+2020-03-18 23:11:42.038  INFO 15260 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 23:11:42.316  INFO 15260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 23:11:42.320  INFO 15260 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 3.156 seconds (JVM running for 4.228)
+2020-03-18 23:11:42.366  INFO 15260 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 23:11:42.366  INFO 15260 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 23:11:42.372  INFO 15260 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-18 23:11:43.777  WARN 15260 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 23:11:43.778  INFO 15260 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 23:11:43.902  INFO 15260 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 23:14:15.364  INFO 9088 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 9088 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 23:14:15.368  INFO 9088 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 23:14:16.626  INFO 9088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 23:14:16.643  INFO 9088 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 23:14:16.644  INFO 9088 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 23:14:16.757  INFO 9088 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 23:14:16.758  INFO 9088 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1312 ms
+2020-03-18 23:14:17.056  INFO 9088 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 23:14:17.280  INFO 9088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 23:14:17.284  INFO 9088 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.411 seconds (JVM running for 3.355)
+2020-03-18 23:14:21.436  INFO 9088 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 23:14:21.436  INFO 9088 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 23:14:21.442  INFO 9088 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-18 23:14:23.227  WARN 9088 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 23:14:23.228  INFO 9088 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 23:14:23.341  INFO 9088 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-18 23:15:52.400  INFO 4392 --- [main] iacaasystem.IacaaSystemApplication       : Starting IacaaSystemApplication on DESKTOP-ULVR0MJ with PID 4392 (F:\JavaProject\IDEAproject\iacaa-system-0.1\target\classes started by MrZhao in F:\JavaProject\IDEAproject\iacaa-system-0.1)
+2020-03-18 23:15:52.403  INFO 4392 --- [main] iacaasystem.IacaaSystemApplication       : No active profile set, falling back to default profiles: default
+2020-03-18 23:15:53.727  INFO 4392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-18 23:15:53.736  INFO 4392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-18 23:15:53.737  INFO 4392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-18 23:15:53.837  INFO 4392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-18 23:15:53.837  INFO 4392 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1388 ms
+2020-03-18 23:15:54.188  INFO 4392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-18 23:15:54.404  INFO 4392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-18 23:15:54.409  INFO 4392 --- [main] iacaasystem.IacaaSystemApplication       : Started IacaaSystemApplication in 2.418 seconds (JVM running for 3.259)
+2020-03-18 23:15:55.547  INFO 4392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-18 23:15:55.547  INFO 4392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-18 23:15:55.552  INFO 4392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-18 23:15:57.053  WARN 4392 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-18 23:15:57.054  INFO 4392 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-18 23:15:57.166  INFO 4392 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

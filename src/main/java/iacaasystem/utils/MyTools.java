@@ -32,5 +32,4 @@ public class MyTools {
         }
         return result;
     }
-
 }

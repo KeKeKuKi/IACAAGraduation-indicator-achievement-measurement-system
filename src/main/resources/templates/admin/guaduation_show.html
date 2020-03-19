@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
+    <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
+    <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="/admin/adminmain :: head"></div>
+    <div th:replace="/admin/adminmain :: menu"></div>
+    <div class="layui-body" th:fragment="teacher">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>毕业要求</th>
+                    <th>指标点及描述</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="da : ${data}">
+                    <td th:text="${da.reqTitle}"></td>
+                    <td>
+                        <table>
+                            <tbody/>
+                            <tr th:each="ta : ${targets}" th:if="${da.reqId} == ${ta.graduationRequirement.reqId}">
+                                <td th:text="${ta.targetId}"></td>
+                                <td th:text="${ta.targetDiscribe}"></td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <tr th:each="item,pageStat:${Buffer}">
+                <a th:href="${pageStat.index}+1"></a>
+                <button type="button" class="layui-btn layui-btn-normal">
+                    <a style="color: white" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}"></a>
+                </button>
+            </tr>
+        </div>
+
+        <div th:replace="/admin/adminmain :: footer"></div>
+    </div>
+
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+</body>
+</html>

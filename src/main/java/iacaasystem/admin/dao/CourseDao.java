@@ -14,6 +14,7 @@ public interface CourseDao {
             "from course")
     List<Course> selectAllCourse();
 
+
     @Select("select course_id as courseId,course_name as courseName,course_image as courseImageUrl " +
             "from course where course_id=#{id}")
     Course selectCourseById(int id);
@@ -28,6 +29,10 @@ public interface CourseDao {
     @Select("select req_id as reqId,req_name as reqTitle,req_discrible as reqDiscribe " +
             "from graduation_requirements where req_id=#{id}")
     GraduationRequirement selectGraduationRequirementById(int id);
+
+    @Select("select req_id as reqId,req_name as reqTitle,req_discrible as reqDiscribe " +
+            "from graduation_requirements")
+    List<GraduationRequirement> selectAllGraduationRequirements();
 
     @Select("select req_id as reqId,req_name as reqTitle,req_discrible as reqDiscribe " +
             "from graduation_requirements")
@@ -171,6 +176,13 @@ public interface CourseDao {
             @Result(property = "graduationRequirement",column = "tar_req",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectGraduationRequirementById"))
     })
     List<Target> selectTargetByReqId(int id);
+
+    @Select("select tar_id as targetId,tar_discribe as targetDiscribe,tar_req " +
+            "from targets")
+    @Results({
+            @Result(property = "graduationRequirement",column = "tar_req",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectGraduationRequirementById"))
+    })
+    List<Target> selectAllTargets();
 
     @Update("INSERT INTO req_grade (req_years,req_grade,req) VALUES (#{date},#{score},#{reqid})")
     int addReqScore(Date date,int reqid, double score);

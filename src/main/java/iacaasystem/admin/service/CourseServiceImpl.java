@@ -54,6 +54,16 @@ public class CourseServiceImpl implements CourseService {
         return getThisYearCourseTaskFilter(courseTasks);
     }
 
+    @Override
+    public List<Target> getAllTargets() {
+        return courseDao.selectAllTargets();
+    }
+
+    @Override
+    public List<Target> getAllTargetsByReqId(int id) {
+        return courseDao.selectTargetByReqId(id);
+    }
+
 
     /**
      *  @author: ZhaoZezhong
@@ -273,8 +283,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public double getGraduationReqScoreByGraduationReqAndYear(GraduationRequirement graduationRequirement,Calendar cal) {
-        List<Target> targets = courseDao.selectTargetByReqId(graduationRequirement.getReqId());
+    public double getGraduationReqScoreByGraduationReqIdAndYear(int graduationRequirementid,Calendar cal) {
+        List<Target> targets = courseDao.selectTargetByReqId(graduationRequirementid);
         double reScore = 0;
         int targetsSize = targets.size();
         if(targetsSize>0){
@@ -284,7 +294,6 @@ public class CourseServiceImpl implements CourseService {
             return reScore/(double)targetsSize;
         }
         return 0;
-
     }
 
     @Override
@@ -296,9 +305,54 @@ public class CourseServiceImpl implements CourseService {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year,1,1);
         for (int i=0;i<totalReqCount;i++){
-            allReqScores[i] = (double) Math.round(getGraduationReqScoreByGraduationReqAndYear(graduationRequirements.get(i),calendar) * 100) / 100;
+            allReqScores[i] = (double) Math.round(getGraduationReqScoreByGraduationReqIdAndYear(graduationRequirements.get(i).getReqId(),calendar) * 100) / 100;
         }
         return allReqScores;
+    }
+
+    public double getAvgExlinkScoreByCourseTaskId(int courseTaskId){
+        List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(courseTaskId);
+        if(examinationLinks.size()>0){
+            double score = 0;
+            for(int i=0,size = examinationLinks.size();i<size;i++){
+                score=Arith.add(score,examinationLinks.get(i).getElMix()*(examinationLinks.get(i).getElAverageScore()/examinationLinks.get(i).getElTargetScore()));
+            }
+            return score;
+        }else return 0;
+    }
+
+    @Override
+    public double getAvgCourseTaskScoreByCoursIdAndTargetIdAndYear(int targetId,int courseId, int year) {
+        List<CourseTask> courseTasks = courseDao.selectCourseTaskByCourseIdAndTargetId(courseId,targetId);
+        if(courseTasks.size()>0){
+            for(int i=0;i<courseTasks.size();i++){
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(courseTasks.get(i).getYear());
+                if(calendar.get(Calendar.YEAR)!=year) courseTasks.remove(i);
+            }
+        }
+        double score =0;
+        if(courseTasks.size()>0){
+            for(int i=0,size=courseTasks.size();i<size;i++){
+                score = Arith.add(score,getAvgExlinkScoreByCourseTaskId(courseTasks.get(i).getTaskId())*courseTasks.get(i).getTargetMix());
+            }
+            return score;
+        }else return 0;
+    }
+
+    @Override
+    public double[] getAllTargetScoreByReqIdAndYear(int reqid,int year) {
+        Calendar years = Calendar.getInstance();
+        years.set(year,1,1);
+        List<Target> targets = courseDao.selectTargetByReqId(reqid);
+        double [] alltargetScores = new double[targets.size()];
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year,1,1);
+        for (int i=0,size = targets.size();i<size;i++){
+            alltargetScores[i] = (double) Math.round(getTargetScoreByTargetAndYear(targets.get(i),years) * 100) / 100;
+        }
+        return alltargetScores;
     }
 
     @Override
@@ -314,7 +368,7 @@ public class CourseServiceImpl implements CourseService {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             for (int i=0;i<graduationRequirementsSize;i++){
-                courseDao.addReqScore(new Date(),graduationRequirements.get(i).getReqId(),getGraduationReqScoreByGraduationReqAndYear(graduationRequirements.get(i),calendar));
+                courseDao.addReqScore(new Date(),graduationRequirements.get(i).getReqId(),getGraduationReqScoreByGraduationReqIdAndYear(graduationRequirements.get(i).getReqId(),calendar));
             }
             return true;
         }catch (Exception e){
@@ -324,6 +378,11 @@ public class CourseServiceImpl implements CourseService {
         }
 
 
+    }
+
+    @Override
+    public List<CourseTargetMix> getAllCourseTargetMixByTargetId(int id) {
+        return courseDao.selectCourseTargetMixByTargetId(id);
     }
 
 

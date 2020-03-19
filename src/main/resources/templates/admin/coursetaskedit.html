@@ -36,9 +36,6 @@
                 <td th:text="${da.taskDiscribe}"></td>
                 <td>
                     <table class="layui-table">
-                        <colgroup>
-
-                        </colgroup>
                         <tbody th:id="${da.taskId}+'div'">
                         <tr th:each="da2 : ${els}" >
                             <div th:if="${da2.courseTask} != null">
