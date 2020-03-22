@@ -43,6 +43,7 @@
                 <td th:text="${da.target.targetDiscribe}"></td>
                 <td th:text="${da.ctmix}"></td>
                 <td>
+                    <a th:href="@{/admin/editcoursetask(courseId=${da.course.courseId},targetId=${da.target.targetId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm" style="float: right;margin-bottom: 5px">编辑课程目标考核环节</button></a>
                     <table class="layui-table">
                         <colgroup>
                             <col width="50">

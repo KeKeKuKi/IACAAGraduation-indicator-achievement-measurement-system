@@ -21,13 +21,13 @@
     <div th:replace="/admin/adminmain :: head"></div>
     <div th:replace="/admin/adminmain :: menu"></div>
     <div class="layui-body">
-        <div class="card" style="width: 700px;display: inline-block">
+        <div class="card" style="width: 700px;display: inline-block;margin: 5px">
             <div class="card-header"><h4>相关支撑课程占比</h4></div>
             <div class="card-body">
                 <canvas id="chart-pie" width="700" height="480"></canvas>
             </div>
         </div>
-        <div class="card" style="width: 500px;display: inline-block">
+        <div class="card" style="width: 500px;display: inline-block;margin: 5px">
             <div class="card-header"><h4>相关课程目标达成度</h4></div>
             <div class="card-body">
                 <canvas id="chart-vbar-1" width="500" height="530"></canvas>
@@ -76,7 +76,7 @@
             datasets: [{
                 data: [[${coursesMix}]],
                 backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
-                    'rgba(200, 150, 40, 1)', 'rgba(150, 150, 40, 1)', 'rgba(180, 20, 140, 1)', 'rgba(50, 200, 150, 1)']
+                    'rgb(200,110,189)', 'rgb(85,190,206)', 'rgb(209,149,77)', 'rgba(50, 200, 150, 1)']
             }]
         },
         options: {
@@ -88,7 +88,6 @@
 
 
 <script>
-    //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
 

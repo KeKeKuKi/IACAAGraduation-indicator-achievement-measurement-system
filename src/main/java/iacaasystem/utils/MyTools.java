@@ -2,6 +2,8 @@ package iacaasystem.utils;
 
 
 import java.security.MessageDigest;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MyTools {
     public static String toMd5String(String str){

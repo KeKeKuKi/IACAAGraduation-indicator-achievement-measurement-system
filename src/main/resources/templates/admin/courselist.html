@@ -21,9 +21,9 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>课程ID</th>
                     <th>课程名称</th>
-                    <th>编辑</th>
+                    <th>课程编辑</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,10 +31,8 @@
                     <td th:text="${da.courseId}"></td>
                     <td th:text="${da.courseName}" style="width: 500px"></td>
                     <td>
-                        <a th:href="@{/admin/editcourse(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">课程教学目标</button></a>
-                        <a th:href="@{/admin/editcoursetask(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">目标考核环节</button></a>
-                        <a th:href="@{/admin/editeLinks(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">考核环节分数</button></a>
-                        <a><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">历年成绩一览</button></a>
+                        <a th:href="@{/admin/editcourse(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">编辑本年度课程教学目标</button></a>
+                        <a th:href="@{/admin/editeLinks(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">录入本年度各考核环节分数</button></a>
                     </td>
                 </tr>
                 </tbody>

@@ -14,13 +14,19 @@ public class Page <T>{
 
 
     public Page(int curentPage, int totalCount, List<T> datas,String url) {
-        this.curentPage = curentPage;
+
+        if(curentPage*totalCount>datas.size()){
+            this.curentPage = 1;
+        }else this.curentPage = curentPage;
         this.totalCount = totalCount;
         this.datas = datas;
         this.url = url;
     }
 
     public List<T> getPage(int pageNumber){
+        if(pageNumber*totalCount>datas.size()){
+            pageNumber = datas.size()/totalCount+1;
+        }
         pageDatas = new ArrayList<>();
         if(pageNumber>datas.size()/totalCount+1){
             pageNumber = datas.size()/totalCount+1;
@@ -38,6 +44,9 @@ public class Page <T>{
     }
 
     public Map getPageBuffer(int pageNumber){
+        if(pageNumber*totalCount>datas.size()){
+            pageNumber = datas.size()/totalCount+1;
+        }
         Map <String,String> pageBuffer = new LinkedHashMap<>();
 
         if(pageNumber>=2) {

@@ -18,7 +18,7 @@
     function adddistr() {
         var courseid = $("#courseid").val();
         var teacherid = $("#teacherid").val();
-        if(confirm("确实要添加此课程？")){
+        if(confirm("确实要分配此课程编辑任务？")){
             $.ajax({
                 url:"/admin/adddistribution",
                 async:true,
@@ -49,7 +49,7 @@
                     <div class="layui-inline">
 <!--                        <label class="layui-form-label">选择课程</label>-->
                         <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-                            <legend>选择课程</legend>
+                            <legend>选择分配课程</legend>
                             <div class="layui-input-inline">
                                 <select id="courseid" lay-verify="required" lay-search="">
                                     <option th:each="course : ${courses}" th:value="${course.courseId}" th:text="${course.courseName}"></option>
@@ -57,10 +57,10 @@
                             </div>
                         </fieldset>
                         <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-                            <legend>选择老师</legend>
+                            <legend>选择账号</legend>
                             <div class="layui-input-inline">
                                 <select id="teacherid" lay-verify="required" lay-search="">
-                                    <option th:each="teacher : ${teachers}" th:value="${teacher.teacherId}" th:text="${teacher.teacherName}"></option>
+                                    <option th:each="teacher : ${teachers}" th:value="${teacher.teacherId}" th:text="${teacher.teacherNumber}+'(持有者：'+${teacher.teacherName}+')'"></option>
                                 </select>
                             </div>
                         </fieldset>
@@ -74,7 +74,7 @@
         </div>
 
         <div style="padding: 15px;">
-            <button type="button" class="layui-btn" onclick="popBox()">新增排课</button>
+            <button type="button" class="layui-btn" onclick="popBox()">分配新的任务</button>
             <table class="layui-table">
                 <colgroup>
                     <col width="150">
@@ -86,10 +86,9 @@
                 <tr>
                     <th>ID</th>
                     <th>课程名称</th>
-                    <th>任课老师</th>
-                    <th>任课老师电话</th>
-                    <th>创建时间</th>
-                    <th>编辑</th>
+                    <th>任务执行者</th>
+                    <th>执行者电话</th>
+                    <th>任务分配时间</th>
                     <th>删除</th>
                 </tr>
                 </thead>
@@ -100,9 +99,6 @@
                     <td th:text="${da.distriteacher.teacherName}"></td>
                     <td th:text="${da.distriteacher.teacherPhonenumber}"></td>
                     <td th:text="${da.distrTime}"></td>
-                    <td>
-                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
-                    </td>
                     <td>
                         <button type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon"></i></button>
                     </td>

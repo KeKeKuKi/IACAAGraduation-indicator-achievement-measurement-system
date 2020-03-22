@@ -14,22 +14,24 @@
     <div th:replace="/admin/adminmain :: head"></div>
     <div th:replace="/admin/adminmain :: menu"></div>
     <div class="layui-body" style="padding: 15px">
-        <button type="button" class="layui-btn layui-btn-sm" onclick="javascript:history.back(-1);" style="margin: 0px"><i class="layui-icon"></i><i class="layui-icon"></i></button>
-        <hr>
+        <button type="button" class="layui-btn layui-btn-sm" onclick="javascript:history.back(-1);" style="margin: 0px;"><i class="layui-icon"></i><i class="layui-icon"></i></button>
         <table class="layui-table">
             <colgroup>
                 <col width="150">
+                <col width="100">
                 <col>
             </colgroup>
             <thead>
             <tr>
                 <th>课程目标描述</th>
+                <th>支撑毕业要求</th>
                 <th>课程教学目标考察环节</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="da : ${courseTasks}">
                 <td th:text="${da.taskDiscribe}"></td>
+                <td th:text="${da.ttarget.graduationRequirement.reqTitle}"></td>
                 <td>
                     <table class="layui-table">
                         <colgroup>
@@ -60,13 +62,10 @@
                         </tr>
                         </tbody>
                     </table>
-
                 </td>
-
             </tr>
             </tbody>
         </table>
-        <button onclick="showSaveMes()" style="float: right;margin-right: 50px" class="layui-btn layui-btn-normal">保存数据</button>
     </div>
     <div th:replace="/admin/adminmain :: footer"></div>
 

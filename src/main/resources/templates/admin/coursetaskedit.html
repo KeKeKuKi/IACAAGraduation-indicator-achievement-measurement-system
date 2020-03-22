@@ -18,11 +18,8 @@
         <hr>
         <table class="layui-table">
             <colgroup>
-                <col width="100">
-                <col width="200">
-                <col width="60">
-                <col width="200">
-                <col width="90">
+                <col width="120">
+
                 <col>
             </colgroup>
             <thead>
@@ -40,8 +37,21 @@
                         <tr th:each="da2 : ${els}" >
                             <div th:if="${da2.courseTask} != null">
                                 <div th:if="${da2.courseTask.taskId} == ${da.taskId}">
-                                    <td style="padding: 0px;margin: 0px;color: darkgreen;text-align: right">考察环节内容:</td>
-                                    <td style="padding: 0px;margin: 0px"><input th:value="${da2.elName}"  style="border: none;" th:id="${da2.elId}+'elname'" th:onchange="'updateElink('+${da2.elId}+','+${da2.courseTask.taskId}+')'"/></td>
+                                    <td style="padding: 0px;margin: 0px;color: darkgreen;text-align: right">环节内容:</td>
+                                    <td style="padding: 0px;margin: 0px">
+<!--                                        <input th:value="${da2.elName}"  style="border: none;" th:id="${da2.elId}+'elname'" th:onchange="'updateElink('+${da2.elId}+','+${da2.courseTask.taskId}+')'"/>-->
+                                        <select name="interest" lay-filter="aihao" style="border: none;"  th:id="${da2.elId}+'elname'" th:onchange="'updateElink('+${da2.elId}+','+${da2.courseTask.taskId}+')'">
+                                            <option th:text="${da2.elName}" selected="selected"></option>
+                                            <option value="考勤">考勤</option>
+                                            <option value="作业">作业</option>
+                                            <option value="期末考试">期末考试</option>
+                                            <option value="回答问题">回答问题</option>
+                                            <option value="混合式教学">混合式教学</option>
+                                            <option value="课堂表现">课堂表现</option>
+                                            <option value="实验报告">实验报告</option>
+                                            <option value="其他">其他</option>
+                                        </select>
+                                    </td>
                                     <td style="padding: 0px;margin: 0px;color: darkgreen;text-align: right">环节目标分数:</td>
                                     <td style="padding: 0px;margin: 0px"><input th:value="${da2.elTargetScore}" style="border: none" th:id="${da2.elId}+'eltargetscore'" th:onchange="'updateElink('+${da2.elId}+','+${da2.courseTask.taskId}+')'"/></td>
                                     <td style="padding: 0px;margin: 0px;color: darkgreen;text-align: right">环节权重:</td>
@@ -130,8 +140,20 @@
             $(addbarid).css({ "display": "none" });
             var div = "#"+taskId+"div";
             $(div).append("<tr>\n" +
-                "              <td style=\"padding: 0px;margin: 0px;color: darkgreen;text-align: right\">考察环节内容:</td>\n" +
-                "              <td style=\"padding: 0px;margin: 0px\"><input style=\"border: none;\" id='"+taskId+"newelinkName'/></td>\n" +
+                "              <td style=\"padding: 0px;margin: 0px;color: darkgreen;text-align: right\">环节内容:</td>\n" +
+                "              <td style=\"padding: 0px;margin: 0px\">" +
+                "<select style=\"border: none;\" id='"+taskId+"newelinkName'>\n" +
+                "                                            <option th:text=\"${da2.elName}\" selected=\"selected\"></option>\n" +
+                "                                            <option value=\"考勤\">考勤</option>\n" +
+                "                                            <option value=\"作业\">作业</option>\n" +
+                "                                            <option value=\"期末考试\">期末考试</option>\n" +
+                "                                            <option value=\"回答问题\">回答问题</option>\n" +
+                "                                            <option value=\"混合式教学\">混合式教学</option>\n" +
+                "                                            <option value=\"课堂表现\">课堂表现</option>\n" +
+                "                                            <option value=\"实验报告\">实验报告</option>\n" +
+                "                                            <option value=\"其他\">其他</option>\n" +
+                "                                        </select>"+
+                "</td>\n" +
                 "              <td style=\"padding: 0px;margin: 0px;color: darkgreen;text-align: right\">环节目标分数:</td>\n" +
                 "              <td style=\"padding: 0px;margin: 0px\"><input  style=\"border: none\" id='"+taskId+"newelinkTargetScore'/></td>\n" +
                 "              <td style=\"padding: 0px;margin: 0px;color: darkgreen;text-align: right\">环节权重:</td>\n" +

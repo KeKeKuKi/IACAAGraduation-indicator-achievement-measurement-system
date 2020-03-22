@@ -21,21 +21,23 @@
     <div th:replace="/admin/adminmain :: head"></div>
     <div th:replace="/admin/adminmain :: menu"></div>
     <div class="layui-body">
-        <div class="card" style="width: 650px;display: inline-block">
+        <div class="card" style="width: 710px;display: inline-block;margin: 10px;margin-right: 0px">
             <div class="card-header"><h4>各指标点分数占比</h4></div>
             <div class="card-body">
-                <canvas id="chart-pie" width="650" height="480"></canvas>
+                <canvas id="chart-pie" width="710" height="480"></canvas>
             </div>
         </div>
-        <div class="card" style="width: 450px;display: inline-block">
+        <div class="card" style="width: 450px;display: inline-block;margin: 10px;margin-left: 0px">
             <div class="card-header"><h4>指标点对比情况</h4></div>
             <div class="card-body">
-                <canvas id="chart-vbar-1" width="500" height="530"></canvas>
+                <canvas id="chart-vbar-1" width="500" height="598"></canvas>
             </div>
         </div>
-        <ul class="layui-nav layui-nav-tree"   lay-filter="test" style="width: 50px;position: absolute;top: 35px;right: 160px;background-color: rgb(110,80,230);border-radius: 5px">
+        <ul class="layui-nav layui-nav-tree"   lay-filter="test" style="width: 180px;position: absolute;top: 40px;right: 5px;background-color: rgb(110,80,230);border-radius: 5px">
             <hr style="margin: 15px"/>
-            <li class="layui-nav-item"><a th:each="target : ${targets}" th:text="${target.targetId}" th:href="@{/admin/showscoreByTargetId(targetId=${target.targetId},year=${year})}" style="color: rgb(240,240,240);"></a>
+            <li class="layui-nav-item" style="text-align: center">
+                <a th:each="target : ${targets}" th:text="'指标点：'+${target.targetId}+' 详细信息'" th:href="@{/admin/showscoreByTargetId(targetId=${target.targetId},year=${year})}" style="color: rgb(240,240,240);"></a>
+            </li>
         </ul>
     </div>
     <div th:replace="/admin/adminmain :: footer"></div>

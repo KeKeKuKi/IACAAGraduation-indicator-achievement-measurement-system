@@ -100,7 +100,7 @@ public interface CourseDao {
     List<CourseTargetMix> selectCourseTargetMixByCourseId(int courseid);
 
     @Select("select coursemixid as ctmixId, coursex, targetx,coursetargetsmix as ctmix" +
-            " from ctmix where targetx=#{tagetId}")
+            " from ctmix where targetx=#{tagetId} order by coursetargetsmix")
     @Results({
             @Result(property = "course",column = "coursex",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectCourseById")),
             @Result(property = "target",column = "targetx",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectTargetById"))

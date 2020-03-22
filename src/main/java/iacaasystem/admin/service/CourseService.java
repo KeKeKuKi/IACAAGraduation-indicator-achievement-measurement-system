@@ -7,10 +7,58 @@ import java.util.List;
 
 
 public interface CourseService {
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/1
+     *  @Description:返回所有课程列表
+     *  @parameters:
+     */
     List<Course> getAllCourse();
+
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/1
+     *  @Description:添加课程编辑任务
+     *  @parameters: teacherid:教师账户Id,courseid:课程Id
+     */
     boolean addDistributionCourse(int teacherid, int courseid);
+
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/1
+     *  @Description:返回所有分配任务列表
+     *  @parameters:
+     */
     List<DistributionCourse> getAllDistributionCourse();
+
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/1
+     *  @Description:根据课程Id返回课程
+     *  @parameters: id:课程Id
+     */
     Course getCourseById(int id);
+
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/1
+     *  @Description:根据课程Id返回该课程所有支撑的指标点以及权重
+     *  @parameters: id：课程Id
+     */
     List<CourseTargetMix> getAllCourseTargetMixByCourseId(int id);
     List<CourseTask> getThisYearTasksByCourseId(int courseId);
     List<Target> getAllTargets();
@@ -34,5 +82,4 @@ public interface CourseService {
     List<GraduationRequirement> getAllGraduationRequirements();
     boolean setAllThisYearReqScore();
     List<CourseTargetMix> getAllCourseTargetMixByTargetId(int id);
-
 }

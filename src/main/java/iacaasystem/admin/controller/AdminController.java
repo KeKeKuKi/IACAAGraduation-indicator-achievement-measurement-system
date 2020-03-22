@@ -22,6 +22,13 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: welcome to https://zhaozezhong.fun
+     *  @Date: 2020/2/10 19:40
+     *  @Description: 方法用于判断用户是否登录成功，输出值 1：用户名及密码正确 0：密码错误 -1;用户不存在
+     */
     @ResponseBody
     @RequestMapping("/adminlogin")
     public void list(Model model, HttpServletRequest request, ServletResponse response) throws IOException {
@@ -49,6 +56,13 @@ public class AdminController {
 
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: welcome to https://zhaozezhong.fun
+     *  @Date: 2020/2/10 19:42
+     *  @Description: 用于用户注销操作
+     */
     @RequestMapping("/sinout")
     public String sinout(HttpServletRequest request){
         request.getSession().removeAttribute("admin");
@@ -57,7 +71,12 @@ public class AdminController {
 
 
 
-
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: welcome to https://zhaozezhong.fun
+     *  @Date: 2020/10/22 19:42
+     *  @Description:返回控制台页面
+     */
     @RequestMapping("/toConsole")
     public String toConsole(){
         return "/admin/adminConsole";

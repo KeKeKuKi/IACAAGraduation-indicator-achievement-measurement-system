@@ -17,6 +17,14 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.*;
 
+
+
+/**
+ *  @author: ZhaoZezhong
+ *  @advertisement: zhaozezhong.mail@foxmail.com
+ *  @Date: 2020/3/22
+ *  @Description:该控制器负责管理员对课程信息操作的所有业务包装与分发
+ */
 @Controller
 @RequestMapping("/admin")
 public class CourseController {
@@ -27,6 +35,12 @@ public class CourseController {
     @Autowired
     TeacherService teacherService;
 
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:43
+     *  @Description:查询所有课程信息返回分页数据
+     */
     @RequestMapping("/courselist")
     public String sourses(HttpServletRequest request){
         int pageCount = 1;
@@ -44,6 +58,13 @@ public class CourseController {
         return "/admin/courselist";
     }
 
+    
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:44
+     *  @Description:返回所有毕业要求及其对应指标点
+     */
     @RequestMapping("/reqshow")
     public String reqShow(HttpServletRequest request){
         int cPage = 1;
@@ -63,6 +84,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:45
+     *  @Description:返回所有已分配的课程任务信息
+     */
     @RequestMapping("/distrcourse")
     public String distrcourse(HttpServletRequest request){
         int pageCount = 1;
@@ -83,6 +111,13 @@ public class CourseController {
         return "/admin/distrcourse";
     }
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:46
+     *  @Description:根据课程以及账号Id添加本年度课程任务分配
+     */
     @RequestMapping("/adddistribution")
     public void addDistribution(HttpServletRequest request, HttpServletResponse response){
         Logger logger = LoggerFactory.getLogger(getClass());
@@ -113,6 +148,14 @@ public class CourseController {
 
     }
 
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:48
+     *  @Description:根据课程Id返回课程编辑页面
+     */
     @RequestMapping(value = "/editcourse")
     public String editCourse(HttpServletRequest request, Map map){
         try{
@@ -131,6 +174,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:49
+     *  @Description:通过SpringMvc将前端数据自动封装，根据课程目标更改数据库课程目标信息
+     */
     @ResponseBody
     @RequestMapping("/saveCourseTask")
     public void saveCourseTask(CourseTask courseTask,HttpServletResponse response){
@@ -147,6 +197,14 @@ public class CourseController {
         }
     }
 
+    
+    
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/22 19:51
+     *  @Description:
+     */
     @ResponseBody
     @RequestMapping("/deleteCourseTask")
     public void deleteCourseTask(HttpServletRequest request,HttpServletResponse response){
@@ -164,6 +222,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:52
+     *  @Description:删除课程目标考核环节
+     */
     @ResponseBody
     @RequestMapping("/deleteElink")
     public void deleteElink(HttpServletRequest request,HttpServletResponse response) throws IOException {
@@ -172,7 +237,7 @@ public class CourseController {
             if(courseService.deleteExaminationLinkByElId(Integer.parseInt(request.getParameter("elId")))){
                 writer.write("true");
             }else writer.write("false");
-        }catch (Exception e){
+        }catch (Exception e){ //捕获异常并处理，同时记录错误日志
             Logger logger = LoggerFactory.getLogger(getClass());
             logger.warn("admin/deleteElink something wrong"+e.toString());
             writer.write("false");
@@ -182,6 +247,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:53
+     *  @Description:根据课程Id以及指标点添加课程目标
+     */
     @ResponseBody
     @RequestMapping("/addCourseTask")
     public void addCourseTask(HttpServletRequest request,HttpServletResponse response) throws IOException {
@@ -206,15 +278,32 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:54
+     *  @Description:更改课程目标
+     */
     @RequestMapping(value = "/editcoursetask")
     public String editCourseTask(HttpServletRequest request, Map map){
         try{
             String courseIdStr = request.getParameter("courseId");
+            String targetIdStr = request.getParameter("targetId");
             int courseId = Integer.parseInt(courseIdStr);
+            int targetId = Integer.parseInt(targetIdStr);
             Course course = courseService.getCourseById(courseId);
+            List<CourseTask> courseTasks = courseService.getThisYearTasksByCourseId(courseId);
+            for (int i=0;i<courseTasks.size();i++){
+                if(courseTasks.get(i).getTtarget().getTargetId()!=targetId){
+                    courseTasks.remove(i);
+                    --i;
+                }
+            }
+            if (courseTasks.size()<=0) return "admin/courseTaskNotComplete";
             map.put("course",course);
             map.put("els",courseService.getThisYearExaminationLinksByCourseId(courseId));
-            map.put("courseTasks",courseService.getThisYearTasksByCourseId(courseId));
+            map.put("courseTasks",courseTasks);
             return "admin/coursetaskedit";
         }catch (Exception e){
             map.put("erromessage",e.toString());
@@ -222,6 +311,14 @@ public class CourseController {
         }
     }
 
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:55
+     *  @Description:更改课程目标考核环节
+     */
     @ResponseBody
     @RequestMapping("/updateElLink")
     public void updateElLink(ExaminationLink examinationLink,HttpServletResponse response,HttpServletRequest request) throws IOException {
@@ -250,6 +347,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:55
+     *  @Description:添加课程目标考核环节
+     */
     @ResponseBody
     @RequestMapping("/addExaminationLink")
     public void addExaminationLink(ExaminationLink examinationLink,HttpServletRequest request,HttpServletResponse response) throws IOException {
@@ -280,6 +384,15 @@ public class CourseController {
 
     }
 
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020//22 19:56
+     *  @Description:返回课程目标考核环节编辑页面
+     *
+     */
     @RequestMapping(value = "/editeLinks")
     public String editeLinks(HttpServletRequest request, Map map){
         try{
@@ -303,6 +416,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/22 19:57
+     *  @Description: 更改课程目标考核环节平均分数
+     */
     @ResponseBody
     @RequestMapping("/updateExaminationLinkAvgScore")
     public void updateExaminationLinkAvgScore(ExaminationLink examinationLink,HttpServletResponse response) throws IOException {
@@ -323,12 +443,28 @@ public class CourseController {
 
     }
 
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/23
+     *  @Description:
+     */
     @ResponseBody
     @RequestMapping("/totalReqScore")
     public void totalReqScore(HttpServletRequest request){
 
     }
 
+
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/2/24
+     *  @Description:返回本年度毕业指标展示分数页面
+     */
     @RequestMapping("/showThisYearScore")
     public String showScore(Map map,HttpServletRequest request){
         String year = request.getParameter("year");
@@ -356,14 +492,23 @@ public class CourseController {
             if(k==calendar.get(Calendar.YEAR)) continue;
             years.add(k);
         }
+        //添加年份列表
         map.put("years",years);
         int now = calendar.get(Calendar.YEAR);
+        //添加本年年份标记
         map.put("thisyear",now);
         request.setAttribute("thisyear",year);
         return "/admin/show";
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/25
+     *  @Description:根据毕业指标Id返回该毕业指标具体分数展示页面
+     */
     @RequestMapping("/showscoreByReqId")
     public String showscoreByReqId(Map map,HttpServletRequest request){
         String req = request.getParameter("reqid");
@@ -385,9 +530,9 @@ public class CourseController {
         for(int i=0;i<targetsSize;i++){
             targetsName[i] = targets.get(i).getTargetId()+":"+targets.get(i).getTargetDiscribe();
         }
-        int [] targetsId = new int[targetsSize];
+        String [] targetsId = new String[targetsSize];
         for(int i=0;i<targetsSize;i++) {
-            targetsId[i] = targets.get(i).getTargetId();
+            targetsId[i] = "指标点："+targets.get(i).getTargetId();
         }
         map.put("year",year);
         map.put("targets",targets);
@@ -398,6 +543,13 @@ public class CourseController {
     }
 
 
+
+    /**
+     *  @author: ZhaoZezhong
+     *  @advertisement: zhaozezhong.mail@foxmail.com
+     *  @Date: 2020/3/25
+     *  @Description:根据指标点返回该指标点分数详细情况
+     */
     @RequestMapping("/showscoreByTargetId")
     public String showscoreByTargetId(Map map,HttpServletRequest request){
         String tar = request.getParameter("targetId");
@@ -423,7 +575,6 @@ public class CourseController {
             map.put("coursesId",coursesId);
             map.put("coursesMix",coursesMix);
             map.put("coursesScorse",coursesScorse);
-
             return "/admin/show_target_score";
         }catch (Exception e){
             Logger logger = LoggerFactory.getLogger(getClass());
@@ -431,6 +582,4 @@ public class CourseController {
             return "/admin/404";
         }
     }
-
-
 }
