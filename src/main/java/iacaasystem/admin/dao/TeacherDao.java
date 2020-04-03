@@ -37,4 +37,7 @@ public interface TeacherDao {
 
     @Delete("DELETE FROM teacher WHERE teacher_table_id = #{id}")
     int deleteTeacherByTeacherId(int id);
+
+    @Delete("DELETE FROM distribution_course where distribution_teacher = #{id}")
+    int deleteDistrCourseByTeacherId(int id);
 }

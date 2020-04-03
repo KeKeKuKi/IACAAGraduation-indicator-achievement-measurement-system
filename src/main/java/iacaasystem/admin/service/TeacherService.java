@@ -11,4 +11,5 @@ public interface TeacherService {
     boolean ifHaveThisTeacherAcount(String acount);
     boolean addTeacher(Teacher teacher);
     boolean deleteTeacherByTeacherId(int id);
+    boolean deleteDistrCourseByTeacherConunId(int id);
 }

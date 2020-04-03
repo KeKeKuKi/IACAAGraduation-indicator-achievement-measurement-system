@@ -4,6 +4,7 @@ import iacaasystem.admin.dao.TeacherDao;
 import iacaasystem.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -42,7 +43,15 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean deleteTeacherByTeacherId(int id) {
+        teacherDao.deleteDistrCourseByTeacherId(id);
         return teacherDao.deleteTeacherByTeacherId(id)==1;
+    }
+
+    @Override
+    public boolean deleteDistrCourseByTeacherConunId(int id) {
+        teacherDao.deleteDistrCourseByTeacherId(id);
+        return true;
     }
 }
