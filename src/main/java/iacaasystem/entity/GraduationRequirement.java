@@ -1,9 +1,9 @@
 package iacaasystem.entity;
 
 public class GraduationRequirement {
-    int reqId;
-    String reqTitle;
-    String reqDiscribe;
+    private int reqId;
+    private String reqTitle;
+    private String reqDiscribe;
 
     public GraduationRequirement(int reqId, String reqTitle, String reqDiscribe) {
         this.reqId = reqId;

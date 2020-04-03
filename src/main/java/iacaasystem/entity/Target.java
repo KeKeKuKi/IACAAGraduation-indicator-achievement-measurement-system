@@ -1,9 +1,9 @@
 package iacaasystem.entity;
 
 public class Target {
-    int targetId;
-    String targetDiscribe;
-    GraduationRequirement graduationRequirement;
+    private int targetId;
+    private String targetDiscribe;
+    private GraduationRequirement graduationRequirement;
 
     public Target() {
     }

@@ -3,12 +3,12 @@ package iacaasystem.entity;
 import java.util.Date;
 
 public class ExaminationLink {
-    int elId;
-    CourseTask courseTask;
-    String elName;
-    double elTargetScore;
-    double elAverageScore;
-    double elMix;
+    private int elId;
+    private CourseTask courseTask;
+    private String elName;
+    private double elTargetScore;
+    private double elAverageScore;
+    private double elMix;
 
     public ExaminationLink() {
     }

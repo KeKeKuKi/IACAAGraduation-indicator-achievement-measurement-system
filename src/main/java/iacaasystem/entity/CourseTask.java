@@ -3,13 +3,13 @@ package iacaasystem.entity;
 import java.util.Date;
 
 public class CourseTask {
-    int taskId;
-    String taskDiscribe;
-    Course TCourse;
-    Target Ttarget;
-    double targetMix;
-    Date year;
-    int ifComplete;
+    private int taskId;
+    private String taskDiscribe;
+    private Course TCourse;
+    private Target Ttarget;
+    private double targetMix;
+    private Date year;
+    private int ifComplete;
 
     public CourseTask() {
     }

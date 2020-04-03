@@ -1,15 +1,15 @@
 package iacaasystem.entity;
 
 public class Teacher {
-    int teacherId;
-    String passWord;
-    String teacherNumber;
-    String teacherName;
-    int teacherSex;
-    int teacherAge;
-    String teacherPhonenumber;
-    int onlineState;
-    int editState;
+    private int teacherId;
+    private String passWord;
+    private String teacherNumber;
+    private String teacherName;
+    private int teacherSex;
+    private int teacherAge;
+    private String teacherPhonenumber;
+    private int onlineState;
+    private int editState;
 
     public Teacher(int teacherId, String passWord, String teacherNumber, String teacherName, int teacherSex, int teacherAge, String teacherPhonenumber, int onlineState, int editState) {
         this.teacherId = teacherId;

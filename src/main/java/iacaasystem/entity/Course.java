@@ -1,9 +1,9 @@
 package iacaasystem.entity;
 
 public class Course {
-    int courseId;
-    String courseName;
-    String courseImageUrl;
+    private int courseId;
+    private String courseName;
+    private String courseImageUrl;
 
     public Course() {
     }

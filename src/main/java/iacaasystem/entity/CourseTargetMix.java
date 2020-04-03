@@ -1,10 +1,10 @@
 package iacaasystem.entity;
 
 public class CourseTargetMix {
-    int ctmixId;
-    Course course;
-    Target target;
-    double ctmix;
+    private int ctmixId;
+    private Course course;
+    private Target target;
+    private double ctmix;
 
     public CourseTargetMix(int ctmixId, Course course, Target target, double ctmix) {
         this.ctmixId = ctmixId;

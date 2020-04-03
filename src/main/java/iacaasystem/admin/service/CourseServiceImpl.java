@@ -195,7 +195,7 @@ public class CourseServiceImpl implements CourseService {
             Calendar cl = Calendar.getInstance();
             for (int i=0,size = courseTasks.size();i<size;i++){
                 cl.setTime(courseTasks.get(i).getYear());
-                if(thisYearcal.get(Calendar.YEAR)==cl.get(Calendar.YEAR)){
+                if(thisYearcal.get(Calendar.YEAR) == cl.get(Calendar.YEAR)){
                     courseTasks1.add(courseTasks.get(i));
                 }
             }
@@ -253,14 +253,14 @@ public class CourseServiceImpl implements CourseService {
         List<CourseTargetMix> courseTargetMixes = courseDao.selectCourseTargetMixByTargetId(target.getTargetId());
         double totalTargetScore = 0;
         int courseTargetMixesSize = courseTargetMixes.size();
-        if(0<courseTargetMixesSize){
+        if(courseTargetMixesSize>0){
             List<CourseTask> courseTasks;
             List<ExaminationLink> examinationLinks;
             for (int i=0;i<courseTargetMixesSize;i++){
-                courseTasks= courseDao.selectCourseTaskByCourseIdAndTargetId(courseTargetMixes.get(i).getCourse().getCourseId(),target.getTargetId());
+                courseTasks = courseDao.selectCourseTaskByCourseIdAndTargetId(courseTargetMixes.get(i).getCourse().getCourseId(),target.getTargetId());
                 double totalCourseTaskScore = 0;
                 int courseTaskSize = courseTasks.size();
-                if(0<courseTaskSize){
+                if(courseTaskSize>0){
                     for (int j=0;j<courseTaskSize;j++){
                         ca2.setTime(courseTasks.get(j).getYear());
                         if(ca2.get(Calendar.YEAR)==cal.get(Calendar.YEAR)){

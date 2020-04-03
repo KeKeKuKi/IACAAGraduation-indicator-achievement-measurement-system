@@ -1,10 +1,10 @@
 package iacaasystem.entity;
 
 public class DistributionCourse {
-    int distributionId;
-    Course districourse;
-    Teacher distriteacher;
-    String distrTime;
+    private int distributionId;
+    private Course districourse;
+    private Teacher distriteacher;
+    private String distrTime;
 
     public DistributionCourse() {
     }

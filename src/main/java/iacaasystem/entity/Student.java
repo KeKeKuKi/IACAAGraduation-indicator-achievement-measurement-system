@@ -1,14 +1,14 @@
 package iacaasystem.entity;
 
 public class Student {
-    int stuId;
-    String stuNum;
-    String stuName;
-    int stuSex;
-    String stuBirthday;
-    int stuAge;
-    String stuNativePlace;
-    int clazz;
+    private int stuId;
+    private String stuNum;
+    private String stuName;
+    private int stuSex;
+    private String stuBirthday;
+    private int stuAge;
+    private String stuNativePlace;
+    private int clazz;
 
     public Student(int stuId, String stuNum, String stuName, int stuSex, String stuBirthday, int stuAge, String stuNativePlace, int clazz) {
         this.stuId = stuId;
