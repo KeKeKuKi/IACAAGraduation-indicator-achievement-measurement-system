@@ -25,11 +25,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public boolean addDistributionCourse(int teacherid, int courseid) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        String nowdate = dateFormat.format( new Date() );
-        int change = courseDao.addDistributionCourse(teacherid,courseid,nowdate);
-        if(change == 1) return true;
-        else return false;
+        int change = courseDao.addDistributionCourse(teacherid,courseid);
+        return change==1;
     }
 
     @Override

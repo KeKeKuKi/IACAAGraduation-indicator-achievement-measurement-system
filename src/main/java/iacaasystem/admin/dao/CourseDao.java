@@ -10,13 +10,19 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CourseDao {
-    @Select("select course_id as courseId,course_name as courseName,course_image as courseImageUrl " +
+    @Select("select course_id as courseId,course_name as courseName,course_image as courseImageUrl,course_edit_acount " +
             "from course")
+    @Results({
+            @Result(property = "edit_teacher",column = "course_edit_acount",one = @One(select = "iacaasystem.admin.dao.TeacherDao.selectTeacherById"))
+    })
     List<Course> selectAllCourse();
 
 
-    @Select("select course_id as courseId,course_name as courseName,course_image as courseImageUrl " +
+    @Select("select course_id as courseId,course_name as courseName,course_image as courseImageUrl,course_edit_acount " +
             "from course where course_id=#{id}")
+    @Results({
+            @Result(property = "edit_teacher",column = "course_edit_acount",one = @One(select = "iacaasystem.admin.dao.TeacherDao.selectTeacherById"))
+    })
     Course selectCourseById(int id);
 
     @Select("select el_id as elId,c_task,se_name as elName,target_score as elTargetScore,average_score as elAverageScore,el_mix as elMix " +
@@ -45,9 +51,8 @@ public interface CourseDao {
     })
     Target selectTargetById(int id);
 
-    @Update("insert into distribution_course(distribution_course,distribution_teacher,distribution_time) " +
-            "values(#{courseid},#{teacherid},#{date})")
-    int addDistributionCourse(int teacherid, int courseid,String date);
+    @Update("UPDATE course SET course_edit_acount = #{teacherid} WHERE course_id = #{courseid}")
+    int addDistributionCourse(int teacherid, int courseid);
 
 
 

@@ -45,6 +45,7 @@ public class CourseController {
     public String sourses(HttpServletRequest request){
         int pageCount = 1;
         try{
+            request.setAttribute("teachers",teacherService.selectAllTeachers());
             String page = request.getParameter("page");
             pageCount = Integer.parseInt(page);
         }catch (Exception e){

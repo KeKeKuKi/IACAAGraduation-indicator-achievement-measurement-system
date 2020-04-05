@@ -5,6 +5,7 @@
     <title>欢迎访问攀枝花学院IACAA系统管理员主页</title>
     <link rel="stylesheet" href="../../static/cji/layui/css/layui.css" th:href="@{/cji/layui/css/layui.css}" type="text/css">
     <script src="../../static/cji/layui/layui.js" th:src="@{/cji/layui/layui.js}"></script>
+    <script src="../../static/cji/js/jquery-1.2.6.js" th:src="@{/cji/js/jquery-1.2.6.js}"></script>
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
@@ -17,19 +18,28 @@
                 <colgroup>
                     <col width="150">
                     <col width="150">
+                    <col width="240">
                     <col>
                 </colgroup>
                 <thead>
                 <tr>
                     <th>课程ID</th>
                     <th>课程名称</th>
+                    <th>课程负责人</th>
                     <th>课程编辑</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="da : ${data}">
                     <td th:text="${da.courseId}"></td>
-                    <td th:text="${da.courseName}" style="width: 500px"></td>
+                    <td th:text="${da.courseName}" style="width: 450px"></td>
+                    <td>
+                        <select id="teacherid" lay-verify="required" lay-search="" style="border: none" th:onchange="'adddistr('+${da.courseId}+',this.value)'">
+                            <option th:if="${da.edit_teacher}" th:text="${da.edit_teacher.teacherName}"></option>
+                            <option th:if="!${da.edit_teacher}" th:text="'暂无，请指定:'"></option>
+                            <option th:each="teacher : ${teachers}" th:value="${teacher.teacherId}" th:text="${teacher.teacherNumber}+'：'+${teacher.teacherName}"></option>
+                        </select>
+                    </td>
                     <td>
                         <a th:href="@{/admin/editcourse(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">编辑本年度课程教学目标</button></a>
                         <a th:href="@{/admin/editeLinks(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">录入本年度各考核环节分数</button></a>
@@ -50,6 +60,28 @@
 
 
 </div>
+<script>
+    function adddistr(courseId,teacherId) {
+        if(confirm("确实要分配此课程编辑任务？")){
+            $.ajax({
+                url:"/admin/adddistribution",
+                async:true,
+                method:"post",
+                data:{teacherid:teacherId,courseid:courseId},
+                success:function (result) {
+                    if(result=="true"){
+                        window.location.reload();
+                    }else {
+                        alert("系统异常，添加失败！您的登录可能已超时！");
+                    }
+                },
+                error:function () {
+                    alert("服务器异常，添加失败！");
+                }
+            })
+        }
+    }
+</script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
