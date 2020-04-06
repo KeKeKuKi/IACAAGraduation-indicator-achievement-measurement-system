@@ -73,7 +73,8 @@ public class CourseServiceImpl implements CourseService {
         CourseTask courseTaskSaveNow = courseDao.selectCourseTaskByTaskId(courseTask.getTaskId());
         int count =  courseDao.UpdateCourseTask(courseTask.getTaskId(),courseTask.getTaskDiscribe(),courseTask.getTargetMix());
         if(count==1){
-            double totalMix = getTotalMixByCourseIdAndTargetId(courseTaskSaveNow.getTCourse().getCourseId(), courseTaskSaveNow.getTtarget().getTargetId());
+            double totalMix = getTotalMixByCourseIdAndTargetId(courseTaskSaveNow.getTCourse().getCourseId(),
+                    courseTaskSaveNow.getTtarget().getTargetId());
             if(totalMix<=1 && totalMix>0){
                 return true;
             }else {
@@ -143,16 +144,19 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public boolean updateExaminationLink(ExaminationLink examinationLink) {
         ExaminationLink examinationLinksave = courseDao.selectExaminationLinkById(examinationLink.getElId());
-        int count = courseDao.updateExaminationLink(examinationLink.getElId(),examinationLink.getElName(),examinationLink.getElTargetScore(),examinationLink.getElMix());
+        int count = courseDao.updateExaminationLink(examinationLink.getElId(),examinationLink.getElName(),
+                examinationLink.getElTargetScore(),examinationLink.getElMix());
         if(count==1){
             double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
             if(totalelmix>1||totalelmix<=0){
-                courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
+                courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),
+                        examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
                 return false;
             }
             return true;
         }else {
-            courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
+            courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),
+                    examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
             return false;
         }
     }
@@ -245,43 +249,22 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public double getTargetScoreByTargetAndYear(Target target,Calendar cal) {
-        Calendar ca2 = Calendar.getInstance();
-
         List<CourseTargetMix> courseTargetMixes = courseDao.selectCourseTargetMixByTargetId(target.getTargetId());
         double totalTargetScore = 0;
         int courseTargetMixesSize = courseTargetMixes.size();
         if(courseTargetMixesSize>0){
-            List<CourseTask> courseTasks;
-            List<ExaminationLink> examinationLinks;
             for (int i=0;i<courseTargetMixesSize;i++){
-                courseTasks = courseDao.selectCourseTaskByCourseIdAndTargetId(courseTargetMixes.get(i).getCourse().getCourseId(),target.getTargetId());
-                double totalCourseTaskScore = 0;
-                int courseTaskSize = courseTasks.size();
-                if(courseTaskSize>0){
-                    for (int j=0;j<courseTaskSize;j++){
-                        ca2.setTime(courseTasks.get(j).getYear());
-                        if(ca2.get(Calendar.YEAR)==cal.get(Calendar.YEAR)){
-                            examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(courseTasks.get(j).getTaskId());
-                            double totalElinkScore =0;
-                            int examinationLinksSize = examinationLinks.size();
-                            if(0<examinationLinksSize){
-                                for (int k=0;k<examinationLinksSize;k++){
-                                    totalElinkScore = Arith.add(totalElinkScore,examinationLinks.get(k).getElMix()*(examinationLinks.get(k).getElAverageScore()/examinationLinks.get(k).getElTargetScore()));
-                                }
-                            }
-                            totalCourseTaskScore = Arith.add(totalCourseTaskScore,totalElinkScore*courseTasks.get(j).getTargetMix());
-                        }
-                    }
-                }
-                totalTargetScore = Arith.add(totalTargetScore,totalCourseTaskScore*courseTargetMixes.get(i).getCtmix());
+                totalTargetScore = Arith.add(totalTargetScore,getAvgCourseTaskScoreByCoursIdAndTargetIdAndYear(
+                        courseTargetMixes.get(i).getTarget().getTargetId(), courseTargetMixes.get(i).getCourse().getCourseId(),
+                        cal.get(Calendar.YEAR))*courseTargetMixes.get(i).getCtmix());
             }
         }
         return totalTargetScore;
     }
 
     @Override
-    public double getGraduationReqScoreByGraduationReqIdAndYear(int graduationRequirementid,Calendar cal) {
-        List<Target> targets = courseDao.selectTargetByReqId(graduationRequirementid);
+    public double getGraduationReqScoreByGraduationReqIdAndYear(int reqid,Calendar cal) {
+        List<Target> targets = courseDao.selectTargetByReqId(reqid);
         double reScore = 0;
         int targetsSize = targets.size();
         if(targetsSize>0){
@@ -302,7 +285,13 @@ public class CourseServiceImpl implements CourseService {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year,1,1);
         for (int i=0;i<totalReqCount;i++){
-            allReqScores[i] = (double) Math.round(getGraduationReqScoreByGraduationReqIdAndYear(graduationRequirements.get(i).getReqId(),calendar) * 100) / 100;
+            Double score = courseDao.selectReqScoreByYearAndRegId(year,graduationRequirements.get(i).getReqId());
+            if(score!=null){
+                allReqScores[i] = (double) Math.round(score * 100) / 100;
+            }else {
+                allReqScores[i] = 0;
+            }
+
         }
         return allReqScores;
     }
@@ -312,7 +301,8 @@ public class CourseServiceImpl implements CourseService {
         if(examinationLinks.size()>0){
             double score = 0;
             for(int i=0,size = examinationLinks.size();i<size;i++){
-                score=Arith.add(score,examinationLinks.get(i).getElMix()*(examinationLinks.get(i).getElAverageScore()/examinationLinks.get(i).getElTargetScore()));
+                score=Arith.add(score,
+                        examinationLinks.get(i).getElMix()*(examinationLinks.get(i).getElAverageScore()/examinationLinks.get(i).getElTargetScore()));
             }
             return score;
         }else return 0;
@@ -321,17 +311,19 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public double getAvgCourseTaskScoreByCoursIdAndTargetIdAndYear(int targetId,int courseId, int year) {
         List<CourseTask> courseTasks = courseDao.selectCourseTaskByCourseIdAndTargetId(courseId,targetId);
+        List<CourseTask> courseTasks2 = new ArrayList<>();
         if(courseTasks.size()>0){
             for(int i=0;i<courseTasks.size();i++){
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(courseTasks.get(i).getYear());
-                if(calendar.get(Calendar.YEAR)!=year) courseTasks.remove(i);
+                if(calendar.get(Calendar.YEAR)!=year) continue;
+                courseTasks2.add(courseTasks.get(i));
             }
         }
         double score =0;
-        if(courseTasks.size()>0){
-            for(int i=0,size=courseTasks.size();i<size;i++){
-                score = Arith.add(score,getAvgExlinkScoreByCourseTaskId(courseTasks.get(i).getTaskId())*courseTasks.get(i).getTargetMix());
+        if(courseTasks2.size()>0){
+            for(int i=0,size=courseTasks2.size();i<size;i++){
+                score = Arith.add(score,getAvgExlinkScoreByCourseTaskId(courseTasks2.get(i).getTaskId())*courseTasks2.get(i).getTargetMix());
             }
             return score;
         }else return 0;
@@ -358,14 +350,20 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public synchronized boolean setAllThisYearReqScore() {
+    public boolean setAllThisYearReqScore() {
         try{
             List <GraduationRequirement> graduationRequirements = courseDao.selectGraduationRequirements();
             int graduationRequirementsSize = graduationRequirements.size();
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             for (int i=0;i<graduationRequirementsSize;i++){
-                courseDao.addReqScore(new Date(),graduationRequirements.get(i).getReqId(),getGraduationReqScoreByGraduationReqIdAndYear(graduationRequirements.get(i).getReqId(),calendar));
+                if(courseDao.selectReqScoreByYearAndRegId(calendar.get(Calendar.YEAR),graduationRequirements.get(i).getReqId())==null){
+                    courseDao.addReqScore(calendar.get(Calendar.YEAR),graduationRequirements.get(i).getReqId(),
+                            getGraduationReqScoreByGraduationReqIdAndYear(graduationRequirements.get(i).getReqId(),calendar));
+                }else{
+                    courseDao.updateReqScore(getGraduationReqScoreByGraduationReqIdAndYear(graduationRequirements.get(i)
+                            .getReqId(),calendar),calendar.get(Calendar.YEAR),graduationRequirements.get(i).getReqId());
+                }
             }
             return true;
         }catch (Exception e){

@@ -22,22 +22,13 @@
     <div th:replace="/admin/adminmain :: head"></div>
     <div th:replace="/admin/adminmain :: menu"></div>
     <div class="layui-body">
-        <div class="card" style="width: 1050px;height: 550px;margin: 20px">
-            <div class="card-header"><h4>
-                <div class="layui-input-inline">
-                    <select onchange="location.href=this.value;" name="modules" lay-verify="required" lay-search="" style="width:80px;color: dodgerblue;border: none;font-size:18px;font-family: '微软雅黑'">
-                        <option  th:each="year : ${years}" th:text="${year}" th:value="'/admin/showThisYearScore?year='+${year}"></option>
-                    </select>
-                </div>年毕业要求完成情况</h4></div>
-            <div class="card-body">
-                <canvas id="chart-vbar-1"></canvas>
-                <ul class="layui-nav layui-nav-tree"   lay-filter="test" style="width: 190px;position: absolute;top: 5px;right: 70px;background-color: rgb(110,80,230);border-radius: 5px">
-                    <hr style="margin: 15px"/>
-                    <li class="layui-nav-item" style="text-align: center">
-                        <a th:each="req : ${graduationRequirements}" th:text="${req.reqTitle}+'&nbsp;&nbsp;&nbsp;>>'" th:href="@{/admin/showscoreByReqId(reqid=${req.reqId},year=${thisyear})}" style="color: rgb(240,240,240);"></a>
-                    </li>
-                </ul>
-            </div>
+        <div class="card" style="margin: 20px">
+                <div class="card">
+                    <div class="card-header"><h4>近三年达成度对比：</h4></div>
+                    <div class="card-body">
+                        <canvas id="chart-vbar-2" width="1280" height="550"></canvas>
+                    </div>
+                </div>
         </div>
 
     </div>
@@ -46,18 +37,34 @@
 
 
 <script type="text/javascript" th:inline="javascript">
-    new Chart($("#chart-vbar-1"), {
+    new Chart($("#chart-vbar-2"), {
         type: 'bar',
         data: {
             labels: [[${graduationRequirementsName}]],
             datasets: [{
-                label: "毕业要求达成度",
-                backgroundColor: "rgba(42,164,147,0.8)",
+                label: [[${lasttwoyear}]],
+                backgroundColor: "rgba(55,202,117,0.9)",
                 borderColor: "rgba(0,0,0,0)",
-                hoverBackgroundColor: "rgba(42,164,147,1)",
+                hoverBackgroundColor: "rgba(55,202,117,1)",
                 hoverBorderColor: "rgba(0,0,0,0)",
-                data: [[${scores}]]
-            }]
+                data: [[${lastTwoScores}]]
+            },
+                {
+                    label: [[${lastyear}]],
+                    backgroundColor: "rgba(31,106,44,0.9)",
+                    borderColor: "rgba(0,0,0,0)",
+                    hoverBackgroundColor: "rgba(31,106,44,1)",
+                    hoverBorderColor: "rgba(0,0,0,0)",
+                    data: [[${lastyearscores}]]
+                },
+                {
+                    label: [[${thisyear}]],
+                    backgroundColor: "rgba(22,60,30,0.9)",
+                    borderColor: "rgba(0,0,0,0)",
+                    hoverBackgroundColor: "rgba(22,60,30,1)",
+                    hoverBorderColor: "rgba(0,0,0,0)",
+                    data: [[${thisyearscores}]]
+                }]
         },
         options: {
             scales: {

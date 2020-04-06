@@ -150,6 +150,13 @@ public class CourseController {
     }
 
 
+    @RequestMapping("/updateThisYearReqScore")
+    public String updateThisYearReqScore(){
+        courseService.setAllThisYearReqScore();
+        return "admin/adminConsole";
+    }
+
+
 
     /**
      *  @author: ZhaoZezhong
@@ -489,7 +496,7 @@ public class CourseController {
         List<Integer> years = new LinkedList<>();
         years.add(calendar.get(Calendar.YEAR));
 
-        for (int k=2010;k<=thisyear;k++){
+        for (int k=thisyear;k>=2015;k--){
             if(k==calendar.get(Calendar.YEAR)) continue;
             years.add(k);
         }
@@ -500,6 +507,47 @@ public class CourseController {
         map.put("thisyear",now);
         request.setAttribute("thisyear",year);
         return "/admin/show";
+    }
+
+
+    @RequestMapping("/showTwoYearsScore")
+    public String showTwoYearsScore(Map map,HttpServletRequest request){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        int thisyear = calendar.get(Calendar.YEAR);
+
+        double scores[] = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR));
+        double lastScores[]  = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR)-1);
+        double lastTwoScores[]  = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR)-2);
+
+        List<GraduationRequirement> graduationRequirements = courseService.getAllGraduationRequirements();
+        String graduationRequirementsName[] = new String[graduationRequirements.size()];
+        for(int i=0;i<graduationRequirements.size();i++){
+            graduationRequirementsName[i] = graduationRequirements.get(i).getReqId()+":"+ graduationRequirements.get(i).getReqTitle();
+        }
+        map.put("graduationRequirements",graduationRequirements);
+        map.put("graduationRequirementsName",graduationRequirementsName);
+
+        map.put("thisyearscores",scores);
+        map.put("lastyearscores",lastScores);
+        map.put("lastTwoScores",lastTwoScores);
+        List<Integer> years = new LinkedList<>();
+        years.add(calendar.get(Calendar.YEAR));
+
+        for (int k=2010;k<=thisyear;k++){
+            if(k==calendar.get(Calendar.YEAR)) continue;
+            years.add(k);
+        }
+        //添加年份列表
+        map.put("years",years);
+        int now = calendar.get(Calendar.YEAR);
+        //添加本年年份标记
+        map.put("thisyear",now);
+        map.put("lastyear",now-1);
+        request.setAttribute("thisyear",thisyear);
+        request.setAttribute("lastyear",thisyear-1);
+        request.setAttribute("lasttwoyear",thisyear-2);
+        return "/admin/show_years";
     }
 
 

@@ -34,12 +34,13 @@
                     <td th:text="${da.courseId}"></td>
                     <td th:text="${da.courseName}" style="width: 450px"></td>
                     <td>
-                        <select id="teacherid" lay-verify="required" lay-search="" style="border: none" th:onchange="'adddistr('+${da.courseId}+',this.value)'">
-                            <option th:if="${da.edit_teacher}" th:text="${da.edit_teacher.teacherName}"></option>
-                            <option th:if="!${da.edit_teacher}" th:text="'暂无，请指定:'"></option>
-                            <option th:each="teacher : ${teachers}" th:value="${teacher.teacherId}" th:text="${teacher.teacherNumber}+'：'+${teacher.teacherName}"></option>
-                        </select>
-                    </td>
+                        <div class="layui-input-inline">
+                            <select name="modules" lay-verify="required" lay-search=""style="border: none;width: 200px;font-size: 14px" th:onchange="'adddistr('+${da.courseId}+',this.value)'">
+                                <option th:if="${da.edit_teacher}" th:text="${da.edit_teacher.teacherName}"></option>
+                                <option th:if="!${da.edit_teacher}" th:text="'暂无负责人-请立即指定:'"></option>
+                                <option th:each="teacher : ${teachers}" th:value="${teacher.teacherId}" th:text="${teacher.teacherNumber}+'：'+${teacher.teacherName}"></option>
+                            </select>
+                        </div>
                     <td>
                         <a th:href="@{/admin/editcourse(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">编辑本年度课程教学目标</button></a>
                         <a th:href="@{/admin/editeLinks(courseId=${da.courseId})}"><button type="button" class="layui-btn layui-btn-normal layui-btn-sm">录入本年度各考核环节分数</button></a>
@@ -49,9 +50,9 @@
             </table>
             <tr th:each="item,pageStat:${Buffer}">
                 <a th:href="${pageStat.index}+1"></a>
-                <button type="button" class="layui-btn layui-btn-normal">
-                    <a style="color: white" th:href="${pageStat.current.value}" th:text="${pageStat.current.key}"></a>
-                </button>
+                <a style="color: white" th:href="${pageStat.current.value}" >
+                    <button type="button" th:text="${pageStat.current.key}" class="layui-btn layui-btn-normal"></button>
+                </a>
             </tr>
         </div>
 
@@ -62,24 +63,22 @@
 </div>
 <script>
     function adddistr(courseId,teacherId) {
-        if(confirm("确实要分配此课程编辑任务？")){
-            $.ajax({
-                url:"/admin/adddistribution",
-                async:true,
-                method:"post",
-                data:{teacherid:teacherId,courseid:courseId},
-                success:function (result) {
-                    if(result=="true"){
-                        window.location.reload();
-                    }else {
-                        alert("系统异常，添加失败！您的登录可能已超时！");
-                    }
-                },
-                error:function () {
-                    alert("服务器异常，添加失败！");
+        $.ajax({
+            url:"/admin/adddistribution",
+            async:true,
+            method:"post",
+            data:{teacherid:teacherId,courseid:courseId},
+            success:function (result) {
+                if(result=="true"){
+                    window.location.reload();
+                }else {
+                    alert("系统异常，更改失败！您的登录可能已超时！");
                 }
-            })
-        }
+            },
+            error:function () {
+                alert("服务器异常，更改失败！");
+            }
+        })
     }
 </script>
 <script>

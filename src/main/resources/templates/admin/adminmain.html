@@ -10,7 +10,7 @@
 <script th:src="@{/cji/layui/layui.js}"></script>
 <script>
     window.onload = function (){
-        window.location.href="/admin/showThisYearScore";
+        window.location.href="/admin/showTwoYearsScore";
     }
 </script>
 <div class="layui-layout layui-layout-admin">
@@ -71,8 +71,9 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">历年信息</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/admin/showThisYearScore">本届达成度</a></dd>
-                        <dd><a href="/admin/showThisYearScore">历年达成度</a></dd>
+                        <dd><a href="/admin/showTwoYearsScore">近三年达成度对比</a></dd>
+                        <dd><a href="/admin/showThisYearScore">历年达成度详情</a></dd>
+                        <dd><a href="/admin/showCourseScore">课程目标达成度详情</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="/admin/aboutsystem">关于系统</a></li>

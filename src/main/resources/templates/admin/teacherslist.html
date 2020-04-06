@@ -54,9 +54,6 @@
             <hr style="margin: 0px"/>
             <table class="layui-table">
                 <colgroup>
-                    <col width="150">
-                    <col width="150">
-                    <col width="200">
                     <col>
                 </colgroup>
                 <thead>
@@ -78,9 +75,7 @@
                     <td th:text="${teacher.teacherPhonenumber}"></td>
                     <td>
                         <div class="layui-form">
-                            <div class="layui-input-block">
-                                <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF" th:checked="${teacher.editState ==1 }" th:onchange="'changeTeacherEditState('+${teacher.teacherId}+')'">
-                            </div>
+                            <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF" th:checked="${teacher.editState ==1 }" th:onchange="'changeTeacherEditState('+${teacher.teacherId}+')'">
                         </div>
                     </td>
                     <td th:text="${teacher.onlineState ==1 ?'在线':'下线'}"></td>
@@ -102,12 +97,6 @@
 </div>
 
 <script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
-    });
-
     function deleteTeacher(id) {
         if(confirm("此操作将删除账户以及该账户所分配的课程任务！")) {
             $.ajax({

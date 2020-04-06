@@ -76,23 +76,6 @@ public interface CourseDao {
     /**
      *  @author: ZhaoZezhong
      *  @advertisement: welcome to https://zhaozezhong.fun
-     *  @Date: 2020/2/26 14:30
-     *  @Description: 方法用于根据已任课程查询课程
-     */
-    @Select("select distribution_id as distributionId, distribution_course, distribution_teacher,distribution_time as distrTime" +
-            " from distribution_course where distribution_id=#{id}")
-    @Results({
-            @Result(property = "districourse",column = "distribution_course",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectCourseById")),
-            @Result(property = "distriteacher",column = "distribution_teacher",one = @One(select = "iacaasystem.admin.dao.CourseDao.selectTeacherById"))
-    })
-    DistributionCourse selectDistributionCourseByCourseId(int id);
-
-
-
-
-    /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: welcome to https://zhaozezhong.fun
      *  @Date: 2020/2/27 12:24
      *  @Description:根据课程ID获取该课程支撑的所有指标点以及权重
      */
@@ -190,6 +173,13 @@ public interface CourseDao {
     List<Target> selectAllTargets();
 
     @Update("INSERT INTO req_grade (req_years,req_grade,req) VALUES (#{date},#{score},#{reqid})")
-    int addReqScore(Date date,int reqid, double score);
+    int addReqScore(int date,int reqid, double score);
+
+    @Update("UPDATE req_grade SET req_grade=#{reqNewScore} WHERE req=#{reqid} and req_years=#{year}")
+    int updateReqScore(double reqNewScore,int year,int reqid);
+
+    @Select("select req_grade from req_grade where req=#{reqid} and req_years=#{year}")
+    Double selectReqScoreByYearAndRegId(int year,int reqid);
+
 
 }
