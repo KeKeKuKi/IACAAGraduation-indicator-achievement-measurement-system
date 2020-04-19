@@ -58,7 +58,6 @@ public class Admin {
     public String toString() {
         return "Admin{" +
                 "account='" + account + '\'' +
-                ", passWord='" + passWord + '\'' +
                 ", adminName='" + adminName + '\'' +
                 ", adminPhonenumber='" + adminPhonenumber + '\'' +
                 '}';

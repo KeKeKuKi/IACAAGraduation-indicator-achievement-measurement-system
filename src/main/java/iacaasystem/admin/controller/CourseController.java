@@ -1,5 +1,6 @@
 package iacaasystem.admin.controller;
 
+import iacaasystem.admin.service.AdminService;
 import iacaasystem.entity.*;
 import iacaasystem.admin.service.CourseService;
 import iacaasystem.admin.service.TeacherService;
@@ -28,6 +29,8 @@ import java.util.*;
 @Controller
 @RequestMapping("/admin")
 public class CourseController {
+    @Autowired
+    AdminService adminService;
 
     @Autowired
     CourseService courseService;
@@ -476,13 +479,13 @@ public class CourseController {
     @RequestMapping("/showThisYearScore")
     public String showScore(Map map,HttpServletRequest request){
         String year = request.getParameter("year");
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        int thisyear = calendar.get(Calendar.YEAR);
-        try{
-            calendar.set(Integer.parseInt(year),1,1);
-        }catch (Exception e){}
-        double scores[] = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR));
+        int thisyear = 2020;
+        if(year!=null){
+            thisyear = Integer.parseInt(year);
+        }else {
+            thisyear = adminService.getSystemDateYear();
+        }
+        double scores[] = courseService.getAllGraduationReqScoreByYear(thisyear);
         List<GraduationRequirement> graduationRequirements = courseService.getAllGraduationRequirements();
         int graduationRequirementsSize = graduationRequirements.size();
         String graduationRequirementsName[] = new String[graduationRequirementsSize];
@@ -494,15 +497,15 @@ public class CourseController {
 
         map.put("scores",scores);
         List<Integer> years = new LinkedList<>();
-        years.add(calendar.get(Calendar.YEAR));
+        years.add(thisyear);
 
-        for (int k=thisyear;k>=2015;k--){
-            if(k==calendar.get(Calendar.YEAR)) continue;
+        for (int k=adminService.getSystemDateYear();k>=2015;k--){
+            if(k==thisyear) continue;
             years.add(k);
         }
         //添加年份列表
         map.put("years",years);
-        int now = calendar.get(Calendar.YEAR);
+        int now = thisyear;
         //添加本年年份标记
         map.put("thisyear",now);
         request.setAttribute("thisyear",year);
@@ -512,13 +515,13 @@ public class CourseController {
 
     @RequestMapping("/showTwoYearsScore")
     public String showTwoYearsScore(Map map,HttpServletRequest request){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        int thisyear = calendar.get(Calendar.YEAR);
+        int thisyear = adminService.getSystemDateYear();
 
-        double scores[] = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR));
-        double lastScores[]  = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR)-1);
-        double lastTwoScores[]  = courseService.getAllGraduationReqScoreByYear(calendar.get(Calendar.YEAR)-2);
+        double scores[] = courseService.getAllGraduationReqScoreByYear(thisyear);
+
+        //此处年份越界异常未处理
+        double lastScores[]  = courseService.getAllGraduationReqScoreByYear(thisyear-1);
+        double lastTwoScores[]  = courseService.getAllGraduationReqScoreByYear(thisyear-2);
 
         List<GraduationRequirement> graduationRequirements = courseService.getAllGraduationRequirements();
         String graduationRequirementsName[] = new String[graduationRequirements.size()];
@@ -532,15 +535,14 @@ public class CourseController {
         map.put("lastyearscores",lastScores);
         map.put("lastTwoScores",lastTwoScores);
         List<Integer> years = new LinkedList<>();
-        years.add(calendar.get(Calendar.YEAR));
+        years.add(thisyear);
 
-        for (int k=2010;k<=thisyear;k++){
-            if(k==calendar.get(Calendar.YEAR)) continue;
+        for (int k = thisyear-1;k>=2015;k--){
             years.add(k);
         }
         //添加年份列表
         map.put("years",years);
-        int now = calendar.get(Calendar.YEAR);
+        int now = thisyear;
         //添加本年年份标记
         map.put("thisyear",now);
         map.put("lastyear",now-1);

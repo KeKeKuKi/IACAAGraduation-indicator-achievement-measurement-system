@@ -182,4 +182,6 @@ public interface CourseDao {
     Double selectReqScoreByYearAndRegId(int year,int reqid);
 
 
+
+
 }

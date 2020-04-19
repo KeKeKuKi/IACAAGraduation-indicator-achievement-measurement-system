@@ -4,6 +4,8 @@ import iacaasystem.entity.Admin;
 
 import iacaasystem.admin.service.AdminService;
 import iacaasystem.utils.MyTools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -78,7 +84,37 @@ public class AdminController {
      *  @Description:返回控制台页面
      */
     @RequestMapping("/toConsole")
-    public String toConsole(){
+    public String toConsole(Map map){
+        List<Integer> years = new LinkedList<>();
+        years.add(adminService.getSystemDateYear());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        for (int i= calendar.get(Calendar.YEAR);i>2015;i--){
+            years.add(i);
+        }
+        map.put("years",years);
         return "/admin/adminConsole";
     }
+
+
+    @RequestMapping("/changeSystemDate")
+    public String changeSystemDate(Integer year,Map map,HttpServletRequest request){
+        final Logger logger = LoggerFactory.getLogger(getClass());
+        if(adminService.changeSystemDateYear(year)){
+            logger.warn(request.getSession().getAttribute("admin")+"更改了系统时间#DateYear:"+year);
+        }else {
+            logger.warn(request.getSession().getAttribute("admin")+"更改系统时间#DateYear:"+year+"失败！");
+        }
+
+        List<Integer> years = new LinkedList<>();
+        years.add(adminService.getSystemDateYear());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        for (int i= calendar.get(Calendar.YEAR);i>2015;i--){
+            years.add(i);
+        }
+        map.put("years",years);
+        return "/admin/adminConsole";
+    }
+
 }

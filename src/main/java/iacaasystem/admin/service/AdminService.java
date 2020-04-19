@@ -11,4 +11,6 @@ import iacaasystem.entity.Admin;
  */
 public interface AdminService {
     Admin selectAdminByUserName(String userName);
+    boolean changeSystemDateYear(int year);
+    int getSystemDateYear();
 }

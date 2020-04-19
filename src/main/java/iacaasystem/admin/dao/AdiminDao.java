@@ -3,6 +3,7 @@ package iacaasystem.admin.dao;
 import iacaasystem.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,4 +21,10 @@ public interface AdiminDao {
             "from administrators where account = #{username}")
     Admin selectAdminByUserName(String username);
 
+
+    @Update("UPDATE system_config SET config_data=#{date} WHERE config_name='system_date_year'")
+    int updateSystemDate(int dateYear);
+
+    @Select("select config_data from system_config WHERE config_name='system_date_year'")
+    int selectSystemDate();
 }

@@ -15,12 +15,15 @@
     <div class="layui-body" style="padding: 30px">
             <label>教师可编辑开关</label>
             <input id="teacherEditCheck" type="checkbox" checked="" onchange="changeAllTeacherEditState()" name="open" lay-skin="switch" lay-filter="switchTest" title="开关">
-        <br>
+        <hr>
         <a href="/admin/updateThisYearReqScore">统计所有指标点分数</a>
+        <hr>
+        <label>更改系统时间：</label>
+        <select onchange="location.href=this.value;" name="modules" lay-verify="required" lay-search="" style="width:80px;color: dodgerblue;border: none;font-size:18px;font-family: '微软雅黑'">
+            <option  th:each="year : ${years}" th:text="${year}" th:value="'/admin/changeSystemDate?year='+${year}"></option>
+        </select>
     </div>
     <div th:replace="/admin/adminmain :: footer"></div>
-
-
     <script>
         function changeAllTeacherEditState() {
             var changefuctionUrl;

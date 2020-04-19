@@ -8,14 +8,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 
 @Service("courseservice")
 public class CourseServiceImpl implements CourseService {
     @Autowired
+    AdminService adminService;
+
+    @Autowired
     CourseDao courseDao;
+
     static Calendar thisYearcal = Calendar.getInstance();
 
     @Override
@@ -75,7 +78,7 @@ public class CourseServiceImpl implements CourseService {
         if(count==1){
             double totalMix = getTotalMixByCourseIdAndTargetId(courseTaskSaveNow.getTCourse().getCourseId(),
                     courseTaskSaveNow.getTtarget().getTargetId());
-            if(totalMix<=1 && totalMix>0){
+            if(totalMix==1){
                 return true;
             }else {
                 //数据异常，进行数据回滚
@@ -95,8 +98,8 @@ public class CourseServiceImpl implements CourseService {
         double totalMix = getTotalMixByCourseIdAndTargetId(courseId,targetId);
         if(mix<=0) return false;
         if(totalMix+mix>1||totalMix+mix<=0) return false;
-
-        return courseDao.addCourseTask(dis,courseId,targetId,mix,new Date())==1;
+        thisYearcal.set(adminService.getSystemDateYear(),1,1);
+        return courseDao.addCourseTask(dis,courseId,targetId,mix,thisYearcal.getTime())==1;
     }
 
     @Override
@@ -192,11 +195,10 @@ public class CourseServiceImpl implements CourseService {
     List<CourseTask> getThisYearCourseTaskFilter(List<CourseTask> courseTasks){
         List<CourseTask> courseTasks1 = new ArrayList<>();
         if(courseTasks.size()>0){
-            thisYearcal.setTime(new Date());
             Calendar cl = Calendar.getInstance();
             for (int i=0,size = courseTasks.size();i<size;i++){
                 cl.setTime(courseTasks.get(i).getYear());
-                if(thisYearcal.get(Calendar.YEAR) == cl.get(Calendar.YEAR)){
+                if(adminService.getSystemDateYear() == cl.get(Calendar.YEAR)){
                     courseTasks1.add(courseTasks.get(i));
                 }
             }
@@ -355,7 +357,7 @@ public class CourseServiceImpl implements CourseService {
             List <GraduationRequirement> graduationRequirements = courseDao.selectGraduationRequirements();
             int graduationRequirementsSize = graduationRequirements.size();
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
+            calendar.set(adminService.getSystemDateYear(),1,1);
             for (int i=0;i<graduationRequirementsSize;i++){
                 if(courseDao.selectReqScoreByYearAndRegId(calendar.get(Calendar.YEAR),graduationRequirements.get(i).getReqId())==null){
                     courseDao.addReqScore(calendar.get(Calendar.YEAR),graduationRequirements.get(i).getReqId(),

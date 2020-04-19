@@ -24,5 +24,15 @@ public class AdminServiceImpl implements AdminService {
         return (adiminDao.selectAdminByUserName(userName));
     }
 
+    @Override
+    public boolean changeSystemDateYear(int year) {
+        return adiminDao.updateSystemDate(year)==1;
+    }
+
+    @Override
+    public int getSystemDateYear() {
+        return adiminDao.selectSystemDate();
+    }
+
 
 }
