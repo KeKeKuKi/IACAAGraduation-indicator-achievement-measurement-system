@@ -6,22 +6,29 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+/**
+ * @author ZhaoZezhong
+ * @date Created in 2020/4/19
+ * @description 管理员相关Dao操作
+ * @version 1.0
+ */
 @Mapper
 @Repository
 public interface AdiminDao {
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: welcome to https://zhaozezhong.fun
-     *  @Date: 2020/2/24 17:48
-     *  @Description:根据管理员账户查询管理员
+     *  @author ZhaoZezhong
+     *  @return Admin
+     *  @param username String
      */
     @Select("select account,password,user_name as adminName,user_phonenumber as adminPhonenumber " +
             "from administrators where account = #{username}")
     Admin selectAdminByUserName(String username);
 
-
+    /**
+     *  @author ZhaoZezhong
+     *  @param dateYear int
+     *  @return int
+     */
     @Update("UPDATE system_config SET config_data=#{date} WHERE config_name='system_date_year'")
     int updateSystemDate(int dateYear);
 

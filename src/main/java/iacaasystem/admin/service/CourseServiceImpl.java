@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
-
 
 @Service("courseservice")
 public class CourseServiceImpl implements CourseService {
@@ -19,7 +17,7 @@ public class CourseServiceImpl implements CourseService {
     @Autowired
     CourseDao courseDao;
 
-    static Calendar thisYearcal = Calendar.getInstance();
+    private static Calendar thisYearcal = Calendar.getInstance();
 
     @Override
     public List<Course> getAllCourse() {
@@ -47,7 +45,6 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.selectCourseTargetMixByCourseId(id);
     }
 
-
     @Override
     public List<CourseTask> getThisYearTasksByCourseId(int courseId) {
         List<CourseTask> courseTasks= courseDao.selectCourseTaskByCourseId(courseId);
@@ -64,13 +61,6 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.selectTargetByReqId(id);
     }
 
-
-    /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: welcome to https://zhaozezhong.fun
-     *  @Date: 2020/2/28 14:06
-     *  @Description: 方法用于根据courseTask更新数据库并检查数据是否异常，有异常则进行数据回滚
-     */
     @Override
     public synchronized boolean updateCourseTask(CourseTask courseTask) {
         CourseTask courseTaskSaveNow = courseDao.selectCourseTaskByTaskId(courseTask.getTaskId());
@@ -98,7 +88,7 @@ public class CourseServiceImpl implements CourseService {
         double totalMix = getTotalMixByCourseIdAndTargetId(courseId,targetId);
         if(mix<=0) return false;
         if(totalMix+mix>1||totalMix+mix<=0) return false;
-        thisYearcal.set(adminService.getSystemDateYear(),1,1);
+        thisYearcal.set(adminService.getSystemDateYear(),Calendar.FEBRUARY,1);
         return courseDao.addCourseTask(dis,courseId,targetId,mix,thisYearcal.getTime())==1;
     }
 
@@ -129,17 +119,6 @@ public class CourseServiceImpl implements CourseService {
             }
         }
         return examinationLinks;
-    }
-
-    public double getTotalElLinksMixByCourseTaskId(int taskid){
-        List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(taskid);
-        double totalMix = 0;
-        if (examinationLinks!=null){
-            for (ExaminationLink i: examinationLinks){
-                totalMix = Arith.add(totalMix,i.getElMix());
-            }
-        }
-        return totalMix;
     }
 
     @Override
@@ -181,35 +160,13 @@ public class CourseServiceImpl implements CourseService {
 
     }
 
-    private double getTotalCourseTaskMix(List<CourseTask> courseTasks){
-        double courseTaskMix = 0;
-        for (CourseTask i : courseTasks){
-            courseTaskMix = Arith.add(courseTaskMix,i.getTargetMix());
-        }
-        return  courseTaskMix;
-    }
-
-    private List<CourseTask> getThisYearCourseTaskFilter(List<CourseTask> courseTasks){
-        List<CourseTask> courseTasks1 = new ArrayList<>();
-        if(courseTasks.size()>0){
-            Calendar cl = Calendar.getInstance();
-            for (CourseTask i : courseTasks){
-                cl.setTime(i.getYear());
-                if(adminService.getSystemDateYear() == cl.get(Calendar.YEAR)){
-                    courseTasks1.add(i);
-                }
-            }
-        }
-        return courseTasks1;
-    }
-
     @Override
     public boolean ifCourseEditFinshed(int courseid) {
         List<CourseTargetMix> courseTargetMixes = courseDao.selectCourseTargetMixByCourseId(courseid);
         List<CourseTask> ct;
         List<CourseTask> courseTasks;
-        for (int j=0,tsize = courseTargetMixes.size();j<tsize;j++){
-            ct = courseDao.selectCourseTaskByCourseIdAndTargetId(courseid,courseTargetMixes.get(j).getTarget().getTargetId());
+        for (CourseTargetMix c : courseTargetMixes){
+            ct = courseDao.selectCourseTaskByCourseIdAndTargetId(courseid,c.getTarget().getTargetId());
             courseTasks = getThisYearCourseTaskFilter(ct);
             if(courseTasks!=null&&getTotalCourseTaskMix(courseTasks)>=1.0){
                 for (CourseTask i : courseTasks){
@@ -235,16 +192,6 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.selectExaminationLinkById(id);
     }
 
-
-
-
-
-    /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: welcome to http://zhaozezhong.fun
-     *  @Date: 2020/3/4 11:54
-     *  @Description:用于计算某年的单个指标点达成度统计
-     */
     @Override
     public double getTargetScoreByTargetAndYear(Target target,Calendar cal) {
         List<CourseTargetMix> courseTargetMixes = courseDao.selectCourseTargetMixByTargetId(target.getTargetId());
@@ -274,10 +221,10 @@ public class CourseServiceImpl implements CourseService {
     public double[] getAllGraduationReqScoreByYear(int year) {
         List<GraduationRequirement> graduationRequirements = courseDao.selectGraduationRequirements();
         int totalReqCount = graduationRequirements.size();
-        double allReqScores[] = new double[totalReqCount];
+        double [] allReqScores = new double[totalReqCount];
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(year,1,1);
+        calendar.set(year,Calendar.FEBRUARY,1);
         for (int i=0;i<totalReqCount;i++){
             Double score = courseDao.selectReqScoreByYearAndRegId(year,graduationRequirements.get(i).getReqId());
             if(score!=null){
@@ -288,17 +235,6 @@ public class CourseServiceImpl implements CourseService {
 
         }
         return allReqScores;
-    }
-
-    public double getAvgExlinkScoreByCourseTaskId(int courseTaskId){
-        List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(courseTaskId);
-        if(examinationLinks.size()>0){
-            double score = 0;
-            for(ExaminationLink i:examinationLinks){
-                score=Arith.add(score,i.getElMix()*(i.getElAverageScore()/i.getElTargetScore()));
-            }
-            return score;
-        }else return 0;
     }
 
     @Override
@@ -325,12 +261,12 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public double[] getAllTargetScoreByReqIdAndYear(int reqid,int year) {
         Calendar years = Calendar.getInstance();
-        years.set(year,1,1);
+        years.set(year,Calendar.FEBRUARY,1);
         List<Target> targets = courseDao.selectTargetByReqId(reqid);
         double [] alltargetScores = new double[targets.size()];
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(year,1,1);
+        calendar.set(year,Calendar.FEBRUARY,1);
         for (int i=0,size = targets.size();i<size;i++){
             alltargetScores[i] = (double) Math.round(getTargetScoreByTargetAndYear(targets.get(i),years) * 100) / 100;
         }
@@ -347,7 +283,7 @@ public class CourseServiceImpl implements CourseService {
         try{
             List <GraduationRequirement> graduationRequirements = courseDao.selectGraduationRequirements();
             Calendar calendar = Calendar.getInstance();
-            calendar.set(adminService.getSystemDateYear(),1,1);
+            calendar.set(adminService.getSystemDateYear(),Calendar.FEBRUARY,1);
             for (GraduationRequirement i: graduationRequirements){
                 if(courseDao.selectReqScoreByYearAndRegId(calendar.get(Calendar.YEAR),i.getReqId())==null){
                     courseDao.addReqScore(calendar.get(Calendar.YEAR),i.getReqId(),
@@ -372,5 +308,47 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.selectCourseTargetMixByTargetId(id);
     }
 
+    private double getTotalElLinksMixByCourseTaskId(int taskid){
+        List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(taskid);
+        double totalMix = 0;
+        if (examinationLinks!=null){
+            for (ExaminationLink i: examinationLinks){
+                totalMix = Arith.add(totalMix,i.getElMix());
+            }
+        }
+        return totalMix;
+    }
 
+    private double getTotalCourseTaskMix(List<CourseTask> courseTasks){
+        double courseTaskMix = 0;
+        for (CourseTask i : courseTasks){
+            courseTaskMix = Arith.add(courseTaskMix,i.getTargetMix());
+        }
+        return  courseTaskMix;
+    }
+
+    private List<CourseTask> getThisYearCourseTaskFilter(List<CourseTask> courseTasks){
+        List<CourseTask> courseTasks1 = new ArrayList<>();
+        if(courseTasks.size()>0){
+            Calendar cl = Calendar.getInstance();
+            for (CourseTask i : courseTasks){
+                cl.setTime(i.getYear());
+                if(adminService.getSystemDateYear() == cl.get(Calendar.YEAR)){
+                    courseTasks1.add(i);
+                }
+            }
+        }
+        return courseTasks1;
+    }
+
+    private double getAvgExlinkScoreByCourseTaskId(int courseTaskId){
+        List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(courseTaskId);
+        if(examinationLinks.size()>0){
+            double score = 0;
+            for(ExaminationLink i:examinationLinks){
+                score=Arith.add(score,i.getElMix()*(i.getElAverageScore()/i.getElTargetScore()));
+            }
+            return score;
+        }else return 0;
+    }
 }
