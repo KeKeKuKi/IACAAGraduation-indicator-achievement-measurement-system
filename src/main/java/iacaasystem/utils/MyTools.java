@@ -1,9 +1,7 @@
 package iacaasystem.utils;
 
-
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.util.LinkedList;
-import java.util.List;
 
 public class MyTools {
     public static String toMd5String(String str){
@@ -23,15 +21,15 @@ public class MyTools {
 
         String dataStr = str + slat;
         try{
-            md5.update(dataStr.getBytes("UTF8"));
+            md5.update(dataStr.getBytes(StandardCharsets.UTF_8));
         }catch (Exception e){
             e.printStackTrace();
         }
-        byte s[] = md5.digest();
-        String result = "";
-        for (int i = 0; i < s.length; i++) {
-            result += Integer.toHexString((0x000000FF & s[i]) | 0xFFFFFF00).substring(6);
+        byte [] s = md5.digest();
+        StringBuilder result = new StringBuilder();
+        for (byte i : s) {
+            result.append(Integer.toHexString((0x000000FF & i) | 0xFFFFFF00).substring(6));
         }
-        return result;
+        return result.toString();
     }
 }

@@ -3,11 +3,11 @@ package iacaasystem.utils;
 import java.util.*;
 
 public class Page <T>{
-    int curentPage;
-    int totalCount;
-    List <T> datas;
-    List <T> pageDatas;
-    String url;
+    private int curentPage;
+    private int totalCount;
+    private List <T> datas;
+    private List <T> pageDatas;
+    private String url;
 
     public Page() {
     }

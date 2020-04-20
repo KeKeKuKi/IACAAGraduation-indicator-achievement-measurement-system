@@ -19,12 +19,11 @@ import java.io.Writer;
 import java.util.*;
 
 
-
 /**
- *  @author: ZhaoZezhong
- *  @advertisement: zhaozezhong.mail@foxmail.com
- *  @Date: 2020/3/22
- *  @Description:该控制器负责管理员对课程信息操作的所有业务包装与分发
+ * Created in 2020/4/20
+ * description：该控制器负责管理员对课程信息操作的所有业务包装与分发
+ * @author ZhaoZezhong
+ * @version 1.0
  */
 @Controller
 @RequestMapping("/admin")
@@ -39,10 +38,9 @@ public class CourseController {
     TeacherService teacherService;
 
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:43
-     *  @Description:查询所有课程信息返回分页数据
+     * description: 查询所有课程信息返回分页数据
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/courselist")
     public String sourses(HttpServletRequest request){
@@ -62,12 +60,11 @@ public class CourseController {
         return "/admin/courselist";
     }
 
-    
+
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:44
-     *  @Description:返回所有毕业要求及其对应指标点
+     * description: 返回所有毕业要求及其对应指标点
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/reqshow")
     public String reqShow(HttpServletRequest request){
@@ -88,12 +85,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:45
-     *  @Description:返回所有已分配的课程任务信息
+     * description: 返回所有已分配的课程任务信息
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/distrcourse")
     public String distrcourse(HttpServletRequest request){
@@ -117,10 +112,9 @@ public class CourseController {
 
 
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:46
-     *  @Description:根据课程以及账号Id添加本年度课程任务分配
+     * description: 根据课程以及账号Id添加本年度课程任务分配
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/adddistribution")
     public void addDistribution(HttpServletRequest request, HttpServletResponse response){
@@ -160,12 +154,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:48
-     *  @Description:根据课程Id返回课程编辑页面
+     * description: 根据课程Id返回课程编辑页面
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping(value = "/editcourse")
     public String editCourse(HttpServletRequest request, Map map){
@@ -184,13 +176,10 @@ public class CourseController {
         }
     }
 
-
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:49
-     *  @Description:通过SpringMvc将前端数据自动封装，根据课程目标更改数据库课程目标信息
+     * description: 通过SpringMvc将前端数据自动封装，根据课程目标更改数据库课程目标信息
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @ResponseBody
     @RequestMapping("/saveCourseTask")
@@ -209,12 +198,13 @@ public class CourseController {
     }
 
     
-    
+
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/3/22 19:51
-     *  @Description:
+     * description:
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
+     *  @param
+     *  @return
      */
     @ResponseBody
     @RequestMapping("/deleteCourseTask")
@@ -233,12 +223,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:52
-     *  @Description:删除课程目标考核环节
+     * description: 删除课程目标考核环节
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @ResponseBody
     @RequestMapping("/deleteElink")
@@ -258,12 +246,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:53
-     *  @Description:根据课程Id以及指标点添加课程目标
+     * description: 根据课程Id以及指标点添加课程目标
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @ResponseBody
     @RequestMapping("/addCourseTask")
@@ -289,12 +275,12 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:54
-     *  @Description:更改课程目标
+     * description: 更改课程目标
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
+     *  @param
+     *  @return
      */
     @RequestMapping(value = "/editcoursetask")
     public String editCourseTask(HttpServletRequest request, Map map){
@@ -323,12 +309,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:55
-     *  @Description:更改课程目标考核环节
+     * description: 更改课程目标考核环节
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @ResponseBody
     @RequestMapping("/updateElLink")
@@ -358,12 +342,12 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:55
-     *  @Description:添加课程目标考核环节
+     * description: 添加课程目标考核环节
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
+     *  @param
+     *  @return
      */
     @ResponseBody
     @RequestMapping("/addExaminationLink")
@@ -396,13 +380,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020//22 19:56
-     *  @Description:返回课程目标考核环节编辑页面
-     *
+     * description: 返回课程目标考核环节编辑页面
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping(value = "/editeLinks")
     public String editeLinks(HttpServletRequest request, Map map){
@@ -427,12 +408,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/22 19:57
-     *  @Description: 更改课程目标考核环节平均分数
+     * description: 更改课程目标考核环节平均分数
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @ResponseBody
     @RequestMapping("/updateExaminationLinkAvgScore")
@@ -457,10 +436,9 @@ public class CourseController {
 
 
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/23
-     *  @Description:
+     * description:
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @ResponseBody
     @RequestMapping("/totalReqScore")
@@ -469,12 +447,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/2/24
-     *  @Description:返回本年度毕业指标展示分数页面
+     * description:返回本年度毕业指标展示分数页面
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/showThisYearScore")
     public String showScore(Map map,HttpServletRequest request){
@@ -513,6 +489,12 @@ public class CourseController {
     }
 
 
+
+    /**
+     * description:
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
+     */
     @RequestMapping("/showTwoYearsScore")
     public String showTwoYearsScore(Map map,HttpServletRequest request){
         int thisyear = adminService.getSystemDateYear();
@@ -553,12 +535,10 @@ public class CourseController {
     }
 
 
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/3/25
-     *  @Description:根据毕业指标Id返回该毕业指标具体分数展示页面
+     * description:根据毕业指标Id返回该毕业指标具体分数展示页面
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/showscoreByReqId")
     public String showscoreByReqId(Map map,HttpServletRequest request){
@@ -593,13 +573,10 @@ public class CourseController {
         return "/admin/show_req_score";
     }
 
-
-
     /**
-     *  @author: ZhaoZezhong
-     *  @advertisement: zhaozezhong.mail@foxmail.com
-     *  @Date: 2020/3/25
-     *  @Description:根据指标点返回该指标点分数详细情况
+     * description:根据指标点返回该指标点分数详细情况
+     * Created in 2020/4/20
+     * @author ZhaoZezhong
      */
     @RequestMapping("/showscoreByTargetId")
     public String showscoreByTargetId(Map map,HttpServletRequest request){
