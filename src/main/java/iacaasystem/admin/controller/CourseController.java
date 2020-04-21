@@ -140,7 +140,6 @@ public class CourseController {
                 writer.write("false");
             } catch (IOException ex) {
                 logger.warn(ex.toString());
-                return;
             }
         }
 
@@ -160,7 +159,7 @@ public class CourseController {
      * @author ZhaoZezhong
      */
     @RequestMapping(value = "/editcourse")
-    public String editCourse(HttpServletRequest request, Map map){
+    public String editCourse(HttpServletRequest request, Map<String,Object> map){
         try{
             String courseIdStr = request.getParameter("courseId");
             int courseId = Integer.parseInt(courseIdStr);
@@ -193,7 +192,6 @@ public class CourseController {
         }catch (Exception e){
             Logger logger = LoggerFactory.getLogger(getClass());
             logger.warn("admin/saveCourseTask something wrong"+e.toString());
-            return;
         }
     }
 
@@ -217,7 +215,6 @@ public class CourseController {
         }catch (Exception e){
             Logger logger = LoggerFactory.getLogger(getClass());
             logger.warn("admin/deleteCourseTask something wrong"+e.toString());
-            return;
         }
 
     }
@@ -240,7 +237,6 @@ public class CourseController {
             Logger logger = LoggerFactory.getLogger(getClass());
             logger.warn("admin/deleteElink something wrong"+e.toString());
             writer.write("false");
-            return;
         }
 
     }
@@ -279,11 +275,9 @@ public class CourseController {
      * description: 更改课程目标
      * Created in 2020/4/20
      * @author ZhaoZezhong
-     *  @param
-     *  @return
      */
     @RequestMapping(value = "/editcoursetask")
-    public String editCourseTask(HttpServletRequest request, Map map){
+    public String editCourseTask(HttpServletRequest request, Map<String,Object> map){
         try{
             String courseIdStr = request.getParameter("courseId");
             String targetIdStr = request.getParameter("targetId");
@@ -342,13 +336,7 @@ public class CourseController {
     }
 
 
-    /**
-     * description: 添加课程目标考核环节
-     * Created in 2020/4/20
-     * @author ZhaoZezhong
-     *  @param
-     *  @return
-     */
+
     @ResponseBody
     @RequestMapping("/addExaminationLink")
     public void addExaminationLink(ExaminationLink examinationLink,HttpServletRequest request,HttpServletResponse response) throws IOException {
@@ -364,10 +352,8 @@ public class CourseController {
             }
             if(courseService.addExaminationLink(examinationLink)){
                 writer.write("true");
-                return;
             }else {
                 writer.write("false");
-                return;
             }
 
 
@@ -386,7 +372,7 @@ public class CourseController {
      * @author ZhaoZezhong
      */
     @RequestMapping(value = "/editeLinks")
-    public String editeLinks(HttpServletRequest request, Map map){
+    public String editeLinks(HttpServletRequest request, Map<String,Object> map){
         try{
 
             String courseIdStr = request.getParameter("courseId");
@@ -453,7 +439,7 @@ public class CourseController {
      * @author ZhaoZezhong
      */
     @RequestMapping("/showThisYearScore")
-    public String showScore(Map map,HttpServletRequest request){
+    public String showScore(Map<String,Object> map,HttpServletRequest request){
         String year = request.getParameter("year");
         int thisyear = 2020;
         if(year!=null){
@@ -461,10 +447,10 @@ public class CourseController {
         }else {
             thisyear = adminService.getSystemDateYear();
         }
-        double scores[] = courseService.getAllGraduationReqScoreByYear(thisyear);
+        double [] scores = courseService.getAllGraduationReqScoreByYear(thisyear);
         List<GraduationRequirement> graduationRequirements = courseService.getAllGraduationRequirements();
         int graduationRequirementsSize = graduationRequirements.size();
-        String graduationRequirementsName[] = new String[graduationRequirementsSize];
+        String [] graduationRequirementsName = new String[graduationRequirementsSize];
         for(int i=0;i<graduationRequirementsSize;i++){
             graduationRequirementsName[i] = graduationRequirements.get(i).getReqId()+":"+ graduationRequirements.get(i).getReqTitle();
         }
@@ -496,17 +482,17 @@ public class CourseController {
      * @author ZhaoZezhong
      */
     @RequestMapping("/showTwoYearsScore")
-    public String showTwoYearsScore(Map map,HttpServletRequest request){
+    public String showTwoYearsScore(Map<String,Object> map,HttpServletRequest request){
         int thisyear = adminService.getSystemDateYear();
 
-        double scores[] = courseService.getAllGraduationReqScoreByYear(thisyear);
+        double [] scores = courseService.getAllGraduationReqScoreByYear(thisyear);
 
         //此处年份越界异常未处理
-        double lastScores[]  = courseService.getAllGraduationReqScoreByYear(thisyear-1);
-        double lastTwoScores[]  = courseService.getAllGraduationReqScoreByYear(thisyear-2);
+        double [] lastScores  = courseService.getAllGraduationReqScoreByYear(thisyear-1);
+        double [] lastTwoScores  = courseService.getAllGraduationReqScoreByYear(thisyear-2);
 
         List<GraduationRequirement> graduationRequirements = courseService.getAllGraduationRequirements();
-        String graduationRequirementsName[] = new String[graduationRequirements.size()];
+        String [] graduationRequirementsName = new String[graduationRequirements.size()];
         for(int i=0;i<graduationRequirements.size();i++){
             graduationRequirementsName[i] = graduationRequirements.get(i).getReqId()+":"+ graduationRequirements.get(i).getReqTitle();
         }
@@ -541,7 +527,7 @@ public class CourseController {
      * @author ZhaoZezhong
      */
     @RequestMapping("/showscoreByReqId")
-    public String showscoreByReqId(Map map,HttpServletRequest request){
+    public String showscoreByReqId(Map<String,Object> map,HttpServletRequest request){
         String req = request.getParameter("reqid");
         String years = request.getParameter("year");
         int reqId = 0;
@@ -554,7 +540,7 @@ public class CourseController {
             logger.error("/admin/showscoreByReqId##"+e.toString());
             return "/admin/404";
         }
-        double scores [] = courseService.getAllTargetScoreByReqIdAndYear(reqId,year);
+        double [] scores = courseService.getAllTargetScoreByReqIdAndYear(reqId,year);
         List<Target> targets = courseService.getAllTargetsByReqId(reqId);
         int targetsSize = targets.size();
         String [] targetsName = new String[targetsSize];
@@ -579,7 +565,7 @@ public class CourseController {
      * @author ZhaoZezhong
      */
     @RequestMapping("/showscoreByTargetId")
-    public String showscoreByTargetId(Map map,HttpServletRequest request){
+    public String showscoreByTargetId(Map<String,Object> map,HttpServletRequest request){
         String tar = request.getParameter("targetId");
         String ye = request.getParameter("year");
 
