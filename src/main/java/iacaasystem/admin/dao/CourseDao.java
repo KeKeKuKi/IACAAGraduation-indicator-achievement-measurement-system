@@ -231,9 +231,10 @@ public interface CourseDao {
     @Update("UPDATE examination_link " +
             "SET se_name = #{elName}," +
             "target_score = #{elTargetScore}," +
-            "el_mix = #{elMix} " +
+            "el_mix = #{elMix}," +
+            "average_score = #{elAvgScore} "+
             "WHERE el_id = #{elId}")
-    int updateExaminationLink(int elId,String elName,double elTargetScore,double elMix);
+    int updateExaminationLink(int elId,String elName,double elTargetScore,double elAvgScore,double elMix);
 
     @Delete("DELETE FROM examination_link " +
             "WHERE el_id = #{id}")
@@ -283,6 +284,21 @@ public interface CourseDao {
             "where req=#{reqid} and req_years=#{year}")
     Double selectReqScoreByYearAndRegId(int year,int reqid);
 
+    @Select("select " +
+            "coursemixid as ctmixId," +
+            "coursex," +
+            "targetx," +
+            "coursetargetsmix as ctmix " +
+            "from ctmix " +
+            "where coursemixid=#{id} " +
+            "order by coursetargetsmix")
+    @Results({
+            @Result(property = "course",column = "coursex",
+                    one = @One(select = "iacaasystem.admin.dao.CourseDao.selectCourseById")),
+            @Result(property = "target",column = "targetx",
+                    one = @One(select = "iacaasystem.admin.dao.CourseDao.selectTargetById"))
+    })
+    CourseTargetMix selectCourseTargetMixById(int id);
 
 
 

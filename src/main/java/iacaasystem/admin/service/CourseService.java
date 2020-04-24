@@ -82,4 +82,5 @@ public interface CourseService {
     List<GraduationRequirement> getAllGraduationRequirements();
     boolean setAllThisYearReqScore();
     List<CourseTargetMix> getAllCourseTargetMixByTargetId(int id);
+    CourseTargetMix getCourseTargetMixByctId(int id);
 }

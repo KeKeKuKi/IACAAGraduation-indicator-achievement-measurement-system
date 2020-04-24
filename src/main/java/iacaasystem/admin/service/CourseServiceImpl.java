@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.*;
 
 @Service("courseservice")
@@ -61,21 +63,22 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.selectTargetByReqId(id);
     }
 
+
+    @Transactional
     @Override
     public synchronized boolean updateCourseTask(CourseTask courseTask) {
         CourseTask courseTaskSaveNow = courseDao.selectCourseTaskByTaskId(courseTask.getTaskId());
         int count =  courseDao.UpdateCourseTask(courseTask.getTaskId(),courseTask.getTaskDiscribe(),courseTask.getTargetMix());
         if(count==1){
-            double totalMix = getTotalMixByCourseIdAndTargetId(courseTaskSaveNow.getTCourse().getCourseId(),
-                    courseTaskSaveNow.getTtarget().getTargetId());
-            if(totalMix==1){
+            if(getTotalMixByCourseIdAndTargetId(courseTaskSaveNow.getTCourse().getCourseId(),
+                    courseTaskSaveNow.getTtarget().getTargetId()) == 1){
                 return true;
             }else {
-                //数据异常，进行数据回滚
-                courseDao.UpdateCourseTask(courseTask.getTaskId(),courseTaskSaveNow.getTaskDiscribe(),courseTaskSaveNow.getTargetMix());
-                return false;
+                throw new NullPointerException();
             }
-        }else return false;
+        }else {
+            throw new NullPointerException();
+        }
     }
 
     @Override
@@ -123,22 +126,20 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public boolean updateExaminationLink(ExaminationLink examinationLink) {
-        ExaminationLink examinationLinksave = courseDao.selectExaminationLinkById(examinationLink.getElId());
-        int count = courseDao.updateExaminationLink(examinationLink.getElId(),examinationLink.getElName(),
-                examinationLink.getElTargetScore(),examinationLink.getElMix());
-        if(count==1){
-            double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
-            if(totalelmix>1||totalelmix<=0){
-                courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),
-                        examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
-                return false;
-            }
-            return true;
-        }else {
-            courseDao.updateExaminationLink(examinationLink.getElId(),examinationLinksave.getElName(),
-                    examinationLinksave.getElTargetScore(),examinationLinksave.getElMix());
+        ExaminationLink examinationLinkSave = courseDao.selectExaminationLinkById(examinationLink.getElId());
+        if(null==examinationLinkSave){
             return false;
         }
+        if(examinationLink.getElMix()<=0){
+            return false;
+        }
+        double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
+        if(Arith.add(Arith.sub(totalelmix,examinationLinkSave.getElMix()),examinationLink.getElMix())>1){
+            System.out.println(Arith.add(Arith.sub(totalelmix,examinationLinkSave.getElMix()),examinationLink.getElMix()));
+            return false;
+        }
+        return courseDao.updateExaminationLink(examinationLink.getElId(),examinationLink.getElName(),
+                examinationLink.getElTargetScore(),0,examinationLink.getElMix())==1;
     }
 
     @Override
@@ -148,16 +149,11 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public synchronized boolean addExaminationLink(ExaminationLink examinationLink) {
+        if(examinationLink.getElMix()<=0) return false;
         double totalelmix = getTotalElLinksMixByCourseTaskId(examinationLink.getCourseTask().getTaskId());
-        if(examinationLink.getElMix()<=0){
-            return false;
-        }
-        if(totalelmix+examinationLink.getElMix()>1||totalelmix+examinationLink.getElMix()<=0){
-            return false;
-        }
-        return courseDao.addExaminationLink(examinationLink.getCourseTask().getTaskId(),examinationLink.getElName(),
+        if(Arith.add(totalelmix,examinationLink.getElMix())>1) return false;
+        else return courseDao.addExaminationLink(examinationLink.getCourseTask().getTaskId(),examinationLink.getElName(),
                 examinationLink.getElTargetScore(),0,examinationLink.getElMix())==1;
-
     }
 
     @Override
@@ -307,6 +303,12 @@ public class CourseServiceImpl implements CourseService {
     public List<CourseTargetMix> getAllCourseTargetMixByTargetId(int id) {
         return courseDao.selectCourseTargetMixByTargetId(id);
     }
+
+    @Override
+    public CourseTargetMix getCourseTargetMixByctId(int id) {
+        return courseDao.selectCourseTargetMixById(id);
+    }
+
 
     private double getTotalElLinksMixByCourseTaskId(int taskid){
         List<ExaminationLink> examinationLinks = courseDao.selectExaminationLinksByCourseTaskId(taskid);

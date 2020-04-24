@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
@@ -573,19 +575,23 @@ public class CourseController {
             int targetId = Integer.parseInt(tar);
             int year = Integer.parseInt(ye);
             List<CourseTargetMix> courseTargetMixes = courseService.getAllCourseTargetMixByTargetId(targetId);
+            List<Course> courses = new ArrayList<>();
             int size=courseTargetMixes.size();
-            String [] courses = new String[size];
+            String [] coursesName = new String[size];
             int [] coursesId = new int[size];
             double [] coursesMix = new double[size];
             double [] coursesScorse = new double[size];
             for (int i=0;i<size;i++){
-                courses[i] = courseTargetMixes.get(i).getCourse().getCourseId()+":"+courseTargetMixes.get(i).getCourse().getCourseName();
+                courses.add(courseTargetMixes.get(i).getCourse());
+                coursesName[i] = courseTargetMixes.get(i).getCourse().getCourseId()+":"+courseTargetMixes.get(i).getCourse().getCourseName();
                 coursesId[i] = courseTargetMixes.get(i).getCourse().getCourseId();
                 coursesMix[i] = courseTargetMixes.get(i).getCtmix();
                 coursesScorse[i] = (double) Math.round(courseService.getAvgCourseTaskScoreByCoursIdAndTargetIdAndYear(targetId,courseTargetMixes.get(i).getCourse().getCourseId(),year) * 100) / 100;
             }
 
-            map.put("courses",courses);
+            map.put("courseTargetMixes",courseTargetMixes);
+            map.put("year",year);
+            map.put("coursesName",coursesName);
             map.put("coursesId",coursesId);
             map.put("coursesMix",coursesMix);
             map.put("coursesScorse",coursesScorse);
@@ -593,6 +599,23 @@ public class CourseController {
         }catch (Exception e){
             Logger logger = LoggerFactory.getLogger(getClass());
             logger.error("/admin/showscoreByTargetId##"+e.toString());
+            return "/admin/404";
+        }
+    }
+
+    @GetMapping("/showscoreByCourseTargetMixId")
+    public String showscoreByCourseTargetMixId(Map<String,Object> map,HttpServletRequest request){
+        String ctmidstr = request.getParameter("ctMixId");
+        String yearstr = request.getParameter("year");
+        try {
+            int ctmId = Integer.parseInt(ctmidstr);
+            int year = Integer.parseInt(yearstr);
+            CourseTargetMix courseTargetMix = courseService.getCourseTargetMixByctId(ctmId);
+
+            return "/admin/show_course_target_score";
+        }catch (Exception e){
+            Logger logger = LoggerFactory.getLogger(getClass());
+            logger.error("/admin/showscoreByCourseTargetMixId##"+e.toString());
             return "/admin/404";
         }
     }

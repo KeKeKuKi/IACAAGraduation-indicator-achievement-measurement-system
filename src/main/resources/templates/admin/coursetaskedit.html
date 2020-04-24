@@ -98,6 +98,7 @@
                         $(elnamestr).css("background-color","lightgreen");
                         $(eltargetscorestr).css("background-color","lightgreen");
                         $(elmixstr).css("background-color","lightgreen");
+                        alert("注意当前考核环节分数已置零！");
                         window.location.reload();
                     }else {
                         alert("请检查您的数据！注：环节权重总和范围为0-1");
@@ -120,7 +121,6 @@
                     data:{elId:id},
                     success:function (result) {
                         if(result=="true"){
-                            alert("已删除，请注意更新成绩信息！");
                             window.location.reload();
                         }else {
                             window.location.reload();

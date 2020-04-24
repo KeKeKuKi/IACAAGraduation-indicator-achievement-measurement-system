@@ -21,18 +21,24 @@
     <div th:replace="/admin/adminmain :: head"></div>
     <div th:replace="/admin/adminmain :: menu"></div>
     <div class="layui-body">
-        <div class="card" style="width: 700px;display: inline-block;margin: 5px">
+        <div class="card" style="width: 500px;display: inline-block;margin: 5px">
             <div class="card-header"><h4>相关支撑课程占比</h4></div>
             <div class="card-body">
-                <canvas id="chart-pie" width="700" height="480"></canvas>
+                <canvas id="chart-pie" width="550" height="500"></canvas>
             </div>
         </div>
-        <div class="card" style="width: 500px;display: inline-block;margin: 5px">
+        <div class="card" style="width: 500px;display: inline-block;margin-left: 40px;margin-top: 5px;margin-right: 10px">
             <div class="card-header"><h4>相关课程目标达成度</h4></div>
             <div class="card-body">
-                <canvas id="chart-vbar-1" width="500" height="530"></canvas>
+                <canvas id="chart-vbar-1" width="450" height="500"></canvas>
             </div>
         </div>
+        <ul class="layui-nav layui-nav-tree"  lay-filter="test" style="width: 250px;position: absolute;top: 40px;right: 20px;background-color: rgb(110,80,230);border-radius: 5px">
+            <hr style="margin: 15px"/>
+            <li class="layui-nav-item" style="text-align: center">
+                <a th:each="ct : ${courseTargetMixes}" th:text="${ct.course.courseName}" th:href="@{/admin/showscoreByCourseTargetMixId(ctMixId=${ct.ctmixId},year=${year})}" style="color: rgb(240,240,240);"></a>
+            </li>
+        </ul>
     </div>
     <div th:replace="/admin/adminmain :: footer"></div>
 </div>
@@ -72,7 +78,7 @@
     new Chart($("#chart-pie"), {
         type: 'pie',
         data: {
-            labels: [[${courses}]],
+            labels: [[${coursesName}]],
             datasets: [{
                 data: [[${coursesMix}]],
                 backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
