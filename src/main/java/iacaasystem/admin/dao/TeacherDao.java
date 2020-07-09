@@ -58,10 +58,26 @@ public interface TeacherDao {
     int updateTeacherEditState(Teacher teacher);
 
     @Update("insert into teacher " +
-            "(teacher_password,teacher_job_number,teacher_name,teacher_sex,teacher_age," +
-            "teacher_phonenumber,teacher_online_state,teacher_edit_state) " +
-            "values(#{passWord},#{teacherNumber},#{teacherName},#{teacherSex},#{teacherAge}," +
-            "#{teacherPhonenumber},#{onlineState},#{editState})")
+            "(" +
+            "teacher_password," +
+            "teacher_job_number," +
+            "teacher_name," +
+            "teacher_sex," +
+            "teacher_age," +
+            "teacher_phonenumber," +
+            "teacher_online_state," +
+            "teacher_edit_state" +
+            ") " +
+            "values(" +
+            "#{passWord}," +
+            "#{teacherNumber}," +
+            "#{teacherName}," +
+            "#{teacherSex}," +
+            "#{teacherAge}," +
+            "#{teacherPhonenumber}," +
+            "#{onlineState}," +
+            "#{editState}" +
+            ")")
     int addTeacher(Teacher teacher);
 
     @Update("UPDATE teacher " +

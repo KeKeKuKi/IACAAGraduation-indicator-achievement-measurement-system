@@ -4,6 +4,7 @@ import iacaasystem.admin.service.AdminService;
 import iacaasystem.entity.*;
 import iacaasystem.admin.service.CourseService;
 import iacaasystem.admin.service.TeacherService;
+import iacaasystem.utils.MyTools;
 import iacaasystem.utils.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 
@@ -39,6 +44,8 @@ public class CourseController {
     @Autowired
     TeacherService teacherService;
 
+    Logger logger =  LoggerFactory.getLogger(getClass());
+
     /**
      * description: 查询所有课程信息返回分页数据
      * Created in 2020/4/20
@@ -51,8 +58,11 @@ public class CourseController {
             request.setAttribute("teachers",teacherService.selectAllTeachers());
             String page = request.getParameter("page");
             pageCount = Integer.parseInt(page);
+
+            //记录操作日志
+            MyTools.printBehaviorLog(getClass(),LocalDateTime.now(),request.getSession().getAttribute("admin").toString(),"查看了课程列表");
         }catch (Exception e){
-            LoggerFactory.getLogger(getClass()).info("courseController---/course--page is errro!");
+            logger.info("courseController---/course--page is errro!");
         }
 
         Page<Course> page = new Page<>(pageCount,10,courseService.getAllCourse(),"/admin/courselist?page=");
@@ -83,6 +93,8 @@ public class CourseController {
         request.setAttribute("Buffer",page.getPageBuffer(cPage));
         request.setAttribute("targets",courseService.getAllTargets());
 
+        //MyTools.printBehaviorLog(getClass(),LocalDateTime.now(),request.getSession().getAttribute("admin").toString(),
+        // "查看了所有毕业要求及其对应指标点！");
         return "/admin/guaduation_show";
     }
 
@@ -101,6 +113,8 @@ public class CourseController {
 
             String npage = request.getParameter("page");
             pageCount = Integer.parseInt(npage);
+
+
         }catch (Exception e){
             LoggerFactory.getLogger(getClass()).info("courseController---/distrcourse--page is errro!");
         }
@@ -109,6 +123,7 @@ public class CourseController {
         Page<DistributionCourse> page = new Page<>(pageCount,10,courseService.getAllDistributionCourse(),"/admin/distrcourse?page=");
         request.setAttribute("data",page.getPage(pageCount));
         request.setAttribute("buffer",page.getPageBuffer(pageCount));
+        MyTools.printBehaviorLog(getClass(),LocalDateTime.now(),request.getSession().getAttribute("admin").toString(),"查看了所有已分配的课程任务信息");
         return "/admin/distrcourse";
     }
 
@@ -142,8 +157,13 @@ public class CourseController {
                 writer.write("false");
             } catch (IOException ex) {
                 logger.warn(ex.toString());
+                return;
             }
         }
+
+        MyTools.printBehaviorLog(getClass(),LocalDateTime.now(),
+                request.getSession().getAttribute("admin").toString(),"为"+teacherId+"账户添加了"+courseId+"课程任务");
+
 
     }
 

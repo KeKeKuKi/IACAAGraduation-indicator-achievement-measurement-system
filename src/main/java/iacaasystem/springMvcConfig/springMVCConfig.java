@@ -27,7 +27,7 @@ public class springMVCConfig implements WebMvcConfigurer {
         //注册老师主页springmvc
         registry.addViewController("/teacher/teachermain").setViewName("teacher/teachermain");
 
-        //注册老师主页关于系统
+        //注册关于系统页面
         registry.addViewController("/admin/aboutsystem").setViewName("admin/aboutSystem");
     }
 }

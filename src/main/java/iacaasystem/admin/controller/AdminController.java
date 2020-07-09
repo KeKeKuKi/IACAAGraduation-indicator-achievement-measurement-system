@@ -32,25 +32,31 @@ public class AdminController {
     @GetMapping("/adminlogin")
     public void list(HttpServletRequest request, ServletResponse response) throws IOException {
         PrintWriter writer = response.getWriter();
-        String userName = request.getParameter("name");
-        String passWord = request.getParameter("passWord");
-        if(userName==null||"".equals(userName)||passWord==null||"".equals(passWord)){
-            writer.print("If you enter this page, it means that you have performed illegal operations. Please go back to the login page to log in!");
-            return;
-        }
-        passWord = MyTools.toMd5String(passWord);
-        Admin admin = adminService.selectAdminByUserName(userName);
-        if (admin!=null){
-            if(passWord.equals(admin.getPassWord())){
-                request.getSession().setAttribute("admin",admin.getAdminName());
-                request.getSession().setMaxInactiveInterval(600);//设置最大非活动时间10分钟
-                writer.print("1");
-            }else {
-                writer.print("0");
+        try{
+
+            String userName = request.getParameter("name");
+            String passWord = request.getParameter("passWord");
+            if(userName==null||"".equals(userName)||passWord==null||"".equals(passWord)){
+                writer.print("If you enter this page, it means that you have performed illegal operations. Please go back to the login page to log in!");
+                return;
             }
-        }else {
-            writer.print("-1");
+            passWord = MyTools.toMd5String(passWord);
+            Admin admin = adminService.selectAdminByUserName(userName);
+            if (admin!=null){
+                if(passWord.equals(admin.getPassWord())){
+                    request.getSession().setAttribute("admin",admin.getAdminName());
+                    request.getSession().setMaxInactiveInterval(600);//设置最大非活动时间10分钟
+                    writer.print("1");
+                }else {
+                    writer.print("0");
+                }
+            }else {
+                writer.print("-1");
+            }
+        }catch (Exception e){
+            writer.print("-2");
         }
+
     }
 
     /**
@@ -62,7 +68,6 @@ public class AdminController {
     @RequestMapping("/sinout")
     public String sinout(HttpServletRequest request){
         request.getSession().removeAttribute("admin");
-
         return "login";
     }
 

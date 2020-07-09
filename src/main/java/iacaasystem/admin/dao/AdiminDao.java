@@ -25,8 +25,10 @@ public interface AdiminDao {
             "password," +
             "user_name as adminName," +
             "user_phonenumber as adminPhonenumber " +
-            "from administrators " +
-            "where account = #{username}")
+            "from " +
+            "administrators " +
+            "where " +
+            "account = #{username}")
     Admin selectAdminByUserName(String username);
 
     /**

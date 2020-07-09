@@ -38,7 +38,8 @@ public interface CourseDao {
 
     @Select("select " +
             "el_id as elId," +
-            "c_task,se_name as elName," +
+            "c_task," +
+            "se_name as elName," +
             "target_score as elTargetScore," +
             "average_score as elAverageScore," +
             "el_mix as elMix " +
@@ -104,8 +105,11 @@ public interface CourseDao {
             "distribution_course," +
             "distribution_teacher," +
             "distribution_time as distrTime" +
-            " from distribution_course " +
-            "order by distribution_id desc")
+            " from " +
+            "distribution_course " +
+            "order by " +
+            "distribution_id " +
+            "desc")
     @Results({
             @Result(property = "districourse",column = "distribution_course",
                     one = @One(select = "iacaasystem.admin.dao.CourseDao.selectCourseById")),

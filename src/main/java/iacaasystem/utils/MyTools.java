@@ -1,9 +1,15 @@
 package iacaasystem.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.time.LocalDateTime;
 
 public class MyTools {
+
+    //自定义MD5加密算法进行加密处理
     public static String toMd5String(String str){
         //加密
         MessageDigest md5;
@@ -31,5 +37,12 @@ public class MyTools {
             result.append(Integer.toHexString((0x000000FF & i) | 0xFFFFFF00).substring(6));
         }
         return result.toString();
+    }
+
+
+
+    public static void printBehaviorLog(Class cl,LocalDateTime time, String who, String doWhat){
+        Logger logger =  LoggerFactory.getLogger(cl);
+        logger.info("#"+ who +"#"+ time +"#"+doWhat);
     }
 }
