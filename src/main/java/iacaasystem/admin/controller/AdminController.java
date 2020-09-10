@@ -1,11 +1,13 @@
 package iacaasystem.admin.controller;
 
+import iacaasystem.Common.UserSetings;
 import iacaasystem.entity.Admin;
 import iacaasystem.admin.service.AdminService;
 import iacaasystem.utils.MyTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,8 +46,8 @@ public class AdminController {
             Admin admin = adminService.selectAdminByUserName(userName);
             if (admin!=null){
                 if(passWord.equals(admin.getPassWord())){
-                    request.getSession().setAttribute("admin",admin.getAdminName());
-                    request.getSession().setMaxInactiveInterval(600);//设置最大非活动时间10分钟
+                    request.getSession().setAttribute(UserSetings.ADMINNAME,admin.getAdminName());
+                    request.getSession().setMaxInactiveInterval(UserSetings.ADMINMAXACTIVITYTIME);//设置最大非活动时间
                     writer.print("1");
                 }else {
                     writer.print("0");
@@ -85,10 +87,10 @@ public class AdminController {
         years.add(adminService.getSystemDateYear());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        for (int j= calendar.get(Calendar.YEAR);j>2015;j--){
+        for (int j = calendar.get(Calendar.YEAR); j>2015; j--){
             years.add(j);
         }
-        map.put("years",years);
+        map.put("years", years);
         return "/admin/adminConsole";
     }
 
@@ -106,7 +108,7 @@ public class AdminController {
         years.add(adminService.getSystemDateYear());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        for (int i= calendar.get(Calendar.YEAR);i>2015;i--){
+        for (int i = calendar.get(Calendar.YEAR); i > 2015; i--){
             years.add(i);
         }
         map.put("years",years);
